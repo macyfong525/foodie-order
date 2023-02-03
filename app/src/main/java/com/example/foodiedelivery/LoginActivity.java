@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             task.getResult(ApiException.class);
                             // navigate to home
-                            Intent intent  = new Intent(LoginActivity.this, HomeActivity.class);
+                            Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                         } catch (ApiException e) {
                             e.printStackTrace();
