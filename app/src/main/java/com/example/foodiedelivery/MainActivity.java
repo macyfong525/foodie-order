@@ -1,9 +1,17 @@
 package com.example.foodiedelivery;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.foodiedelivery.HomeFragment;
 import com.example.foodiedelivery.NotificationFragment;
@@ -18,20 +26,24 @@ public class MainActivity extends AppCompatActivity {
    NotificationFragment notificationFragment = new NotificationFragment();
    SettingsFragment settingsFragment = new SettingsFragment();
 
+   RelativeLayout relativeLayout;
+
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
 
+
       bottomNavigationView = findViewById(R.id.bottom_navigation);
       getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
-
+      relativeLayout =findViewById(R.id.rel_layout);
       BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
       badgeDrawable.setVisible(true);
       badgeDrawable.setNumber(8);
 
       bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 
+         @SuppressLint("NonConstantResourceId")
          @Override
          public boolean onNavigationItemSelected(MenuItem item) {
             switch(item.getItemId()){
@@ -48,5 +60,6 @@ public class MainActivity extends AppCompatActivity {
             return false;
          }
       });
+
    }
 }

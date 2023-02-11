@@ -5,4 +5,8 @@
     <string name="signOutBtn">Sign Out</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtRed">Red</string>
+    <string name="txtGreen">Green</string>
+    <string name="txtLogout">LOG OUT</string>
+    <string name="txtRestaurant">Restaurant</string>
 </resources>
