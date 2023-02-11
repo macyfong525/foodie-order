@@ -9,4 +9,7 @@
     <string name="txtGreen">Green</string>
     <string name="txtLogout">LOG OUT</string>
     <string name="txtRestaurant">Restaurant</string>
+    <string name="txtRedFragment">RED FRAGMENT HERE...</string>
+    <string name="txtGreenFragment">I AM GREEN</string>
+    <string name="txtLogoutFragment">YOU\'RE SUCCESSFULLY LOGGED OUT!!!</string>
 </resources>
