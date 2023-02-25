@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Foodie Delivery</string>
-    <string name="loginName">Name</string>
+    <string name="loginName">Username</string>
     <string name="loginEmail">Email</string>
     <string name="signOutBtn">Sign Out</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -12,4 +12,11 @@
     <string name="txtRedFragment">RED FRAGMENT HERE...</string>
     <string name="txtGreenFragment">I AM GREEN</string>
     <string name="txtLogoutFragment">YOU\'RE SUCCESSFULLY LOGGED OUT!!!</string>
+    <string name="txtViewSignIn">Sign In</string>
+    <string name="loginDesc">background picture</string>
+    <string name="googleDesc">google sign in</string>
+    <string name="txtViewLoginAlt">or Sign in with</string>
+    <string name="emailDesc">Please Enter Email</string>
+    <string name="passwordDesc">Please Enter Password</string>
+    <string name="txtLogin">Login</string>
 </resources>

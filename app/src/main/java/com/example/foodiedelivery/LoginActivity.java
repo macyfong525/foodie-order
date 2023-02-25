@@ -4,8 +4,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,24 +13,57 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.foodiedelivery.login.LoginAdapter;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class LoginActivity extends AppCompatActivity {
 
+    // google sign in
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     ImageView googleBtn;
+
+    // normal sign up and log in tab
+    TabLayout tabLayout;
+    ViewPager2 viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // log in sign up tab
+        tabLayout = findViewById(R.id.tabLayoutLogin);
+        viewPager = findViewById(R.id.viewPagerLogin);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Login"));
+        tabLayout.addTab(tabLayout.newTab().setText("Signup"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        viewPager.setAdapter(new LoginAdapter(getSupportFragmentManager(),
+                getLifecycle(), this, tabLayout.getTabCount()));
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    switch (position) {
+                        case 0:
+                            tab.setText("Login");
+                            break;
+                        case 1:
+                            tab.setText("Signup");
+                            break;
+                    }
+                }).attach();
+
+
+        // google single sign on
         googleBtn = findViewById(R.id.googleBtn);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
