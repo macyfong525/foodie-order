@@ -18,5 +18,8 @@
     <string name="txtViewLoginAlt">or Sign in with</string>
     <string name="emailDesc">Please Enter Email</string>
     <string name="passwordDesc">Please Enter Password</string>
+    <string name="pwConfirmDesc">Please Confirm Password</string>
+    <string name="usernameDesc">Please Enter Username</string>
     <string name="txtLogin">Login</string>
+    <string name="tabLayoutDesc">tab for login and signup</string>
 </resources>

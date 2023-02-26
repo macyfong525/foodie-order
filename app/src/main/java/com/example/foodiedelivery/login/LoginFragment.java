@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.foodiedelivery.LoginActivity;
 import com.example.foodiedelivery.MainActivity;
 import com.example.foodiedelivery.R;
 
