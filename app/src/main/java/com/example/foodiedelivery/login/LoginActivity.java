@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.login;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -13,7 +13,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.foodiedelivery.login.LoginAdapter;
+import com.example.foodiedelivery.MainActivity;
+import com.example.foodiedelivery.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
