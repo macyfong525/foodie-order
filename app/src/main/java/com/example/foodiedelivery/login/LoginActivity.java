@@ -5,13 +5,21 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.foodiedelivery.MainActivity;
 import com.example.foodiedelivery.R;
@@ -101,21 +109,34 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
 
+    void createNotificationChannel(){
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(resultCode == 200){
-//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//
-//            try {
-//                task.getResult(ApiException.class);
-//                // navigate to home
-//                Intent intent  = new Intent(LoginActivity.this, HomeActivity.class);
-//                startActivity(intent);
-//            } catch (ApiException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
+        int notificationId = 1;
+        // Create the Notification Channel
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "channel_1",
+                    "in app notification",
+                    NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("notify user");
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
+        // Build the Notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_1")
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle("Test Notification")
+                .setContentText("Sign in successfully")
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+        // Show the Notification
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // Remind user to enable notification in app
+            Toast.makeText(this, "please enable notification", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        notificationManager.notify(notificationId, builder.build());
+    }
 }
