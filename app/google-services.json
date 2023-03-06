@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "566576437540",
+    "project_id": "csis3175-food",
+    "storage_bucket": "csis3175-food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566576437540:android:a682e2e6d52b2f41153bb1",
+        "android_client_info": {
+          "package_name": "com.example.csis3175_food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566576437540-1po8esbcbkflb8k64enb64khej3acn7b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.csis3175_food",
+            "certificate_hash": "c7b69fcb7597c7a9826777e2e65ec271a5e41ae1"
+          }
+        },
+        {
+          "client_id": "566576437540-jn7hg7kp3jesseptludbanbuvvuvp9kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-HSjsey3QmNjaZoRUC8Bf2XaGJAghSkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566576437540-jn7hg7kp3jesseptludbanbuvvuvp9kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566576437540:android:93e789a8ac2e96c4153bb1",
+        "android_client_info": {
+          "package_name": "com.example.foodiedelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566576437540-jn7hg7kp3jesseptludbanbuvvuvp9kv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-HSjsey3QmNjaZoRUC8Bf2XaGJAghSkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566576437540-jn7hg7kp3jesseptludbanbuvvuvp9kv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

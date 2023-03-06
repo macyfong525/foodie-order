@@ -22,4 +22,6 @@
     <string name="usernameDesc">Please Enter Username</string>
     <string name="txtLogin">Login</string>
     <string name="tabLayoutDesc">tab for login and signup</string>
+    <string name="upload_btn">Upload Image</string>
+    <string name="Select_Image">Select Image</string>
 </resources>
