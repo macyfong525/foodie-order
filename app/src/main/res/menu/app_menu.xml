@@ -12,9 +12,9 @@
         android:id="@+id/logout"
         android:title="@string/txtLogout"
         android:icon="@drawable/ic_baseline_logout_24"/>
-    <item
-        android:id="@+id/restaurant"
-        android:title="@string/txtRestaurant"
-        android:icon="@drawable/ic_baseline_restaurant_24"
-        app:showAsAction="always"/>
+<!--    <item-->
+<!--        android:id="@+id/restaurant"-->
+<!--        android:title="@string/txtRestaurant"-->
+<!--        android:icon="@drawable/ic_baseline_restaurant_24"-->
+<!--        app:showAsAction="always"/>-->
 </menu>

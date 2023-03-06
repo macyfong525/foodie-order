@@ -2,20 +2,15 @@ package com.example.foodiedelivery;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.example.foodiedelivery.HomeFragment;
-import com.example.foodiedelivery.NotificationFragment;
-import com.example.foodiedelivery.SettingsFragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,13 +20,8 @@ public class MainActivity extends AppCompatActivity {
    HomeFragment homeFragment = new HomeFragment();
    NotificationFragment notificationFragment = new NotificationFragment();
    SettingsFragment settingsFragment = new SettingsFragment();
-
    RedFragment redFragment = new RedFragment();
    GreenFragment greenFragment = new GreenFragment();
-   LogoutFragment logoutFragment =new LogoutFragment();
-
-   RelativeLayout relativeLayout;
-
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,9 +34,11 @@ public class MainActivity extends AppCompatActivity {
    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
       switch (item.getItemId()){
          case R.id.red:
-            relativeLayout.setBackgroundColor(Color.RED);break;
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, redFragment).commit();
+            break;
          case R.id.green:
-            relativeLayout.setBackgroundColor(Color.GREEN);break;
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, greenFragment).commit();
+            break;
          case R.id.logout:
             Toast.makeText(this,"YOU'RE SUCCESSFULLY LOGGED OUT",Toast.LENGTH_SHORT).show();
             break;
@@ -58,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
+      // handle top
+      Toolbar toolbar = findViewById(R.id.toolbar);
+      setSupportActionBar(toolbar);
 
-      relativeLayout =findViewById(R.id.rel_layout);
-
-
+      // handle bottom
       bottomNavigationView = findViewById(R.id.bottom_navigation);
       getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
