@@ -24,8 +24,6 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_login_tab, container, false);
         // Add logic
-        // test data
-        // long userid = userDbHelper.insertUser("macy@example.com", "123");
 
         rootView.findViewById(R.id.btnLogin).setOnClickListener((View view) -> {
             // get the value from user
@@ -43,8 +41,11 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(rootView.getContext(), "password is wrong", Toast.LENGTH_SHORT).show();
                 }else{
                     // navigate the main activity
-                    // TODO parse user to Main
+                    // TODO parse userid to Main
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("userId", user.getId());
                     Intent intent  = new Intent(getActivity(), MainActivity.class);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
             } else {
