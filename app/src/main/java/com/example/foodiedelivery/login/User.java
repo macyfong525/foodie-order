@@ -8,11 +8,22 @@ public class User {
 
     private String username;
 
-    public User(int id, String email, String password, String username) {
+    private boolean isAdmin;
+
+    public User(int id, String email, String password, String username, Boolean isAdmin) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.username = username;
+        this.isAdmin = isAdmin;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 
     public String getUsername() {

@@ -41,7 +41,8 @@ public class SignupFragment extends Fragment {
                 }else{
                     // connect to db
                     userDbHelper = new UserDbHelper(getContext());
-                    long userId = userDbHelper.insertUser(email, password, name);
+                    // sign up is only for user, 0 is not admin, 1 is admin
+                    long userId = userDbHelper.insertUser(email, password, name, 0);
                     if(userId==-1){
                         Toast.makeText(rootView.getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show();
                     }else{

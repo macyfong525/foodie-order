@@ -10,8 +10,10 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.foodiedelivery.MainActivity;
 import com.example.foodiedelivery.R;
@@ -20,6 +22,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -34,6 +37,9 @@ public class LoginActivity extends AppCompatActivity {
     // normal sign up and log in tab
     TabLayout tabLayout;
     ViewPager2 viewPager;
+
+    private UserDbHelper userDbHelper;
+    private long userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,10 +95,29 @@ public class LoginActivity extends AppCompatActivity {
                         Intent data = result.getData();
                         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
+                        // connect to db
+                        userDbHelper = new UserDbHelper(getApplicationContext());
+
                         try {
-                            task.getResult(ApiException.class);
+                            GoogleSignInAccount account = task.getResult(ApiException.class);
+                            String name = account.getDisplayName();
+                            String email = account.getEmail();
+                            Log.d("GOOGLE", "onActivityResult: "+ name + email);
+
+                            User user = userDbHelper.getUserByEmail(email);
+                            if (user == null) {
+                                // 0 is not admin, 1 is admin
+                                userId = userDbHelper.insertUser(email, "", name, 0);
+                            }else{
+                                userId = user.getId();
+                            }
+
                             // navigate to home
+                            // TODO parse userid to Main
+                            Bundle bundle = new Bundle();
+                            bundle.putLong("userId", userId);
                             Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtras(bundle);
                             startActivity(intent);
                         } catch (ApiException e) {
                             e.printStackTrace();
