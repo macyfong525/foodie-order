@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.foodiedelivery.login.LoginActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -19,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
    BottomNavigationView bottomNavigationView;
    HomeFragment homeFragment = new HomeFragment();
    NotificationFragment notificationFragment = new NotificationFragment();
-   SettingsFragment settingsFragment = new SettingsFragment();
+   ProfileFragment profileFragment = new ProfileFragment();
    RedFragment redFragment = new RedFragment();
    GreenFragment greenFragment = new GreenFragment();
+
+   GoogleSignInOptions gso;
+   GoogleSignInClient gsc;
 
    @Override
    public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, greenFragment).commit();
             break;
          case R.id.logout:
+            signOut();
             Toast.makeText(this,"YOU'RE SUCCESSFULLY LOGGED OUT",Toast.LENGTH_SHORT).show();
             break;
       }
@@ -50,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
+      Bundle bundle = getIntent().getExtras();
+
+      gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+      gsc = GoogleSignIn.getClient(this, gso);
+
       // handle top
       Toolbar toolbar = findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
@@ -74,13 +89,21 @@ public class MainActivity extends AppCompatActivity {
                case R.id.notification:
                   getSupportFragmentManager().beginTransaction().replace(R.id.container,notificationFragment).commit();
                   return true;
-               case R.id.setting:
-                  getSupportFragmentManager().beginTransaction().replace(R.id.container,settingsFragment).commit();
+               case R.id.profile:
+                  profileFragment.setArguments(bundle);
+                  getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                   return true;
             }
             return false;
          }
       });
 
+   }
+
+   void signOut(){
+      gsc.signOut().addOnCompleteListener((Task<Void> task)->{
+         finish();
+         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+      });
    }
 }
