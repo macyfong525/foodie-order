@@ -24,7 +24,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
    BottomNavigationView bottomNavigationView;
    HomeFragment homeFragment = new HomeFragment();
-   NotificationFragment notificationFragment = new NotificationFragment();
+   OrderFragment orderFragment = new OrderFragment();
    ProfileFragment profileFragment = new ProfileFragment();
    RedFragment redFragment = new RedFragment();
    GreenFragment greenFragment = new GreenFragment();
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
       bottomNavigationView = findViewById(R.id.bottom_navigation);
       getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
-      BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
-      badgeDrawable.setVisible(true);
-      badgeDrawable.setNumber(8);
+//      BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
+//      badgeDrawable.setVisible(true);
+//      badgeDrawable.setNumber(8);
 
       bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 
@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
                case R.id.home:
                   getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                   return true;
-               case R.id.notification:
-                  getSupportFragmentManager().beginTransaction().replace(R.id.container,notificationFragment).commit();
+               case R.id.order:
+                  getSupportFragmentManager().beginTransaction().replace(R.id.container,orderFragment).commit();
                   return true;
                case R.id.profile:
                   profileFragment.setArguments(bundle);
