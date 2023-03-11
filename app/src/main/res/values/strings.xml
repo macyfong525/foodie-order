@@ -24,4 +24,8 @@
     <string name="tabLayoutDesc">tab for login and signup</string>
     <string name="upload_btn">Upload Image</string>
     <string name="Select_Image">Select Image</string>
+    <string name="txtResNameLayout">res name</string>
+    <string name="txtRes1Name">Ken\'s Kitchen</string>
+    <string name="txtNamePlayout">name</string>
+    <string name="txtPriceLayout">price</string>
 </resources>
