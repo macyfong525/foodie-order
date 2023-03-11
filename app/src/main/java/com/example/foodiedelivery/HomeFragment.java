@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -30,6 +31,8 @@ public class HomeFragment extends Fragment {
    List<String> ResNames = new ArrayList<>(Arrays.asList("Ken's Kitchen, Vancouver,BC","Big Burgers, New Westminster,BC","Pizza Hut, Surrey, BC"));
    List<Integer> ResIcons = new ArrayList<>(Arrays.asList(R.drawable.res1,R.drawable.res2,R.drawable.res3));
    ListView listViewRes;
+
+   Fragment Restaurant1Result = new Restaurant1Result();
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class HomeFragment extends Fragment {
       super.onViewCreated(view, savedInstanceState);
       ImageList = new ArrayList<>();
       viewPager2 =view.findViewById(R.id.viewPager2id);
+
+      FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
       ImageAdapter myAdapter = new ImageAdapter(ImageList,viewPager2);
       viewPager2.setAdapter(myAdapter);
@@ -55,7 +60,8 @@ public class HomeFragment extends Fragment {
          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             switch(i){
                case 0:
-                  startActivity(new Intent(getActivity(), Restaurant1Result.class));break;
+                  fragmentManager.beginTransaction().replace(R.id.container, Restaurant1Result).commit();
+//                  startActivity(new Intent(getActivity(), Restaurant1Result.class));break;
 //               case 1:
 //                  startActivity(new Intent(getActivity(),Restaurant2Result.class);break;
 //               case 2:
