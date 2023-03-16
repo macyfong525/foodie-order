@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.foodiedelivery.MainActivity;
+import com.example.foodiedelivery.activities.MainActivity;
 import com.example.foodiedelivery.R;
 
 public class LoginFragment extends Fragment {
