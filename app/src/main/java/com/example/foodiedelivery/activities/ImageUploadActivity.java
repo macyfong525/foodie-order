@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ImageUploadActivity extends AppCompatActivity {
+    // Hon
     ActivityImageUploadBinding binding;
     Uri imgUri;
     StorageReference storageRef;
