@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imgViewLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        app:srcCompat="@drawable/exlarsupreme" />
+
+    <TextView
+        android:id="@+id/txtViewNameLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_weight="0.7"
+        android:text="@string/txtResNameLayout"
+        android:textSize="20sp"
+        android:textStyle="bold|italic" />
+
+</LinearLayout>

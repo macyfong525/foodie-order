@@ -30,6 +30,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    viewBinding {
+        enabled = true
+    }
 
 }
 
@@ -45,5 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    // Java language implementation
+    implementation 'androidx.fragment:fragment:1.5.5'
 
 }
