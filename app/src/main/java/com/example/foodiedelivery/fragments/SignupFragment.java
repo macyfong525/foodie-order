@@ -1,4 +1,4 @@
-package com.example.foodiedelivery.login;
+package com.example.foodiedelivery.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.db.UserDbHelper;
 
 public class SignupFragment extends Fragment {
 

@@ -1,6 +1,5 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +16,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.foodiedelivery.models.Image;
+import com.example.foodiedelivery.adapters.ImageAdapter;
+import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.models.Restaurant;
+import com.example.foodiedelivery.adapters.RestaurantAdapter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,7 +37,7 @@ public class HomeFragment extends Fragment {
    List<Integer> ResIcons = new ArrayList<>(Arrays.asList(R.drawable.res1,R.drawable.res2,R.drawable.res3));
    ListView listViewRes;
 
-   Fragment Restaurant1Result = new Restaurant1Result();
+   Fragment Restaurant1Result = new MenuFragment();
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {

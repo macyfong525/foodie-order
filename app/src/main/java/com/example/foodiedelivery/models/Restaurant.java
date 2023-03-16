@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.models;
 
 public class Restaurant {
     private String ResName;
