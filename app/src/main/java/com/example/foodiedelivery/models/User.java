@@ -1,4 +1,4 @@
-package com.example.foodiedelivery.login;
+package com.example.foodiedelivery.models;
 
 public class User {
 

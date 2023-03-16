@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.fragments;
 
 import android.os.Bundle;
 
@@ -14,8 +14,10 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.foodiedelivery.databinding.ActivityMainBinding;
+import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.adapters.DishAdapter;
 import com.example.foodiedelivery.databinding.FragmentRestaurant1ResultBinding;
+import com.example.foodiedelivery.models.Dish;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +28,7 @@ import java.util.List;
  *
  * create an instance of this fragment.
  */
-public class Restaurant1Result extends Fragment {
+public class MenuFragment extends Fragment {
     List<Dish> Dishes = new ArrayList<>();
     List<String> DishNames =new ArrayList<>(Arrays.asList("Extra Large Meat Lovers","Extra Large Supreme","Extra Large Pepperoni.","Extra Large BBQ Chicken &amp; Bacon.","Extra Large 5 Cheese.","Extra Large Pepperoni Slice,Slice."));
     List<String> DishPrices = new ArrayList<>(Arrays.asList("15.99","15.99","14.99","15.99","14.99","3.99"));

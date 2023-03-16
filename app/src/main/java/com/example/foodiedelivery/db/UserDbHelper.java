@@ -1,10 +1,12 @@
-package com.example.foodiedelivery.login;
+package com.example.foodiedelivery.db;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.foodiedelivery.models.User;
 
 public class UserDbHelper extends SQLiteOpenHelper {
     // Define database name, version, and table name and column names

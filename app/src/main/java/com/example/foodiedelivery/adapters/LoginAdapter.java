@@ -1,10 +1,13 @@
-package com.example.foodiedelivery.login;
+package com.example.foodiedelivery.adapters;
 
 import android.content.Context;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import com.example.foodiedelivery.fragments.LoginFragment;
+import com.example.foodiedelivery.fragments.SignupFragment;
 
 public class LoginAdapter extends FragmentStateAdapter {
 

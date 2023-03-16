@@ -1,4 +1,4 @@
-package com.example.foodiedelivery.login;
+package com.example.foodiedelivery.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.foodiedelivery.MainActivity;
+import com.example.foodiedelivery.activities.MainActivity;
 import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.models.User;
+import com.example.foodiedelivery.db.UserDbHelper;
 
 public class LoginFragment extends Fragment {
 
