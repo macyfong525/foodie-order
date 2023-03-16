@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.foodiedelivery.login.LoginActivity;
+import com.example.foodiedelivery.fragments.NotificationFragment;
+import com.example.foodiedelivery.fragments.ProfileFragment;
+import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.fragments.RedFragment;
+import com.example.foodiedelivery.fragments.GreenFragment;
+import com.example.foodiedelivery.fragments.HomeFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;

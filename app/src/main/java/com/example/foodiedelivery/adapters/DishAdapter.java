@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.adapters;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.models.Dish;
 
 import java.util.List;
 

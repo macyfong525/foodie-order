@@ -1,4 +1,4 @@
-package com.example.foodiedelivery;
+package com.example.foodiedelivery.fragments;
 
 import android.os.Bundle;
 
@@ -11,8 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.foodiedelivery.login.User;
-import com.example.foodiedelivery.login.UserDbHelper;
+import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.models.User;
+import com.example.foodiedelivery.db.UserDbHelper;
 
 
 public class ProfileFragment extends Fragment {

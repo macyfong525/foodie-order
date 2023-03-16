@@ -4,13 +4,13 @@
 
     <item
         android:id="@+id/red"
-        android:title="@string/txtRed" />
+        android:title="@string/resBtn" />
     <item
         android:id="@+id/green"
-        android:title="@string/txtGreen" />
+        android:title="@string/menuBtn" />
     <item
         android:id="@+id/logout"
-        android:title="@string/txtLogout"
+        android:title="@string/signOutBtn"
         android:icon="@drawable/ic_baseline_logout_24"/>
 <!--    <item-->
 <!--        android:id="@+id/restaurant"-->
