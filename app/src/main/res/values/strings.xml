@@ -28,4 +28,7 @@
     <string name="txtRes1Name">Ken\'s Kitchen</string>
     <string name="txtNamePlayout">name</string>
     <string name="txtPriceLayout">price</string>
+    <string name="txtResName">name</string>
+    <string name="txtResPrice">$</string>
+    <string name="btnResAdd">Add</string>
 </resources>
