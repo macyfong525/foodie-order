@@ -3,12 +3,12 @@ package com.example.foodiedelivery.models;
 public class Dish {
     private String name;
     private String price;
-    private Integer pic;
 
-    public Dish(String name, String price, Integer pic) {
+
+    public Dish(String name, String price) {
         this.name = name;
         this.price = price;
-        this.pic = pic;
+
     }
 
     public String getName() {
@@ -27,11 +27,5 @@ public class Dish {
         this.price = price;
     }
 
-    public Integer getPic() {
-        return pic;
-    }
 
-    public void setPic(Integer pic) {
-        this.pic = pic;
-    }
 }

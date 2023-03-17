@@ -1,5 +1,6 @@
 package com.example.foodiedelivery.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,8 @@ public class HomeFragment extends Fragment {
    ListView listViewRes;
 
    Fragment Restaurant1Result = new MenuFragment();
+   Fragment Restaurant2Result = new Menu2Fragment();
+   Fragment Restaurant3Result = new Menu3Fragment();
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                             Bundle savedInstanceState) {
@@ -65,12 +68,13 @@ public class HomeFragment extends Fragment {
          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             switch(i){
                case 0:
-                  fragmentManager.beginTransaction().replace(R.id.container, Restaurant1Result).commit();
+                  fragmentManager.beginTransaction().replace(R.id.container, Restaurant1Result).commit();break;
 //                  startActivity(new Intent(getActivity(), Restaurant1Result.class));break;
-//               case 1:
-//                  startActivity(new Intent(getActivity(),Restaurant2Result.class);break;
-//               case 2:
-//                  startActivity(new Intent(getActivity(),Restaurant3Result.class);break;
+               case 1:
+                  fragmentManager.beginTransaction().replace(R.id.container, Restaurant2Result).commit();break;
+//                 startActivity(new Intent(getActivity(),Menu2Fragment.class));break;
+              case 2:
+                   fragmentManager.beginTransaction().replace(R.id.container, Restaurant3Result).commit();break;
             }
          }
       });
@@ -94,8 +98,6 @@ public class HomeFragment extends Fragment {
       });
 
       addData();
-
-
    };
 
    private Runnable sliderRunnable = new Runnable() {

@@ -1,0 +1,265 @@
+Index: app/src/main/java/com/example/foodiedelivery/adapters/DishAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.foodiedelivery.adapters;\r\n\r\nimport android.content.Context;\r\nimport android.view.Gravity;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.BaseAdapter;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\nimport com.example.foodiedelivery.R;\r\nimport com.example.foodiedelivery.models.Dish;\r\n\r\nimport java.util.List;\r\n\r\npublic class DishAdapter extends BaseAdapter {\r\n    List<Dish> DishList;\r\n    Context context;\r\n    LayoutInflater inflater;\r\n    public DishAdapter(Context context,List<Dish> dishList ) {\r\n        DishList = dishList;\r\n        this.context = context;\r\n        inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n\r\n    }\r\n\r\n    public List<Dish> getDishList() {\r\n        return DishList;\r\n    }\r\n\r\n    public void setDishList(List<Dish> dishList) {\r\n        DishList = dishList;\r\n    }\r\n\r\n    public Context getContext() {\r\n        return context;\r\n    }\r\n\r\n    public void setContext(Context context) {\r\n        this.context = context;\r\n    }\r\n\r\n    @Override\r\n    public int getCount() {\r\n        return DishList.size();\r\n    }\r\n\r\n    @Override\r\n    public Object getItem(int i) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public long getItemId(int i) {\r\n        return i;\r\n    }\r\n\r\n    @Override\r\n    public View getView(int i, View view, ViewGroup viewGroup) {\r\n\r\n        if(inflater ==null){\r\n            inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);\r\n        }\r\n        if(view ==null){\r\n            view=inflater.inflate(R.layout.layout_restaurant1_custom_layout_grid,null);\r\n        }\r\n        ImageView imgViewLayout= view.findViewById(R.id.imgGridLayout);\r\n        TextView txtName=view.findViewById(R.id.txtNameLayout);\r\n        TextView txtPrice=view.findViewById(R.id.txtPriceLayout);\r\n        imgViewLayout.setImageResource(DishList.get(i).getPic());\r\n        txtName.setText(DishList.get(i).getName());\r\n        txtPrice.setText(DishList.get(i).getPrice());\r\n        txtName.setGravity(Gravity.CENTER_VERTICAL);\r\n        txtPrice.setGravity(Gravity.CENTER_VERTICAL);\r\n        return view;\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/foodiedelivery/adapters/DishAdapter.java b/app/src/main/java/com/example/foodiedelivery/adapters/DishAdapter.java
+--- a/app/src/main/java/com/example/foodiedelivery/adapters/DishAdapter.java	
++++ b/app/src/main/java/com/example/foodiedelivery/adapters/DishAdapter.java	
+@@ -16,15 +16,9 @@
+ 
+ public class DishAdapter extends BaseAdapter {
+     List<Dish> DishList;
+-    Context context;
+-    LayoutInflater inflater;
+-    public DishAdapter(Context context,List<Dish> dishList ) {
++    public DishAdapter(List<Dish> dishList ) {
+         DishList = dishList;
+-        this.context = context;
+-        inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+-
+     }
+-
+     public List<Dish> getDishList() {
+         return DishList;
+     }
+@@ -33,14 +27,6 @@
+         DishList = dishList;
+     }
+ 
+-    public Context getContext() {
+-        return context;
+-    }
+-
+-    public void setContext(Context context) {
+-        this.context = context;
+-    }
+-
+     @Override
+     public int getCount() {
+         return DishList.size();
+@@ -59,16 +45,11 @@
+     @Override
+     public View getView(int i, View view, ViewGroup viewGroup) {
+ 
+-        if(inflater ==null){
+-            inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+-        }
+-        if(view ==null){
+-            view=inflater.inflate(R.layout.layout_restaurant1_custom_layout_grid,null);
++        if(view ==null) {
++            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_restaurant1_custom_layout_grid,viewGroup,false);
+         }
+-        ImageView imgViewLayout= view.findViewById(R.id.imgGridLayout);
+-        TextView txtName=view.findViewById(R.id.txtNameLayout);
+-        TextView txtPrice=view.findViewById(R.id.txtPriceLayout);
+-        imgViewLayout.setImageResource(DishList.get(i).getPic());
++        TextView txtName=view.findViewById(R.id.txtViewName);
++        TextView txtPrice=view.findViewById(R.id.txtViewPrice);
+         txtName.setText(DishList.get(i).getName());
+         txtPrice.setText(DishList.get(i).getPrice());
+         txtName.setGravity(Gravity.CENTER_VERTICAL);
+Index: app/src/main/java/com/example/foodiedelivery/fragments/HomeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.foodiedelivery.fragments;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.fragment.app.FragmentManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\nimport androidx.viewpager2.widget.ViewPager2;\r\n\r\nimport android.os.Handler;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ListView;\r\n\r\nimport com.example.foodiedelivery.models.Image;\r\nimport com.example.foodiedelivery.adapters.ImageAdapter;\r\nimport com.example.foodiedelivery.R;\r\nimport com.example.foodiedelivery.models.Restaurant;\r\nimport com.example.foodiedelivery.adapters.RestaurantAdapter;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\n\r\npublic class HomeFragment extends Fragment {\r\n   List<Integer> Pics = new ArrayList<>(Arrays.asList(R.drawable.canadian,R.drawable.canadian2,R.drawable.indian,R.drawable.indian2,R.drawable.vietnamese,R.drawable.vietnamese2,R.drawable.hongkong,R.drawable.hongkong2,R.drawable.european,R.drawable.european2));\r\n   List<Image> ImageList;\r\n   ViewPager2 viewPager2;\r\n   Handler sliderHandler = new Handler();\r\n   /*listview*/\r\n   List<Restaurant> RestaurantList = new ArrayList<>();\r\n   List<String> ResNames = new ArrayList<>(Arrays.asList(\"Ken's Kitchen, Vancouver,BC\",\"Big Burgers, New Westminster,BC\",\"Pizza Hut, Surrey, BC\"));\r\n   List<Integer> ResIcons = new ArrayList<>(Arrays.asList(R.drawable.res1,R.drawable.res2,R.drawable.res3));\r\n   ListView listViewRes;\r\n\r\n   Fragment Restaurant1Result = new MenuFragment();\r\n   @Override\r\n   public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                            Bundle savedInstanceState) {\r\n      // Inflate the layout for this fragment\r\n      return inflater.inflate(R.layout.fragment_home, container, false);\r\n   }\r\n   @Override\r\n   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n      super.onViewCreated(view, savedInstanceState);\r\n      ImageList = new ArrayList<>();\r\n      viewPager2 =view.findViewById(R.id.viewPager2id);\r\n\r\n      FragmentManager fragmentManager = getActivity().getSupportFragmentManager();\r\n\r\n      ImageAdapter myAdapter = new ImageAdapter(ImageList,viewPager2);\r\n      viewPager2.setAdapter(myAdapter);\r\n      /*for listView*/\r\n\r\n      listViewRes= view.findViewById(R.id.listViewMain);\r\n      RestaurantAdapter restauranAdapter = new RestaurantAdapter(RestaurantList);\r\n      listViewRes.setAdapter(restauranAdapter);\r\n\r\n      listViewRes.setOnItemClickListener(new AdapterView.OnItemClickListener() {\r\n         @Override\r\n         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {\r\n            switch(i){\r\n               case 0:\r\n                  fragmentManager.beginTransaction().replace(R.id.container, Restaurant1Result).commit();\r\n//                  startActivity(new Intent(getActivity(), Restaurant1Result.class));break;\r\n//               case 1:\r\n//                  startActivity(new Intent(getActivity(),Restaurant2Result.class);break;\r\n//               case 2:\r\n//                  startActivity(new Intent(getActivity(),Restaurant3Result.class);break;\r\n            }\r\n         }\r\n      });\r\n\r\n      loadModelData();\r\n      /* 1 set scrolling*/\r\n      viewPager2.setOffscreenPageLimit(3);\r\n      viewPager2.setClipChildren(false);\r\n      viewPager2.setClipToPadding(false);\r\n      viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);\r\n\r\n      viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback(){\r\n         @Override\r\n         public void onPageSelected(int position) {\r\n            super.onPageSelected(position);\r\n\r\n            sliderHandler.removeCallbacks(sliderRunnable);\r\n            //set duration\r\n            sliderHandler.postDelayed(sliderRunnable,2000);\r\n         }\r\n      });\r\n\r\n      addData();\r\n\r\n\r\n   };\r\n\r\n   private Runnable sliderRunnable = new Runnable() {\r\n      @Override\r\n      public void run() {\r\n         viewPager2.setCurrentItem(viewPager2.getCurrentItem() +1);\r\n      }\r\n   };\r\n\r\n   private void loadModelData() {\r\n      for(int i=0;i<Pics.size();i++){\r\n         Image newImage = new Image(Pics.get(i));\r\n         ImageList.add(newImage);\r\n      }\r\n   };\r\n   private void addData(){\r\n      for(int i=0;i<ResNames.size();i++){\r\n         Restaurant thisRes = new Restaurant(ResNames.get(i),ResIcons.get(i));\r\n         RestaurantList.add(thisRes);\r\n      }\r\n   }\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/foodiedelivery/fragments/HomeFragment.java b/app/src/main/java/com/example/foodiedelivery/fragments/HomeFragment.java
+--- a/app/src/main/java/com/example/foodiedelivery/fragments/HomeFragment.java	
++++ b/app/src/main/java/com/example/foodiedelivery/fragments/HomeFragment.java	
+@@ -1,5 +1,6 @@
+ package com.example.foodiedelivery.fragments;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
+ 
+ import androidx.annotation.NonNull;
+@@ -38,6 +39,8 @@
+    ListView listViewRes;
+ 
+    Fragment Restaurant1Result = new MenuFragment();
++
++   //Fragment Restaurant3Result = new Menu3Fragment();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+@@ -66,11 +69,11 @@
+             switch(i){
+                case 0:
+                   fragmentManager.beginTransaction().replace(R.id.container, Restaurant1Result).commit();
+-//                  startActivity(new Intent(getActivity(), Restaurant1Result.class));break;
+-//               case 1:
+-//                  startActivity(new Intent(getActivity(),Restaurant2Result.class);break;
++                  //startActivity(new Intent(getActivity(), MenuFragment.class));break;
++               case 1:
++                 //startActivity(new Intent(getActivity(),Menu2Fragment.class));break;
+ //               case 2:
+-//                  startActivity(new Intent(getActivity(),Restaurant3Result.class);break;
++//                  startActivity(new Intent(getActivity(),Restaurant3Result.class_);break;
+             }
+          }
+       });
+@@ -92,10 +95,7 @@
+             sliderHandler.postDelayed(sliderRunnable,2000);
+          }
+       });
+-
+       addData();
+-
+-
+    };
+ 
+    private Runnable sliderRunnable = new Runnable() {
+Index: app/src/main/java/com/example/foodiedelivery/fragments/MenuFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.foodiedelivery.fragments;\r\n\r\nimport android.os.Bundle;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.AdapterView;\r\nimport android.widget.GridView;\r\nimport android.widget.ImageView;\r\nimport android.widget.Toast;\r\n\r\nimport com.example.foodiedelivery.R;\r\nimport com.example.foodiedelivery.adapters.DishAdapter;\r\nimport com.example.foodiedelivery.databinding.FragmentRestaurant1ResultBinding;\r\nimport com.example.foodiedelivery.models.Dish;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\nimport java.util.List;\r\n\r\n/**\r\n * A simple {@link Fragment} subclass.\r\n *\r\n * create an instance of this fragment.\r\n */\r\npublic class MenuFragment extends Fragment {\r\n    List<Dish> Dishes = new ArrayList<>();\r\n    List<String> DishNames =new ArrayList<>(Arrays.asList(\"Extra Large Meat Lovers\",\"Extra Large Supreme\",\"Extra Large Pepperoni.\",\"Extra Large BBQ Chicken &amp; Bacon.\",\"Extra Large 5 Cheese.\",\"Extra Large Pepperoni Slice,Slice.\"));\r\n    List<String> DishPrices = new ArrayList<>(Arrays.asList(\"15.99\",\"15.99\",\"14.99\",\"15.99\",\"14.99\",\"3.99\"));\r\n    List<Integer> DishImages = new ArrayList<>(Arrays.asList(R.drawable.meatlovers,R.drawable.exlarsupreme,R.drawable.extlarbbqchixbacon,R.drawable.extlarfivecheese,R.drawable.extlarpepperoni,R.drawable.pizza6));\r\n    //private FragmentHousesBinding binding;\r\n    LayoutInflater inflaterThis;\r\n    FragmentRestaurant1ResultBinding binding;\r\n\r\n    @Override\r\n    public void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n    }\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n\r\n//        DishAdapter dishAdapter = new DishAdapter(Restaurant1Result.this,Dishes);\r\n//        setContentView(binding.getRoot());\r\n        addData();\r\n        binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());\r\n        DishAdapter gridAdapter = new DishAdapter(getContext(),Dishes);\r\n        GridView gridView1Images = view.findViewById(R.id.gridView1Images);\r\n        binding.gridView1Images.setAdapter(gridAdapter);\r\n        binding.getRoot();\r\n\r\n        ImageView ingViewLarge = view.findViewById(R.id.imgViewLarge);\r\n        gridView1Images.setNumColumns(3);\r\n        gridView1Images.setVerticalSpacing(8);\r\n        gridView1Images.setHorizontalSpacing(8);\r\n        binding.gridView1Images.setOnItemClickListener(new AdapterView.OnItemClickListener() {\r\n            @Override\r\n            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {\r\n                Toast.makeText(getContext(),\"You've clicked: \"+Dishes.get(i).getName(),Toast.LENGTH_LONG).show();\r\n            }\r\n        });\r\n    }\r\n    private void addData() {\r\n        Dishes.add(new Dish(\"Extra Large Meat Lovers\",\"15.99\",R.drawable.meatlovers));\r\n        Dishes.add(new Dish(\"Extra Large Supreme\",\"15.99\",R.drawable.exlarsupreme));\r\n        Dishes.add(new Dish(\"Extra Large Pepperoni\",\"13.99\",R.drawable.extlarbbqchixbacon));\r\n        Dishes.add(new Dish(\"Extra Large BBQ Chicken &amp; Bacon.\",\"14.99\",R.drawable.extlarpepperoni));\r\n        Dishes.add(new Dish(\"Extra Large 5 Cheese.\",\"15.99\",R.drawable.extlarfivecheese));\r\n        Dishes.add(new Dish(\"Extra Large Pepperoni Slice,Slice.\",\"15.99\",R.drawable.pizza6));\r\n\r\n    }\r\n\r\n    @Override\r\n    public View onCreateView(LayoutInflater inflater, ViewGroup container,\r\n                             Bundle savedInstanceState) {\r\n        // Inflate the layout for this fragment\r\n\r\n//        binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());\r\n//    setContentView(binding.getRoot());\r\n       // FragmentRestaurant1ResultBinding binding = FragmentRestaurant1ResultBinding.inflate(inflater, container, false);\r\n        //set variables in Binding\r\n\r\n        //setContentView(binding.getRoot());\r\n//        DishAdapter gridAdapter = new DishAdapter(getContext(),Dishes);\r\n//        GridView gridView1Images = findViewById(R.id.gridView1Images);\r\n\r\n       return inflater.inflate(R.layout.fragment_restaurant1_result, container, false);\r\n    }\r\n}
+===================================================================
+diff --git a/app/src/main/java/com/example/foodiedelivery/fragments/MenuFragment.java b/app/src/main/java/com/example/foodiedelivery/fragments/MenuFragment.java
+--- a/app/src/main/java/com/example/foodiedelivery/fragments/MenuFragment.java	
++++ b/app/src/main/java/com/example/foodiedelivery/fragments/MenuFragment.java	
+@@ -12,6 +12,7 @@
+ import android.widget.AdapterView;
+ import android.widget.GridView;
+ import android.widget.ImageView;
++import android.widget.ListView;
+ import android.widget.Toast;
+ 
+ import com.example.foodiedelivery.R;
+@@ -30,65 +31,53 @@
+  */
+ public class MenuFragment extends Fragment {
+     List<Dish> Dishes = new ArrayList<>();
+-    List<String> DishNames =new ArrayList<>(Arrays.asList("Extra Large Meat Lovers","Extra Large Supreme","Extra Large Pepperoni.","Extra Large BBQ Chicken &amp; Bacon.","Extra Large 5 Cheese.","Extra Large Pepperoni Slice,Slice."));
+-    List<String> DishPrices = new ArrayList<>(Arrays.asList("15.99","15.99","14.99","15.99","14.99","3.99"));
+-    List<Integer> DishImages = new ArrayList<>(Arrays.asList(R.drawable.meatlovers,R.drawable.exlarsupreme,R.drawable.extlarbbqchixbacon,R.drawable.extlarfivecheese,R.drawable.extlarpepperoni,R.drawable.pizza6));
+-    //private FragmentHousesBinding binding;
+-    LayoutInflater inflaterThis;
+-    FragmentRestaurant1ResultBinding binding;
+-
+-    @Override
+-    public void onCreate(Bundle savedInstanceState) {
+-        super.onCreate(savedInstanceState);
+-    }
++   // FragmentRestaurant1ResultBinding binding;
++    //LayoutInflater inflaterThis;
+ 
+     @Override
+     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+         super.onViewCreated(view, savedInstanceState);
+ 
+-//        DishAdapter dishAdapter = new DishAdapter(Restaurant1Result.this,Dishes);
+-//        setContentView(binding.getRoot());
++//        addData();
++//        ListView listView1 = view.findViewById(R.id.listViewRes1);
++//        DishAdapter dishAdapter = new DishAdapter(Dishes);
++//        listView1.setAdapter(dishAdapter);
+         addData();
+-        binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());
+-        DishAdapter gridAdapter = new DishAdapter(getContext(),Dishes);
+-        GridView gridView1Images = view.findViewById(R.id.gridView1Images);
+-        binding.gridView1Images.setAdapter(gridAdapter);
+-        binding.getRoot();
++        //binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());
++        DishAdapter dishAdapter = new DishAdapter(Dishes);
++        ListView listView1 = view.findViewById(R.id.listViewRes1);
++        listView1.setAdapter(dishAdapter);
++        //binding.getRoot();
+ 
+-        ImageView ingViewLarge = view.findViewById(R.id.imgViewLarge);
+-        gridView1Images.setNumColumns(3);
+-        gridView1Images.setVerticalSpacing(8);
+-        gridView1Images.setHorizontalSpacing(8);
+-        binding.gridView1Images.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+-            @Override
+-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+-                Toast.makeText(getContext(),"You've clicked: "+Dishes.get(i).getName(),Toast.LENGTH_LONG).show();
+-            }
+-        });
++//        ImageView ingViewLarge = view.findViewById(R.id.imgViewLarge);
++//        gridView1Images.setNumColumns(3);
++//        gridView1Images.setVerticalSpacing(8);
++//        gridView1Images.setHorizontalSpacing(8);
++//        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
++//            @Override
++//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
++//                Toast.makeText(getContext(),"You've clicked: "+Dishes.get(i).getName(),Toast.LENGTH_LONG).show();
++//            }
++//        });
++    }
++
++    @Override
++    public void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
+     }
++
++
+     private void addData() {
+-        Dishes.add(new Dish("Extra Large Meat Lovers","15.99",R.drawable.meatlovers));
+-        Dishes.add(new Dish("Extra Large Supreme","15.99",R.drawable.exlarsupreme));
+-        Dishes.add(new Dish("Extra Large Pepperoni","13.99",R.drawable.extlarbbqchixbacon));
+-        Dishes.add(new Dish("Extra Large BBQ Chicken &amp; Bacon.","14.99",R.drawable.extlarpepperoni));
+-        Dishes.add(new Dish("Extra Large 5 Cheese.","15.99",R.drawable.extlarfivecheese));
+-        Dishes.add(new Dish("Extra Large Pepperoni Slice,Slice.","15.99",R.drawable.pizza6));
+-
++        Dishes.add(new Dish("Extra Large Meat Lovers","15.99"));
++        Dishes.add(new Dish("Extra Large Supreme","15.99"));
++        Dishes.add(new Dish("Extra Large Pepperoni","13.99"));
++        Dishes.add(new Dish("Extra Large BBQ Chicken &amp; Bacon.","14.99"));
++        Dishes.add(new Dish("Extra Large 5 Cheese.","15.99"));
++        Dishes.add(new Dish("Extra Large Pepperoni Slice,Slice.","15.99"));
+     }
+-
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+-        // Inflate the layout for this fragment
+-
+-//        binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());
+-//    setContentView(binding.getRoot());
+-       // FragmentRestaurant1ResultBinding binding = FragmentRestaurant1ResultBinding.inflate(inflater, container, false);
+-        //set variables in Binding
+-
+-        //setContentView(binding.getRoot());
+-//        DishAdapter gridAdapter = new DishAdapter(getContext(),Dishes);
+-//        GridView gridView1Images = findViewById(R.id.gridView1Images);
+ 
+        return inflater.inflate(R.layout.fragment_restaurant1_result, container, false);
+     }
+Index: app/src/main/java/com/example/foodiedelivery/models/Dish.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.foodiedelivery.models;\r\n\r\npublic class Dish {\r\n    private String name;\r\n    private String price;\r\n    private Integer pic;\r\n\r\n    public Dish(String name, String price, Integer pic) {\r\n        this.name = name;\r\n        this.price = price;\r\n        this.pic = pic;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    public void setName(String name) {\r\n        this.name = name;\r\n    }\r\n\r\n    public String getPrice() {\r\n        return price;\r\n    }\r\n\r\n    public void setPrice(String price) {\r\n        this.price = price;\r\n    }\r\n\r\n    public Integer getPic() {\r\n        return pic;\r\n    }\r\n\r\n    public void setPic(Integer pic) {\r\n        this.pic = pic;\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/app/src/main/java/com/example/foodiedelivery/models/Dish.java b/app/src/main/java/com/example/foodiedelivery/models/Dish.java
+--- a/app/src/main/java/com/example/foodiedelivery/models/Dish.java	
++++ b/app/src/main/java/com/example/foodiedelivery/models/Dish.java	
+@@ -3,14 +3,11 @@
+ public class Dish {
+     private String name;
+     private String price;
+-    private Integer pic;
+ 
+-    public Dish(String name, String price, Integer pic) {
++    public Dish(String name, String price) {
+         this.name = name;
+         this.price = price;
+-        this.pic = pic;
+     }
+-
+     public String getName() {
+         return name;
+     }
+@@ -26,12 +23,4 @@
+     public void setPrice(String price) {
+         this.price = price;
+     }
+-
+-    public Integer getPic() {
+-        return pic;
+-    }
+-
+-    public void setPic(Integer pic) {
+-        this.pic = pic;
+-    }
+ }

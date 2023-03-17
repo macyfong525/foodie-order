@@ -28,4 +28,14 @@
     <string name="txtRes1Name">Ken\'s Kitchen</string>
     <string name="txtNamePlayout">name</string>
     <string name="txtPriceLayout">price</string>
+    <string name="txtViewName">name</string>
+    <string name="txtViewPrice">price</string>
+
+    <string name="btnAddToCart">Add</string>
+    <string name="txtRes2Name">Big Burgers</string>
+    <string name="txtNameRes2">Big Burgers</string>
+    <string name="editQuantityHint">1</string>
+    <string name="editNumQuantity" />
+    <string name="txtNameRes3">Pizza Huts</string>
+
 </resources>

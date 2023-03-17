@@ -9,11 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.adapters.DishAdapter;
@@ -21,50 +17,42 @@ import com.example.foodiedelivery.databinding.FragmentRestaurant1ResultBinding;
 import com.example.foodiedelivery.models.Dish;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
- *
+ * Use the {@link Menu3Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MenuFragment extends Fragment {
+public class Menu3Fragment extends Fragment {
     List<Dish> Dishes = new ArrayList<>();
     //LayoutInflater inflaterThis;
     FragmentRestaurant1ResultBinding binding;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         addData();
         binding =FragmentRestaurant1ResultBinding.inflate(getLayoutInflater());
         DishAdapter dishAdapter = new DishAdapter(getContext(),Dishes);
-        ListView listView1 = view.findViewById(R.id.listViewRes1);
-        listView1.setAdapter(dishAdapter);
+        ListView listView3 = view.findViewById(R.id.listViewRes3);
+        listView3.setAdapter(dishAdapter);
         binding.getRoot();
     }
 
     private void addData() {
-        Dishes.add(new Dish("Extra Large Meat Lovers","15.99"));
-        Dishes.add(new Dish("Extra Large Supreme","15.99"));
-        Dishes.add(new Dish("Extra Large Pepperoni","13.99"));
-        Dishes.add(new Dish("Extra Large BBQ Chicken &amp; Bacon.","14.99"));
-        Dishes.add(new Dish("Extra Large 5 Cheese.","15.99"));
-        Dishes.add(new Dish("Extra Large Pepperoni Slice,Slice.","15.99"));
+        Dishes.add(new Dish("Cowboy (Baking Required), Our Original Crust topped with Traditional Red Sauce","11.99"));
+        Dishes.add(new Dish("Papa's Favorite® (Baking Required)","16.99"));
+        Dishes.add(new Dish("Murphy's Combo (Baking Required)","14.99"));
+        Dishes.add(new Dish("Chicken Garlic (Baking Required)","14.99"));
+        Dishes.add(new Dish("Rancher,Our Original Crust topped with Traditional Red Sauce","16.99"));
+        Dishes.add(new Dish("Thai Chicken(Baking Required)","15.99"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-       return inflater.inflate(R.layout.fragment_restaurant1_result, container, false);
+        return inflater.inflate(R.layout.fragment_menu3, container, false);
     }
 }

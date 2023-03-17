@@ -65,10 +65,10 @@ public class DishAdapter extends BaseAdapter {
         if(view ==null){
             view=inflater.inflate(R.layout.layout_restaurant1_custom_layout_grid,null);
         }
-        ImageView imgViewLayout= view.findViewById(R.id.imgGridLayout);
-        TextView txtName=view.findViewById(R.id.txtNameLayout);
-        TextView txtPrice=view.findViewById(R.id.txtPriceLayout);
-        imgViewLayout.setImageResource(DishList.get(i).getPic());
+        //ImageView imgViewLayout= view.findViewById(R.id.imgGridLayout);
+        TextView txtName=view.findViewById(R.id.txtViewName);
+        TextView txtPrice=view.findViewById(R.id.txtViewPrice);
+        //imgViewLayout.setImageResource(DishList.get(i).getPic());
         txtName.setText(DishList.get(i).getName());
         txtPrice.setText(DishList.get(i).getPrice());
         txtName.setGravity(Gravity.CENTER_VERTICAL);

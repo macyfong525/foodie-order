@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btnAdd"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginTop="100dp">
 
-    <ImageView
-        android:id="@+id/imgGridLayout"
-        android:layout_width="200dp"
+    <TextView
+        android:id="@+id/txtViewName"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="0.2"
-        app:srcCompat="@drawable/exlarsupreme" />
+        android:layout_weight="1"
+        android:text="@string/txtViewName" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtViewPrice"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_weight="0.5"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:text="@string/txtViewPrice" />
 
-        <TextView
-            android:id="@+id/txtNameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/txtNamePlayout" />
+    <EditText
+        android:id="@+id/editQuantity"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:hint="@string/editQuantityHint"
+        android:inputType="@string/editQuantityHint"
+        android:text="@string/editNumQuantity" />
 
-        <TextView
-            android:id="@+id/txtPriceLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/txtPriceLayout" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btnAddToCard"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:backgroundTint="@color/material_dynamic_neutral80"
+        android:icon="@android:drawable/ic_input_add"
+        android:text="@string/btnAddToCart" />
 
 
 </LinearLayout>
