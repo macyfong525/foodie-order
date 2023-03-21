@@ -1,12 +1,27 @@
 package com.example.foodiedelivery.models;
 
-public class Restaurant {
-    private String ResName;
-    private Integer ResIcon;
+import java.util.ArrayList;
 
-    public Restaurant(String resName, Integer resIcon) {
+public class Restaurant {
+
+    private int id;
+    private String ResName;
+    private String location;
+    private String imageUrl;
+
+    public Restaurant(int id, String resName, String location, String imageUrl) {
+        this.id = id;
         ResName = resName;
-        ResIcon = resIcon;
+        this.location = location;
+        this.imageUrl = imageUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getResName() {
@@ -17,11 +32,19 @@ public class Restaurant {
         ResName = resName;
     }
 
-    public Integer getResIcon() {
-        return ResIcon;
+    public String getLocation() {
+        return location;
     }
 
-    public void setResIcon(Integer resIcon) {
-        ResIcon = resIcon;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

@@ -8,9 +8,11 @@
     android:paddingRight="16dp" >
 
     <TextView
-        android:id="@+id/addResTitleTxtview"
+        android:id="@+id/txtViewAddResTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
         android:gravity="center"
         android:text="@string/addRes"
         android:textSize="24sp" />
@@ -19,8 +21,8 @@
         android:id="@+id/editTxtResName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addResTitleTxtview"
-        android:layout_marginTop="48dp"
+        android:layout_below="@+id/txtViewAddResTitle"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/resNameInput"
         android:inputType="textPersonName"
@@ -39,26 +41,32 @@
 
     <ImageView
         android:id="@+id/imageViewPreview"
-        android:layout_width="275dp"
-        android:layout_height="275dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_below="@+id/editTxtLocation"
         android:layout_marginTop="18dp"
         tools:src="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnSelectImage"
-        android:layout_width="270dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageViewPreview"
         android:layout_marginTop="3dp"
         android:text="@string/selectResImg" />
 
     <Button
-        android:id="@+id/BtnAddRes"
+        android:id="@+id/btnAddRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSelectImage"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="33dp"
         android:text="@string/addResBtn" />
+
+    <ProgressBar
+        android:id="@+id/progressBarAddRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
 </RelativeLayout>

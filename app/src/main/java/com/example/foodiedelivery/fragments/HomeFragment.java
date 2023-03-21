@@ -97,7 +97,7 @@ public class HomeFragment extends Fragment {
          }
       });
 
-      addData();
+//      addData();
    };
 
    private Runnable sliderRunnable = new Runnable() {
@@ -113,10 +113,10 @@ public class HomeFragment extends Fragment {
          ImageList.add(newImage);
       }
    };
-   private void addData(){
-      for(int i=0;i<ResNames.size();i++){
-         Restaurant thisRes = new Restaurant(ResNames.get(i),ResIcons.get(i));
-         RestaurantList.add(thisRes);
-      }
-   }
+//   private void addData(){
+//      for(int i=0;i<ResNames.size();i++){
+//         Restaurant thisRes = new Restaurant(ResNames.get(i),ResIcons.get(i));
+//         RestaurantList.add(thisRes);
+//      }
+//   }
 }

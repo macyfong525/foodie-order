@@ -53,7 +53,7 @@ public class RestaurantAdapter extends BaseAdapter {
         TextView txtViewName = view.findViewById(R.id.txtViewNameLayout);
         txtViewName.setText(RestaurantList.get(i).getResName());
         ImageView imgViewIcon = view.findViewById(R.id.imgViewLayout);
-        imgViewIcon.setImageResource(RestaurantList.get(i).getResIcon());
+//        imgViewIcon.setImageResource(RestaurantList.get(i).getResIcon());
         txtViewName.setGravity(Gravity.CENTER_VERTICAL);
         return view;
     }
