@@ -19,6 +19,8 @@ public class UserDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_ISADMIN = "isAdmin";
 
+
+
     // Constructor
     public UserDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

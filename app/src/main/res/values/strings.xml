@@ -37,5 +37,10 @@
     <string name="editQuantityHint">1</string>
     <string name="editNumQuantity" />
     <string name="txtNameRes3">Pizza Huts</string>
+    <string name="addRes">Add Restaurant</string>
+    <string name="resNameInput">Enter Rrestaurant Name</string>
+    <string name="ResLocation">Location</string>
+    <string name="selectResImg">Select Restaurant Image</string>
+    <string name="addResBtn">Add</string>
 
 </resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <TextView
+        android:id="@+id/txtViewAddResTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/addRes"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editTxtResName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewAddResTitle"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/resNameInput"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/editTxtLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTxtResName"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/ResLocation"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <ImageView
+        android:id="@+id/imageViewPreview"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_below="@+id/editTxtLocation"
+        android:layout_marginTop="18dp"
+        tools:src="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnSelectImage"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewPreview"
+        android:layout_marginTop="3dp"
+        android:text="@string/selectResImg" />
+
+    <Button
+        android:id="@+id/btnAddRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSelectImage"
+        android:layout_marginTop="33dp"
+        android:text="@string/addResBtn" />
+
+    <ProgressBar
+        android:id="@+id/progressBarAddRes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</RelativeLayout>

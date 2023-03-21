@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.foodiedelivery.fragments.NotificationFragment;
 import com.example.foodiedelivery.fragments.ProfileFragment;
 import com.example.foodiedelivery.R;
-import com.example.foodiedelivery.fragments.RedFragment;
+import com.example.foodiedelivery.fragments.AddRestaurantFragment;
 import com.example.foodiedelivery.fragments.GreenFragment;
 import com.example.foodiedelivery.fragments.HomeFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
    HomeFragment homeFragment = new HomeFragment();
    NotificationFragment notificationFragment = new NotificationFragment();
    ProfileFragment profileFragment = new ProfileFragment();
-   RedFragment redFragment = new RedFragment();
+   AddRestaurantFragment addRestaurantFragment = new AddRestaurantFragment();
    GreenFragment greenFragment = new GreenFragment();
 
    GoogleSignInOptions gso;
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
    @Override
    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
       switch (item.getItemId()){
-         case R.id.red:
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, redFragment).commit();
+         case R.id.addRestaurantFragment:
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, addRestaurantFragment).commit();
             break;
          case R.id.green:
             getSupportFragmentManager().beginTransaction().replace(R.id.container, greenFragment).commit();
