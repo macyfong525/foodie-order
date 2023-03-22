@@ -12,7 +12,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.foodiedelivery.fragments.NotificationFragment;
+import com.example.foodiedelivery.fragments.MenuFragment;
+import com.example.foodiedelivery.fragments.OrderFragment;
 import com.example.foodiedelivery.fragments.ProfileFragment;
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.fragments.AddRestaurantFragment;
@@ -29,7 +30,7 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity {
    BottomNavigationView bottomNavigationView;
    HomeFragment homeFragment = new HomeFragment();
-   NotificationFragment notificationFragment = new NotificationFragment();
+   OrderFragment orderFragment = new OrderFragment();
    ProfileFragment profileFragment = new ProfileFragment();
    AddRestaurantFragment addRestaurantFragment = new AddRestaurantFragment();
    GreenFragment greenFragment = new GreenFragment();
@@ -57,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             signOut();
             Toast.makeText(this,"YOU'RE SUCCESSFULLY LOGGED OUT",Toast.LENGTH_SHORT).show();
             break;
+         case R.id.cart:
+            Intent intent  = new Intent(MainActivity.this, CartActivity.class);
+            startActivity(intent);
+            break;
       }
       return true;
    }
@@ -78,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
       bottomNavigationView = findViewById(R.id.bottom_navigation);
       getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
-      BadgeDrawable badgeDrawable = bottomNavigationView.getOrCreateBadge(R.id.notification);
-      badgeDrawable.setVisible(true);
-      badgeDrawable.setNumber(8);
-
       bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 
          @SuppressLint("NonConstantResourceId")
@@ -91,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
                case R.id.home:
                   getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                   return true;
-               case R.id.notification:
-                  getSupportFragmentManager().beginTransaction().replace(R.id.container,notificationFragment).commit();
+               case R.id.order:
+                  getSupportFragmentManager().beginTransaction().replace(R.id.container, new MenuFragment()).commit();
                   return true;
                case R.id.profile:
                   profileFragment.setArguments(bundle);
