@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="dish"
+            type="com.example.foodiedelivery.models.Dish" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/txtViewName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@{dish.name}" />
+
+        <TextView
+            android:id="@+id/txtViewPrice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@{String.valueOf(dish.price)}" />
+
+        <EditText
+            android:id="@+id/editQuantity"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="text|number"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnAddToCard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/material_dynamic_neutral80"
+            android:icon="@android:drawable/ic_input_add"
+            android:text="@string/btnAddToCart" />
+
+
+    </LinearLayout>
+</layout>
