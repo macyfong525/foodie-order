@@ -42,7 +42,7 @@
     <string name="ResLocation">Location</string>
     <string name="selectResImg">Select Restaurant Image</string>
     <string name="addResBtn">Add</string>
-    <string name="txtViewOrder">Your Order</string>
+    <string name="txtViewOrder">Thank you for ordering</string>
     <string name="btnPlaceOrder">Place Order</string>
     <string name="restaurant_name">Restaurant Name</string>
     <string name="location">Location</string>

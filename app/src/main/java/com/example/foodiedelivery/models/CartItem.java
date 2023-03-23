@@ -1,15 +1,20 @@
 package com.example.foodiedelivery.models;
 
+import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
+import androidx.recyclerview.widget.DiffUtil;
+
 import java.util.Objects;
 
 public class CartItem {
-
-    private int quantity;
-    private Dish dish;
+    public Dish dish;
+    public int quantity;
 
     public CartItem(int quantity, Dish dish) {
-        this.quantity = quantity;
         this.dish = dish;
+        this.quantity = quantity;
     }
 
     public int getQuantity() {
@@ -35,5 +40,22 @@ public class CartItem {
         CartItem cartItem = (CartItem) o;
         return getQuantity() == cartItem.getQuantity() && getDish().equals(cartItem.getDish());
     }
+
+    @BindingAdapter("android:setSpinnerVal")
+    public static void getSelectedSpinnerValue(Spinner spinner, int quantity) {
+        spinner.setSelection(quantity - 1, true);
+    }
+
+    public static DiffUtil.ItemCallback<CartItem> itemCallback = new DiffUtil.ItemCallback<CartItem>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull CartItem oldItem, @NonNull CartItem newItem) {
+            return oldItem.getQuantity() == newItem.getQuantity();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull CartItem oldItem, @NonNull CartItem newItem) {
+            return oldItem.equals(newItem);
+        }
+    };
 
 }

@@ -1,18 +1,38 @@
 package com.example.foodiedelivery.models;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CartViewModel extends ViewModel {
-    private MutableLiveData<CartItem> cartItem = new MutableLiveData<>();
+import com.example.foodiedelivery.repositories.CartRepo;
 
-    public void setCartItem(CartItem cartItem) {
-        this.cartItem.setValue(cartItem);
+import java.util.List;
+
+public class CartViewModel extends ViewModel {
+
+    CartRepo cartRepo = new CartRepo();
+
+    public LiveData<List<CartItem>> getCart() {
+        return cartRepo.getCart();
     }
 
-    public LiveData<CartItem> getCartItem() {
-        return cartItem;
+    public int addItemToCart(Dish dish) {
+        return cartRepo.addItemToCart(dish);
+    }
+
+    public void removeItemFromCart(CartItem cartItem) {
+        cartRepo.removeItemFromCart(cartItem);
+    }
+
+    public void changeQuantity(CartItem cartItem, int quantity) {
+        cartRepo.changeQuantity(cartItem, quantity);
+    }
+
+    public LiveData<Double> getTotalPrice() {
+        return cartRepo.getTotalPrice();
+    }
+
+    public void resetCart() {
+        cartRepo.initCart();
     }
 
 }

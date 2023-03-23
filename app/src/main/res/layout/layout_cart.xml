@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        
         <variable
             name="cartItem"
             type="com.example.foodiedelivery.models.CartItem" />
@@ -44,11 +45,12 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView"
             android:entries="@array/quantityStrArr"
+            android:setSpinnerVal="@{cartItem.quantity}"
             />
 
 
         <ImageButton
-            android:id="@+id/deleteProductButton"
+            android:id="@+id/deleteDishButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
