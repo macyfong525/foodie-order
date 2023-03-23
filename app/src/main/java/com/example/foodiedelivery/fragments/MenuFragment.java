@@ -70,19 +70,26 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
         Dishes.add(new Dish(3, 1, "Extra Large Pepperoni", 13.99));
         Dishes.add(new Dish(4, 1, "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
         Dishes.add(new Dish(5, 1, "Extra Large 5 Cheese.", 15.99));
-        Dishes.add(new Dish(6, 1, "Extra Large Pepperoni Slice,Slice.", 15.99));
+        Dishes.add(new Dish(6, 2, "Extra Large Pepperoni Slice,Slice.", 15.99));
     }
 
 
     @Override
     public void addItem(Dish dish) {
-        boolean isAdded = cartViewModel.addItemToCart(dish);
-        if (isAdded) {
-            Snackbar.make(requireView(), dish.getName() + " added to cart", Snackbar.LENGTH_LONG)
-                    .show();
-        } else {
-            Snackbar.make(requireView(), dish.getName() + " exceeds the max quantity in cart",
-                    Snackbar.LENGTH_LONG).show();
+        int isAddedStatus = cartViewModel.addItemToCart(dish);
+        switch (isAddedStatus){
+            case 0:
+                Snackbar.make(requireView(), dish.getName() + " added to cart", Snackbar.LENGTH_LONG)
+                        .show();
+                break;
+            case 1:
+                Snackbar.make(requireView(), dish.getName() + " exceeds the max quantity in cart",
+                        Snackbar.LENGTH_LONG).show();
+                break;
+            case 2:
+                Snackbar.make(requireView(), dish.getName() + " is not added.\nYou can only choose one restaurant",
+                        Snackbar.LENGTH_LONG).show();
+                break;
         }
 
     }

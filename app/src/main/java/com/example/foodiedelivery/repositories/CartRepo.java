@@ -23,15 +23,19 @@ public class CartRepo {
         calculateCartTotal();
     }
 
-    public boolean addItemToCart(Dish dish) {
+    public int addItemToCart(Dish dish) {
         if (mutableCart.getValue() == null) {
             initCart();
         }
         List<CartItem> cartItemList = new ArrayList<>(mutableCart.getValue());
+        // select dish with different res id
+        if(cartItemList.size() !=0 && dish.getResId()!= cartItemList.get(0).getDish().getResId()){
+            return 2;
+        }
         for (CartItem cartItem: cartItemList) {
             if (cartItem.getDish().getId() == dish.getId()) {
-                if (cartItem.getQuantity() > 9) {
-                    return false;
+                if (cartItem.getQuantity() > 9 ) {
+                    return 1;
                 }
 
                 int index = cartItemList.indexOf(cartItem);
@@ -40,14 +44,14 @@ public class CartRepo {
 
                 mutableCart.setValue(cartItemList);
                 calculateCartTotal();
-                return true;
+                return 0;
             }
         }
         CartItem cartItem = new CartItem(1, dish );
         cartItemList.add(cartItem);
         mutableCart.setValue(cartItemList);
         calculateCartTotal();
-        return true;
+        return 0;
     }
 
     public void removeItemFromCart(CartItem cartItem) {

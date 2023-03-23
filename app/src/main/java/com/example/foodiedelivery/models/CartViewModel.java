@@ -15,7 +15,7 @@ public class CartViewModel extends ViewModel {
         return cartRepo.getCart();
     }
 
-    public boolean addItemToCart(Dish dish) {
+    public int addItemToCart(Dish dish) {
         return cartRepo.addItemToCart(dish);
     }
 
