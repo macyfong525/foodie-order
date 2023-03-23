@@ -24,14 +24,23 @@ public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
     // Table info stops here
 
     //SQL statement to create the table
-    private static final String SQL_CREATE_TABLE =
+    private static final String CREATE_RESTAURANT_TABLE =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_NAME + " TEXT NOT NULL, " +
                     COLUMN_LOCATION + " TEXT NOT NULL, " +
                     COLUMN_IMAGE_URL + " TEXT" +
-                    ");";
+                    ")";
 
+
+
+    private static RestaurantDatabaseHelper instance;
+
+    private static synchronized RestaurantDatabaseHelper getHelper(Context context){
+        if(instance == null)
+            instance = new RestaurantDatabaseHelper(context);
+        return instance;
+    }
 
     public RestaurantDatabaseHelper(Context context){
         super(context, DATABASE_NAME,null, DATABASE_VERSION);
@@ -39,12 +48,17 @@ public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SQL_CREATE_TABLE);
+        db.execSQL(CREATE_RESTAURANT_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    @Override
+    public void onOpen(SQLiteDatabase db){
+        super.onOpen(db);
     }
 
     public long insertRestaurant(Restaurant restaurant){
@@ -64,7 +78,8 @@ public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
-        while (cursor.moveToFirst()){
+//        Cursor cursor = db.query(RestaurantDatabaseHelper.TABLE_NAME)
+        while (cursor.moveToNext()){
             int id = cursor.getInt(cursor.getColumnIndex("_id"));
             String name = cursor.getString(cursor.getColumnIndex("name"));
             String location = cursor.getString(cursor.getColumnIndex("location"));

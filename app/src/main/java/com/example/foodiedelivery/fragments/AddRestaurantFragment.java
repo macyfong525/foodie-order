@@ -17,7 +17,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
 
 import com.example.foodiedelivery.R;
-import com.example.foodiedelivery.databinding.ActivityImageUploadBinding;
 import com.example.foodiedelivery.db.RestaurantDatabaseHelper;
 import com.example.foodiedelivery.models.Restaurant;
 import com.google.firebase.storage.FirebaseStorage;
@@ -29,7 +28,6 @@ import java.util.Locale;
 
 
 public class AddRestaurantFragment extends Fragment {
-    ActivityImageUploadBinding binding;
     Uri imgUri;
     String resImageUrl;
     StorageReference storageRef;

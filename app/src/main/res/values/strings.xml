@@ -44,6 +44,8 @@
     <string name="addResBtn">Add</string>
     <string name="txtViewOrder">Your Order</string>
     <string name="btnPlaceOrder">Place Order</string>
+    <string name="restaurant_name">Restaurant Name</string>
+    <string name="location">Location</string>
 
     <string-array name="quantityStrArr">
         <item>1</item>
