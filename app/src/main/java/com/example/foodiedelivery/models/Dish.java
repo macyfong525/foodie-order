@@ -71,4 +71,13 @@ public class Dish {
         return getId().equals(dish.getId()) && getResId().equals(dish.getResId()) && getName().equals(dish.getName()) && getPrice().equals(dish.getPrice());
     }
 
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", resId=" + resId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
