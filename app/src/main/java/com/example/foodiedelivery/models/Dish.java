@@ -2,55 +2,62 @@ package com.example.foodiedelivery.models;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.util.Objects;
+@Entity(tableName = "dishes")
 
 public class Dish {
 
+    @NonNull
+    @PrimaryKey
+    @ColumnInfo(name="id")
     private Integer id;
+    @ColumnInfo(name="resid")
     private Integer resId;
+
+    @ColumnInfo(name="name")
     private String name;
+    @ColumnInfo(name="price")
     private Double price;
 
+    public Dish(@NonNull Integer id, Integer resId, String name, Double price) {
+        this.id = id;
+        this.resId = resId;
+        this.name = name;
+        this.price = price;
+    }
+    @Ignore
+    public Dish() {
+    }
+    @NonNull
     public Integer getId() {
         return id;
     }
-
-    public void setId(Integer id) {
+    public void setId(@NonNull Integer id) {
         this.id = id;
     }
-
-    public Dish(Integer id, Integer resId, String name, Double price) {
-        this.id = id;
-        this.resId = resId;
-        this.name = name;
-        this.price = price;
-    }
-
     public Integer getResId() {
         return resId;
     }
-
     public void setResId(Integer resId) {
         this.resId = resId;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public Double getPrice() {
         return price;
     }
-
     public void setPrice(Double price) {
         this.price = price;
     }
-
     public static DiffUtil.ItemCallback<Dish> itemCallback = new DiffUtil.ItemCallback<Dish>() {
         @Override
         public boolean areItemsTheSame(@NonNull Dish oldItem, @NonNull Dish newItem) {

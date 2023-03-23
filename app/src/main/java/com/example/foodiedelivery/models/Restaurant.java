@@ -1,15 +1,31 @@
 package com.example.foodiedelivery.models;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.ArrayList;
 
+@Entity(tableName = "restaurants")
 public class Restaurant {
-
+    @NonNull
+    @PrimaryKey
+    @ColumnInfo(name="id")
     private int id;
+    @ColumnInfo(name="resname")
     private String resName;
+    @ColumnInfo(name="location")
     private String location;
+    @ColumnInfo(name="imageurl")
     private String imageUrl;
 
-    public Restaurant(int id, String resName, String location, String imageUrl) {
+    @Ignore
+    public Restaurant() {
+    }
+
+    public Restaurant(@NonNull int id, String resName, String location, String imageUrl) {
         this.id = id;
         this.resName = resName;
         this.location = location;
@@ -29,7 +45,7 @@ public class Restaurant {
     }
 
     public void setResName(String resName) {
-        resName = resName;
+        this.resName = resName;
     }
 
     public String getLocation() {
