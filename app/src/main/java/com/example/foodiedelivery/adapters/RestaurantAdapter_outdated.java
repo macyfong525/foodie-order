@@ -14,10 +14,10 @@ import com.example.foodiedelivery.models.Restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantAdapter extends BaseAdapter {
+public class RestaurantAdapter_outdated extends BaseAdapter {
     List<Restaurant> RestaurantList = new ArrayList<>();
 
-    public RestaurantAdapter(List<Restaurant> restaurantList) {
+    public RestaurantAdapter_outdated(List<Restaurant> restaurantList) {
         RestaurantList = restaurantList;
     }
 

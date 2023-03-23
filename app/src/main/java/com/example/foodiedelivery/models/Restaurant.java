@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Restaurant {
 
     private int id;
-    private String ResName;
+    private String resName;
     private String location;
     private String imageUrl;
 
     public Restaurant(int id, String resName, String location, String imageUrl) {
         this.id = id;
-        ResName = resName;
+        this.resName = resName;
         this.location = location;
         this.imageUrl = imageUrl;
     }
@@ -25,11 +25,11 @@ public class Restaurant {
     }
 
     public String getResName() {
-        return ResName;
+        return resName;
     }
 
     public void setResName(String resName) {
-        ResName = resName;
+        resName = resName;
     }
 
     public String getLocation() {
