@@ -95,9 +95,9 @@ public class HomeFragment extends Fragment {
 //      RestaurantAdapter_outdated restauranAdapter = new RestaurantAdapter_outdated(RestaurantList);
 //      listViewRes.setAdapter(restauranAdapter);
 
-      restaurants.add(new Restaurant(1, "Res1", "Location 1", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
-      restaurants.add(new Restaurant(2, "Res2", "Location 2", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
-      restaurants.add(new Restaurant(3, "Res3", "Location 3", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
+//      restaurants.add(new Restaurant(1, "Res1", "Location 1", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
+//      restaurants.add(new Restaurant(2, "Res2", "Location 2", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
+//      restaurants.add(new Restaurant(3, "Res3", "Location 3", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2F2023_03-05_16_07_26?alt=media&token=50b2272a-f6f7-40ca-9beb-c4733c9ff0b7"));
       for (Restaurant res : restaurants){
          try {
             ResDbHelper.insertRestaurant(res);

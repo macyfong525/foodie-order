@@ -20,7 +20,6 @@ public class UserDbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ISADMIN = "isAdmin";
 
 
-
     // Constructor
     public UserDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -68,7 +67,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
     }
 
     // Insert a new user into the database
-    public long insertUser(String email, String password, String username, Integer isAdmin) {
+    public int insertUser(String email, String password, String username, Integer isAdmin) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -77,7 +76,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USERNAME, username);
         values.put(COLUMN_ISADMIN, isAdmin);
 
-        long newRowId = db.insert(TABLE_NAME, null, values);
+        int newRowId = (int) db.insert(TABLE_NAME, null, values);
 
         // Close the database connection
         db.close();
@@ -98,7 +97,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         };
 
         String selection = COLUMN_EMAIL + " = ?";
-        String[] selectionArgs = { email };
+        String[] selectionArgs = {email};
 
         Cursor cursor = db.query(
                 TABLE_NAME,
@@ -120,24 +119,24 @@ public class UserDbHelper extends SQLiteOpenHelper {
             int isAdminIndex = cursor.getColumnIndex(COLUMN_ISADMIN);
 
             // Check if the column exists in the result set
-            if (idColumnIndex != -1 && emailColumnIndex != -1 && passwordColumnIndex != -1 && userColumnIndex!=-1) {
+            if (idColumnIndex != -1 && emailColumnIndex != -1 && passwordColumnIndex != -1 && userColumnIndex != -1) {
                 int id = cursor.getInt(idColumnIndex);
                 String userEmail = cursor.getString(emailColumnIndex);
                 String userPassword = cursor.getString(passwordColumnIndex);
                 String userName = cursor.getString(userColumnIndex);
-                Boolean isAdmin = cursor.getInt(isAdminIndex) !=0 ;
+                Boolean isAdmin = cursor.getInt(isAdminIndex) != 0;
 
                 user = new User(id, userEmail, userPassword, userName, isAdmin);
             }
         }
-
+        db.close();
         cursor.close();
 
         return user;
     }
 
 
-    public User getUserById(Long userId) {
+    public User getUserById(int userId) {
         SQLiteDatabase db = getReadableDatabase();
 
         String[] projection = {
@@ -149,7 +148,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         };
 
         String selection = COLUMN_ID + " = ?";
-        String[] selectionArgs = { String.valueOf(userId) };
+        String[] selectionArgs = {String.valueOf(userId)};
 
         Cursor cursor = db.query(
                 TABLE_NAME,
@@ -171,17 +170,17 @@ public class UserDbHelper extends SQLiteOpenHelper {
             int isAdminIndex = cursor.getColumnIndex(COLUMN_ISADMIN);
 
             // Check if the column exists in the result set
-            if (idColumnIndex != -1 && emailColumnIndex != -1 && passwordColumnIndex != -1 && userColumnIndex!=-1) {
+            if (idColumnIndex != -1 && emailColumnIndex != -1 && passwordColumnIndex != -1 && userColumnIndex != -1) {
                 int id = cursor.getInt(idColumnIndex);
                 String userEmail = cursor.getString(emailColumnIndex);
                 String userPassword = cursor.getString(passwordColumnIndex);
                 String userName = cursor.getString(userColumnIndex);
-                Boolean isAdmin = cursor.getInt(isAdminIndex) !=0 ;
+                Boolean isAdmin = cursor.getInt(isAdminIndex) != 0;
 
                 user = new User(id, userEmail, userPassword, userName, isAdmin);
             }
         }
-
+        db.close();
         cursor.close();
 
         return user;
@@ -197,7 +196,7 @@ public class UserDbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PASSWORD, user.getPassword());
 
         String selection = COLUMN_ID + " = ?";
-        String[] selectionArgs = { String.valueOf(user.getId()) };
+        String[] selectionArgs = {String.valueOf(user.getId())};
 
         int count = db.update(TABLE_NAME, values, selection, selectionArgs);
 

@@ -1,23 +1,24 @@
 package com.example.foodiedelivery.activities;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.adapters.LoginAdapter;
-import com.example.foodiedelivery.models.User;
 import com.example.foodiedelivery.db.UserDbHelper;
+import com.example.foodiedelivery.models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -29,24 +30,75 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
     // google sign in
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     ImageView googleBtn;
-
     // normal sign up and log in tab
     TabLayout tabLayout;
     ViewPager2 viewPager;
-
+    SharedPreferences sharedPreferences;
+    Intent intentMain;
     private UserDbHelper userDbHelper;
-    private long userId;
+    private final ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            (result) -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+                    // connect to db
+                    userDbHelper = new UserDbHelper(getApplicationContext());
+                    int userId;
+
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        String name = account.getDisplayName();
+                        String email = account.getEmail();
+                        Log.d("GOOGLE", "onActivityResult: " + name + email);
+
+                        User user = userDbHelper.getUserByEmail(email);
+                        if (user == null) {
+                            // 0 is not admin, 1 is admin
+                            userId = userDbHelper.insertUser(email, "", name, 0);
+                        } else {
+                            userId = user.getId();
+                        }
+
+                        // navigate to home
+                        // TODO put to shared preference
+                        pushIDtoShare(userId);
+                        startActivity(intentMain);
+                    } catch (ApiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        Log.d(TAG, "onCreate: logged in " + checkUserLogined());
+        intentMain = new Intent(LoginActivity.this, MainActivity.class);
+        if (checkUserLogined()) {
+            startActivity(intentMain);
+            finish();
+        }
         // log in sign up tab
+        setupTab();
+        // google single sign on
+        googleSignIn();
+    }
+
+    public boolean checkUserLogined() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return sharedPreferences.getInt("userId", -1) != -1;
+    }
+
+    private void setupTab() {
         tabLayout = findViewById(R.id.tabLayoutLogin);
         viewPager = findViewById(R.id.viewPagerLogin);
 
@@ -68,79 +120,28 @@ public class LoginActivity extends AppCompatActivity {
                             break;
                     }
                 }).attach();
+    }
 
-
-        // google single sign on
+    private void googleSignIn() {
         googleBtn = findViewById(R.id.googleBtn);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
-        googleBtn.setOnClickListener((View view)->{
-            signIn();
+        googleBtn.setOnClickListener((View view) -> {
+            Intent signInIntent = gsc.getSignInIntent();
+            googleLauncher.launch(signInIntent);
+            finish();
         });
     }
 
-    void signIn(){
-        Intent signInIntent = gsc.getSignInIntent();
-        googleLauncher.launch(signInIntent);
+    public void pushIDtoShare(int userId) {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        // create editor - needed to make changes to the shared preferences
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        // make changes
+        editor.putInt("userId", userId);
+        // commit changes to shared preferences
+        editor.commit();
     }
-
-    ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent data = result.getData();
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-
-                        // connect to db
-                        userDbHelper = new UserDbHelper(getApplicationContext());
-
-                        try {
-                            GoogleSignInAccount account = task.getResult(ApiException.class);
-                            String name = account.getDisplayName();
-                            String email = account.getEmail();
-                            Log.d("GOOGLE", "onActivityResult: "+ name + email);
-
-                            User user = userDbHelper.getUserByEmail(email);
-                            if (user == null) {
-                                // 0 is not admin, 1 is admin
-                                userId = userDbHelper.insertUser(email, "", name, 0);
-                            }else{
-                                userId = user.getId();
-                            }
-
-                            // navigate to home
-                            // TODO parse userid to Main
-                            Bundle bundle = new Bundle();
-                            bundle.putLong("userId", userId);
-                            Intent intent  = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtras(bundle);
-                            startActivity(intent);
-                        } catch (ApiException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(resultCode == 200){
-//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//
-//            try {
-//                task.getResult(ApiException.class);
-//                // navigate to home
-//                Intent intent  = new Intent(LoginActivity.this, HomeActivity.class);
-//                startActivity(intent);
-//            } catch (ApiException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 }
