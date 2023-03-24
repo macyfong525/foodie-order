@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
-@Entity(tableName = "users")
+
+@Entity(tableName = "users",indices={@Index(value={"email"},unique = true)})
 public class User {
 
     @NonNull
@@ -13,19 +15,24 @@ public class User {
     @ColumnInfo(name="id")
     private int id;
 
+    @NonNull
     @ColumnInfo(name="email")
     private String email;
 
+
+    @NonNull
     @ColumnInfo(name="password")
     private String password;
 
+    @NonNull
     @ColumnInfo(name="username")
     private String username;
 
+    @NonNull
     @ColumnInfo(name="isadmin")
     private boolean isAdmin;
 
-    public User(@NonNull Integer id, String email, String password, String username, boolean isAdmin) {
+    public User(@NonNull Integer id,@NonNull String email,@NonNull String password,@NonNull String username, @NonNull boolean isAdmin) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -49,7 +56,7 @@ public class User {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(@NonNull String email) {
         this.email = email;
     }
 
@@ -57,7 +64,7 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(@NonNull String password) {
         this.password = password;
     }
 
@@ -65,7 +72,7 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(@NonNull String username) {
         this.username = username;
     }
 
@@ -73,7 +80,7 @@ public class User {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(@NonNull boolean admin) {
         isAdmin = admin;
     }
 }

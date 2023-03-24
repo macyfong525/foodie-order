@@ -16,7 +16,7 @@ import java.util.List;
 @Dao
 public interface MenuDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertDishes(Dish...dishes);
+    void insertMenus(Dish...dishes);
 
     @Insert(onConflict =OnConflictStrategy.REPLACE)
     Long[] insertMenusFromList(List<Dish> dishes);

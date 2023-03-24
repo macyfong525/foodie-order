@@ -16,6 +16,8 @@ public class Dish {
     @PrimaryKey
     @ColumnInfo(name="id")
     private Integer id;
+
+    @NonNull
     @ColumnInfo(name="resid")
     private Integer resId;
 
@@ -24,7 +26,7 @@ public class Dish {
     @ColumnInfo(name="price")
     private Double price;
 
-    public Dish(@NonNull Integer id, Integer resId, String name, Double price) {
+    public Dish(@NonNull Integer id,@NonNull Integer resId, String name, Double price) {
         this.id = id;
         this.resId = resId;
         this.name = name;
@@ -43,7 +45,7 @@ public class Dish {
     public Integer getResId() {
         return resId;
     }
-    public void setResId(Integer resId) {
+    public void setResId(@NonNull Integer resId) {
         this.resId = resId;
     }
     public String getName() {

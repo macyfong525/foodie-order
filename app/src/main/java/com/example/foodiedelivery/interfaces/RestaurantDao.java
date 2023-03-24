@@ -14,10 +14,10 @@ import java.util.List;
 @Dao
 public interface RestaurantDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertStudents(Restaurant...restaurants);
+    void insertRestaurants(Restaurant...restaurants);
 
     @Insert(onConflict =OnConflictStrategy.REPLACE)
-    Long[] insertStudentsFromList(List<Restaurant> restaurants);
+    Long[] insertRestaurantsFromList(List<Restaurant> restaurants);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertOneRestaurant(Restaurant restaurant);
