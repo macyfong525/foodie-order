@@ -1,7 +1,6 @@
 package com.example.foodiedelivery.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,15 +54,15 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
         fragmentMenuBinding.recycleViewMenu.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         fragmentMenuBinding.recycleViewMenu.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL));
 
+        // TODO change to db
         addData();
         menuAdapter.submitList(Dishes);
 
-        Log.d("MenuFragment", "Start");
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
 
     }
 
-
+    // TODO change to db
     private void addData() {
         Dishes.add(new Dish(1, 1, "Extra Large Meat Lovers", 15.99));
         Dishes.add(new Dish(2, 1, "Extra Large Supreme", 15.99));
@@ -73,11 +72,10 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
         Dishes.add(new Dish(6, 2, "Extra Large Pepperoni Slice,Slice.", 15.99));
     }
 
-
     @Override
     public void addItem(Dish dish) {
         int isAddedStatus = cartViewModel.addItemToCart(dish);
-        switch (isAddedStatus){
+        switch (isAddedStatus) {
             case 0:
                 Snackbar.make(requireView(), dish.getName() + " added to cart", Snackbar.LENGTH_LONG)
                         .show();
