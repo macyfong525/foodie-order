@@ -137,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void signOut() {
         try {
-
             gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
             gsc = GoogleSignIn.getClient(this, gso);
             gsc.signOut().addOnCompleteListener((Task<Void> task) -> {
@@ -146,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.clear();
                 editor.commit();
-                finish();
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
             });
         }catch (Exception ex){
             ex.printStackTrace();

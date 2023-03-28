@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -41,46 +42,14 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     Intent intentMain;
     private UserDbHelper userDbHelper;
-    private final ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            (result) -> {
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-
-                    // connect to db
-                    userDbHelper = new UserDbHelper(getApplicationContext());
-                    int userId;
-
-                    try {
-                        GoogleSignInAccount account = task.getResult(ApiException.class);
-                        String name = account.getDisplayName();
-                        String email = account.getEmail();
-                        Log.d("GOOGLE", "onActivityResult: " + name + email);
-
-                        User user = userDbHelper.getUserByEmail(email);
-                        if (user == null) {
-                            // 0 is not admin, 1 is admin
-                            userId = userDbHelper.insertUser(email, "", name, 0);
-                        } else {
-                            userId = user.getId();
-                        }
-
-                        // navigate to home
-                        // TODO put to shared preference
-                        pushIDtoShare(userId);
-                        startActivity(intentMain);
-                    } catch (ApiException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-    );
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        progressBar = findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.GONE);
         Log.d(TAG, "onCreate: logged in " + checkUserLogined());
         intentMain = new Intent(LoginActivity.this, MainActivity.class);
         if (checkUserLogined()) {
@@ -129,11 +98,50 @@ public class LoginActivity extends AppCompatActivity {
         gsc = GoogleSignIn.getClient(this, gso);
 
         googleBtn.setOnClickListener((View view) -> {
+            progressBar.setVisibility(View.VISIBLE);
             Intent signInIntent = gsc.getSignInIntent();
             googleLauncher.launch(signInIntent);
-            finish();
         });
     }
+
+    private ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            (result) -> {
+                progressBar.setVisibility(View.GONE);
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent data = result.getData();
+                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+                    // connect to db
+                    userDbHelper = new UserDbHelper(getApplicationContext());
+                    int userId;
+
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        String name = account.getDisplayName();
+                        String email = account.getEmail();
+                        Log.d("GOOGLE", "onActivityResult: " + name + email);
+
+                        User user = userDbHelper.getUserByEmail(email);
+                        if (user == null) {
+                            // 0 is not admin, 1 is admin
+                            userId = userDbHelper.insertUser(email, "", name, 0);
+                        } else {
+                            userId = user.getId();
+                        }
+
+                        // navigate to home
+                        // TODO put to shared preference
+                        Log.d(TAG, "google userid: "+ userId);
+                        pushIDtoShare(userId);
+                        startActivity(intentMain);
+                        finish();
+                    } catch (ApiException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+    );
 
     public void pushIDtoShare(int userId) {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
