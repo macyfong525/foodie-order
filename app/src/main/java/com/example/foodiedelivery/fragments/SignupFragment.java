@@ -1,6 +1,8 @@
 package com.example.foodiedelivery.fragments;
 
+import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +13,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import com.example.foodiedelivery.R;
-import com.example.foodiedelivery.db.UserDbHelper;
+import com.example.foodiedelivery.db.FoodieDatabase;
+import com.example.foodiedelivery.interfaces.UserDao;
+import com.example.foodiedelivery.models.AESCrypt;
+import com.example.foodiedelivery.models.User;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SignupFragment extends Fragment {
 
@@ -21,11 +30,14 @@ public class SignupFragment extends Fragment {
     EditText passwordEditText;
     EditText confirmPasswordEdit;
     EditText userName;
-    private UserDbHelper userDbHelper;
+    private FoodieDatabase fd;
+    private static final String TAG = "SignupFragment";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        fd = Room.databaseBuilder
+                (getActivity(), FoodieDatabase.class, "foodie.db").build();
         return inflater.inflate(R.layout.fragment_signup_tab, container, false);
     }
 
@@ -56,20 +68,27 @@ public class SignupFragment extends Fragment {
             if (!password.equals(confirmPassword)) {
                 Toast.makeText(rootView.getContext(), "password is not matched", Toast.LENGTH_SHORT).show();
             }
-            try {
-                // connect to db
-                userDbHelper = new UserDbHelper(getContext());
-                // sign up is only for user, 0 is not admin, 1 is admin
-                long userId = userDbHelper.insertUser(email, password, name, 0);
-                if (userId == -1) {
-                    Toast.makeText(rootView.getContext(), "Please try again with other email", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(rootView.getContext(), "Sign up Successfully", Toast.LENGTH_SHORT).show();
+            UserDao userDao = fd.userDao();
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            executorService.execute(() -> {
+                try {
+                    String encPw = AESCrypt.encrypt(password);
+                    User user = new User(email, encPw, name, false);
+
+                    Log.d(TAG, "onViewCreated: "+ user.toString());
+                    int userId = (int) userDao.insert(user);
+                    getActivity().runOnUiThread(() -> {
+                        Toast.makeText(rootView.getContext(), "Sign up Successfully", Toast.LENGTH_SHORT).show();
+                    });
                     resetForm();
+                } catch (SQLiteConstraintException e) {
+                    getActivity().runOnUiThread(() -> {
+                        Toast.makeText(getContext(), "Email already exists", Toast.LENGTH_SHORT).show();
+                    });
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            });
         });
     }
 

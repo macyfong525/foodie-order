@@ -5,6 +5,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.foodiedelivery.models.User;
 
@@ -18,7 +19,7 @@ public interface UserDao {
     @Insert(onConflict =OnConflictStrategy.REPLACE)
     Long[] insertUsersFromList(List<User> users);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertOneUser(User user);
 
     @Query("SELECT * FROM users")
@@ -35,4 +36,16 @@ public interface UserDao {
 
     @Query("DELETE FROM users WHERE id = :UserId")
     int deleteUserWithId(int UserId);
+
+    @Query("Select * FROM users WHERE email = :email")
+    User getUserByEmail(String email);
+
+    @Insert
+    long insert(User user);
+
+    @Query("SELECT * FROM users where id = :userId")
+    User getUserByid(int userId);
+
+    @Update
+    int updateUser(User user);
 }
