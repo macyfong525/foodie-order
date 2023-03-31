@@ -8,17 +8,17 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.adapters.LoginAdapter;
-import com.example.foodiedelivery.db.UserDbHelper;
+import com.example.foodiedelivery.databinding.ActivityLoginBinding;
+import com.example.foodiedelivery.db.FoodieDatabase;
+import com.example.foodiedelivery.interfaces.UserDao;
 import com.example.foodiedelivery.models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -29,33 +29,33 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     // google sign in
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    ImageView googleBtn;
-    // normal sign up and log in tab
-    TabLayout tabLayout;
-    ViewPager2 viewPager;
     SharedPreferences sharedPreferences;
-    Intent intentMain;
-    private UserDbHelper userDbHelper;
-    ProgressBar progressBar;
-
+    ActivityLoginBinding activityLoginBinding;
+    private FoodieDatabase fd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        progressBar = findViewById(R.id.progress_bar);
-        progressBar.setVisibility(View.GONE);
+        activityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(activityLoginBinding.getRoot());
+
+        activityLoginBinding.progressBar.setVisibility(View.GONE);
         Log.d(TAG, "onCreate: logged in " + checkUserLogined());
-        intentMain = new Intent(LoginActivity.this, MainActivity.class);
         if (checkUserLogined()) {
-            startActivity(intentMain);
-            finish();
+            moveToHome();
         }
+        // open db if user not login
+        fd = Room.databaseBuilder
+                (getApplicationContext(), FoodieDatabase.class, "foodie.db").build();
+
         // log in sign up tab
         setupTab();
         // google single sign on
@@ -67,9 +67,14 @@ public class LoginActivity extends AppCompatActivity {
         return sharedPreferences.getInt("userId", -1) != -1;
     }
 
+    public void moveToHome() {
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        finish();
+    }
+
     private void setupTab() {
-        tabLayout = findViewById(R.id.tabLayoutLogin);
-        viewPager = findViewById(R.id.viewPagerLogin);
+        TabLayout tabLayout = activityLoginBinding.tabLayoutLogin;
+        ViewPager2 viewPager = activityLoginBinding.viewPagerLogin;
 
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Signup"));
@@ -92,50 +97,45 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void googleSignIn() {
-        googleBtn = findViewById(R.id.googleBtn);
-
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
 
-        googleBtn.setOnClickListener((View view) -> {
-            progressBar.setVisibility(View.VISIBLE);
+        activityLoginBinding.googleBtn.setOnClickListener((View view) -> {
+            activityLoginBinding.progressBar.setVisibility(View.VISIBLE);
             Intent signInIntent = gsc.getSignInIntent();
             googleLauncher.launch(signInIntent);
         });
     }
-
-    private ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
+    private final ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             (result) -> {
-                progressBar.setVisibility(View.GONE);
+                activityLoginBinding.progressBar.setVisibility(View.GONE);
                 if (result.getResultCode() == Activity.RESULT_OK) {
                     Intent data = result.getData();
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-
-                    // connect to db
-                    userDbHelper = new UserDbHelper(getApplicationContext());
-                    int userId;
 
                     try {
                         GoogleSignInAccount account = task.getResult(ApiException.class);
                         String name = account.getDisplayName();
                         String email = account.getEmail();
-                        Log.d("GOOGLE", "onActivityResult: " + name + email);
+                        Log.d(TAG, "onActivityResult: " + name + email);
 
-                        User user = userDbHelper.getUserByEmail(email);
-                        if (user == null) {
-                            // 0 is not admin, 1 is admin
-                            userId = userDbHelper.insertUser(email, "", name, 0);
-                        } else {
-                            userId = user.getId();
-                        }
-
-                        // navigate to home
-                        // TODO put to shared preference
-                        Log.d(TAG, "google userid: "+ userId);
-                        pushIDtoShare(userId);
-                        startActivity(intentMain);
-                        finish();
+                        UserDao userDao = fd.userDao();
+                        ExecutorService executorService = Executors.newSingleThreadExecutor();
+                        executorService.execute(() -> {
+                            int userId = -1;
+                            User user = userDao.getUserByEmail(email);
+                            if (user == null) {
+                                user = new User(email, "", name, false);
+                                userId = (int) userDao.insert(user);
+                            } else {
+                                userId = user.getId();
+                            }
+                            // navigate to home
+                            Log.d(TAG, "google userid: " + userId);
+                            pushIDtoShare(userId);
+                            moveToHome();
+                        });
                     } catch (ApiException e) {
                         e.printStackTrace();
                     }

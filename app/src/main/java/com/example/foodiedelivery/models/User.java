@@ -3,55 +3,51 @@ package com.example.foodiedelivery.models;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "users",indices={@Index(value={"email"},unique = true)})
+@Entity(tableName = "users", indices = {@Index(value = {"email"}, unique = true)})
 public class User {
 
-    @NonNull
-    @PrimaryKey
-    @ColumnInfo(name="id")
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     @NonNull
-    @ColumnInfo(name="email")
+    @ColumnInfo(name = "email")
     private String email;
 
 
     @NonNull
-    @ColumnInfo(name="password")
+    @ColumnInfo(name = "password")
     private String password;
 
     @NonNull
-    @ColumnInfo(name="username")
+    @ColumnInfo(name = "username")
     private String username;
 
     @NonNull
-    @ColumnInfo(name="isadmin")
+    @ColumnInfo(name = "isadmin")
     private boolean isAdmin;
 
-    public User(@NonNull Integer id,@NonNull String email,@NonNull String password,@NonNull String username, @NonNull boolean isAdmin) {
-        this.id = id;
+    public User() {
+    }
+
+    public User(@NonNull String email, @NonNull String password, @NonNull String username, boolean isAdmin) {
         this.email = email;
         this.password = password;
         this.username = username;
         this.isAdmin = isAdmin;
     }
-    @Ignore
-    public User() {
-    }
 
-    @NonNull
     public int getId() {
         return id;
     }
 
-    public void setId(@NonNull int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
+    @NonNull
     public String getEmail() {
         return email;
     }
@@ -60,6 +56,7 @@ public class User {
         this.email = email;
     }
 
+    @NonNull
     public String getPassword() {
         return password;
     }
@@ -68,6 +65,7 @@ public class User {
         this.password = password;
     }
 
+    @NonNull
     public String getUsername() {
         return username;
     }
@@ -80,7 +78,18 @@ public class User {
         return isAdmin;
     }
 
-    public void setAdmin(@NonNull boolean admin) {
+    public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }
