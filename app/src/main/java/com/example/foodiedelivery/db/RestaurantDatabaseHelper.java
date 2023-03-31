@@ -85,7 +85,7 @@ public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
             String location = cursor.getString(cursor.getColumnIndex("location"));
             String imageUrl = cursor.getString(cursor.getColumnIndex("image_url"));
 
-            Restaurant restaurant = new Restaurant(id, name, location, imageUrl);
+            Restaurant restaurant = new Restaurant(name, location, imageUrl);
             restaurants.add(restaurant);
         }
         cursor.close();

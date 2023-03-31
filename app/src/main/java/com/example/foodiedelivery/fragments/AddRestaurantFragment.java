@@ -102,7 +102,7 @@ public class AddRestaurantFragment extends Fragment {
 
                     //begin the db part
                     helper = new RestaurantDatabaseHelper(getContext());
-                    Restaurant res = new Restaurant(0, editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl);
+                    Restaurant res = new Restaurant(editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl);
                     long resId = helper.insertRestaurant(res);
                     if (resId == -1){
                         Toast.makeText(getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show();

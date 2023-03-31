@@ -64,12 +64,12 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
 
     // TODO change to db
     private void addData() {
-        Dishes.add(new Dish(1, 1, "Extra Large Meat Lovers", 15.99));
-        Dishes.add(new Dish(2, 1, "Extra Large Supreme", 15.99));
-        Dishes.add(new Dish(3, 1, "Extra Large Pepperoni", 13.99));
-        Dishes.add(new Dish(4, 1, "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
-        Dishes.add(new Dish(5, 1, "Extra Large 5 Cheese.", 15.99));
-        Dishes.add(new Dish(6, 2, "Extra Large Pepperoni Slice,Slice.", 15.99));
+        Dishes.add(new Dish(1, "Extra Large Meat Lovers", 15.99));
+        Dishes.add(new Dish(1, "Extra Large Supreme", 15.99));
+        Dishes.add(new Dish(1, "Extra Large Pepperoni", 13.99));
+        Dishes.add(new Dish(1, "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
+        Dishes.add(new Dish(1, "Extra Large 5 Cheese.", 15.99));
+        Dishes.add(new Dish(2, "Extra Large Pepperoni Slice,Slice.", 15.99));
     }
 
     @Override

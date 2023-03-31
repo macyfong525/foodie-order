@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Entity(tableName = "restaurants")
 public class Restaurant {
     @NonNull
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
     @ColumnInfo(name="id")
     private int id;
     @ColumnInfo(name="resname")
@@ -25,8 +25,8 @@ public class Restaurant {
     public Restaurant() {
     }
 
-    public Restaurant(@NonNull int id, String resName, String location, String imageUrl) {
-        this.id = id;
+    public Restaurant(String resName, String location, String imageUrl) {
+//        this.id = id;
         this.resName = resName;
         this.location = location;
         this.imageUrl = imageUrl;

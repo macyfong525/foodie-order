@@ -4,21 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import java.util.Objects;
-@Entity(tableName = "dishes")
+@Entity(
+        tableName = "dishes",
+        foreignKeys = @ForeignKey(
+                entity = Restaurant.class,
+                parentColumns = "id",
+                childColumns = "resId",
+                onDelete = ForeignKey.CASCADE
+        )
+)
 
 public class Dish {
-
     @NonNull
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")
     private Integer id;
 
     @NonNull
-    @ColumnInfo(name="resid")
+    @ColumnInfo(name="resId")
     private Integer resId;
 
     @ColumnInfo(name="name")
@@ -26,8 +33,7 @@ public class Dish {
     @ColumnInfo(name="price")
     private Double price;
 
-    public Dish(@NonNull Integer id,@NonNull Integer resId, String name, Double price) {
-        this.id = id;
+    public Dish(@NonNull Integer resId, String name, Double price) {
         this.resId = resId;
         this.name = name;
         this.price = price;
