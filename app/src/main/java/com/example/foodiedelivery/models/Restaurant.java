@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 @Entity(tableName = "restaurants")
 public class Restaurant {
-    @NonNull
     @PrimaryKey (autoGenerate = true)
     @ColumnInfo(name="id")
     private int id;

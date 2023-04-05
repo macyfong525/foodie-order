@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     AddRestaurantFragment addRestaurantFragment = new AddRestaurantFragment();
     GreenFragment greenFragment = new GreenFragment();
     CartFragment cartFragment = new CartFragment();
+    OrderFragment orderFragment = new OrderFragment();
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     private int cartQuantity = 0;
@@ -123,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
                         return true;
                     case R.id.order:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, new MenuFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, orderFragment).commit();
                         return true;
                     case R.id.profile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();

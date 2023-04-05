@@ -39,6 +39,6 @@ public interface DishDao {
     LiveData<Dish> getDishById(int dishId);
 
     @Query("SELECT * FROM dishes WHERE resid= :restaurantId")
-    LiveData<List<Dish>> getDishesByRestaurantId(int restaurantId);
+    public List<Dish> getDishesByRestaurantId(int restaurantId);
 
 }

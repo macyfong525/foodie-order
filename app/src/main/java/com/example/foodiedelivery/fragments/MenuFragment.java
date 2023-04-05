@@ -1,6 +1,7 @@
 package com.example.foodiedelivery.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,15 +11,22 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.room.Room;
 
 import com.example.foodiedelivery.adapters.MenuAdapter;
 import com.example.foodiedelivery.databinding.FragmentMenuBinding;
+import com.example.foodiedelivery.db.FoodieDatabase;
+import com.example.foodiedelivery.interfaces.DishDao;
+import com.example.foodiedelivery.interfaces.RestaurantDao;
 import com.example.foodiedelivery.models.CartViewModel;
 import com.example.foodiedelivery.models.Dish;
+import com.example.foodiedelivery.repositories.RestaurantRepository;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +41,10 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
     FragmentMenuBinding fragmentMenuBinding;
     private MenuAdapter menuAdapter;
     private CartViewModel cartViewModel;
+    FoodieDatabase fdb;
+    RestaurantDao restaurantDao;
+    DishDao dishDao;
+    List<Dish> dishes;
 
     public MenuFragment() {
     }
@@ -55,22 +67,43 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
         fragmentMenuBinding.recycleViewMenu.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL));
 
         // TODO change to db
-        addData();
-        menuAdapter.submitList(Dishes);
+//        addData();
+        Bundle args= getArguments();
+        int restaurantId = args.getInt("restaurantId");
+
+        Log.d(TAG , "onViewCreated: "+ restaurantId);
+
+        fdb = Room.databaseBuilder(getActivity(), FoodieDatabase.class, "foodie.db").build();
+        restaurantDao = fdb.RestaurantDao();
+
+        dishDao = fdb.menuDao();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+
+            dishes = dishDao.getDishesByRestaurantId(restaurantId);
+            Log.d(TAG, "dishes: " + dishes.size());
+            Log.d(TAG, "dishes: " + dishes.toString());
+            Log.d(TAG, "onViewCreated: "+ Dishes.size());
+        });
+
+
+        menuAdapter.submitList(dishes);
 
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
+
+
 
     }
 
     // TODO change to db
-    private void addData() {
-        Dishes.add(new Dish(1, "Extra Large Meat Lovers", 15.99));
-        Dishes.add(new Dish(1, "Extra Large Supreme", 15.99));
-        Dishes.add(new Dish(1, "Extra Large Pepperoni", 13.99));
-        Dishes.add(new Dish(1, "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
-        Dishes.add(new Dish(1, "Extra Large 5 Cheese.", 15.99));
-        Dishes.add(new Dish(2, "Extra Large Pepperoni Slice,Slice.", 15.99));
-    }
+//    private void addData() {
+//        Dishes.add(new Dish(1, "Extra Large Meat Lovers", 15.99));
+//        Dishes.add(new Dish(1, "Extra Large Supreme", 15.99));
+//        Dishes.add(new Dish(1, "Extra Large Pepperoni", 13.99));
+//        Dishes.add(new Dish(1, "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
+//        Dishes.add(new Dish(1, "Extra Large 5 Cheese.", 15.99));
+//        Dishes.add(new Dish(2, "Extra Large Pepperoni Slice,Slice.", 15.99));
+//    }
 
     @Override
     public void addItem(Dish dish) {

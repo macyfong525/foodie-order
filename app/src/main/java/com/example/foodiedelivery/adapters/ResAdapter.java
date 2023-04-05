@@ -1,18 +1,25 @@
 package com.example.foodiedelivery.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.fragments.MenuFragment;
+import com.example.foodiedelivery.fragments.OrderFragment;
 import com.example.foodiedelivery.models.Restaurant;
 
 
@@ -45,7 +52,17 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.RestaurantViewHo
         Glide.with(context).load(restaurant.getImageUrl())
                 .into(holder.imgView);
         holder.itemView.setOnClickListener(v -> {
-            Log.d("RecyclerView", "You clicked the restaurant position: " + position);
+            Log.d("RecyclerView", "You clicked the restaurant position: " + position + "Restaurant ID: " + restaurant.getId());
+            Bundle bundle = new Bundle();
+            bundle.putInt("restaurantId", restaurant.getId());
+
+            Fragment menuFrag = new MenuFragment();
+            menuFrag.setArguments(bundle);
+
+            FragmentTransaction trans = ((FragmentActivity) context).getSupportFragmentManager().beginTransaction();
+            trans.replace(R.id.container, menuFrag);
+            trans.addToBackStack(null);
+            trans.commit();
         });
     }
 
@@ -65,9 +82,9 @@ public class ResAdapter extends RecyclerView.Adapter<ResAdapter.RestaurantViewHo
             locationTextView = itemView.findViewById(R.id.locationTextView);
         }
     }
-//    public interface OnItemClickListener{
-//        public void onItemClick(int i);
-//    }
+    public interface OnItemClickListener{
+        public void onItemClick(int i);
+    }
 
 }
 
