@@ -1,5 +1,6 @@
 package com.example.foodiedelivery.interfaces;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -23,7 +24,8 @@ public interface RestaurantDao {
     void insertOneRestaurant(Restaurant restaurant);
 
     @Query("SELECT * FROM restaurants")
-    List<Restaurant> GetAllRestaurants();
+    LiveData<List<Restaurant>> GetAllRestaurants();
+
 
     @Delete
     int deleteOneRestaurant(Restaurant restaurant);
@@ -36,4 +38,5 @@ public interface RestaurantDao {
 
     @Query("DELETE FROM restaurants WHERE id = :ResId")
     int deleteRestaurantWithId(int ResId);
+
 }

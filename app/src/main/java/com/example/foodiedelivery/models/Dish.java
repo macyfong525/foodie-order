@@ -4,30 +4,36 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import java.util.Objects;
-@Entity(tableName = "dishes")
+@Entity(
+        tableName = "dishes",
+        foreignKeys = @ForeignKey(
+                entity = Restaurant.class,
+                parentColumns = "id",
+                childColumns = "resId",
+                onDelete = ForeignKey.CASCADE
+        )
+)
 
 public class Dish {
-
-    @NonNull
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="id")
-    private Integer id;
+    private int id;
+//    private Integer id;
 
     @NonNull
-    @ColumnInfo(name="resid")
-    private Integer resId;
+    @ColumnInfo(name="resId")
+    private Long resId;
 
     @ColumnInfo(name="name")
     private String name;
     @ColumnInfo(name="price")
     private Double price;
 
-    public Dish(@NonNull Integer id,@NonNull Integer resId, String name, Double price) {
-        this.id = id;
+    public Dish(@NonNull Long resId, String name, Double price) {
         this.resId = resId;
         this.name = name;
         this.price = price;
@@ -36,16 +42,17 @@ public class Dish {
     public Dish() {
     }
     @NonNull
-    public Integer getId() {
+    public int getId() {
         return id;
     }
-    public void setId(@NonNull Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public Integer getResId() {
+    @NonNull
+    public Long getResId() {
         return resId;
     }
-    public void setResId(@NonNull Integer resId) {
+    public void setResId(@NonNull Long resId) {
         this.resId = resId;
     }
     public String getName() {
@@ -63,7 +70,7 @@ public class Dish {
     public static DiffUtil.ItemCallback<Dish> itemCallback = new DiffUtil.ItemCallback<Dish>() {
         @Override
         public boolean areItemsTheSame(@NonNull Dish oldItem, @NonNull Dish newItem) {
-            return oldItem.getId().equals(newItem.getId());
+            return oldItem.getId() == (newItem.getId());
         }
 
         @Override
@@ -77,7 +84,7 @@ public class Dish {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dish dish = (Dish) o;
-        return getId().equals(dish.getId()) && getResId().equals(dish.getResId()) && getName().equals(dish.getName()) && getPrice().equals(dish.getPrice());
+        return getId() == (dish.getId()) && getResId().equals(dish.getResId()) && getName().equals(dish.getName()) && getPrice().equals(dish.getPrice());
     }
 
     @Override
