@@ -6,9 +6,6 @@
         android:id="@+id/addRestaurantFragment"
         android:title="@string/resBtn" />
     <item
-        android:id="@+id/green"
-        android:title="@string/menuBtn" />
-    <item
         android:id="@+id/logout"
         android:title="@string/signOutBtn"
         android:icon="@drawable/ic_baseline_logout_24"/>
