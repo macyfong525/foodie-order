@@ -15,11 +15,9 @@ import androidx.room.Room;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.foodiedelivery.adapters.ResAdapter;
@@ -38,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class HomeFragment extends Fragment {
@@ -53,12 +50,6 @@ public class HomeFragment extends Fragment {
    DishDao dishDao;
    private Context context;
    private RestaurantRepository restaurantRepository;
-
-
-
-
-//   List<Restaurant> restaurants = ResDbHelper.getAllRestaurants();
-
 
 
 
@@ -95,8 +86,8 @@ public class HomeFragment extends Fragment {
       executor.execute(new Runnable() {
          @Override
          public void run() {
-            restaurantRepository.deleteAllRestaurants();
-            LiveData<List<Restaurant>>restaurants =  restaurantRepository.getAllRestaurants();
+//            restaurantRepository.deleteAllRestaurants();
+            LiveData<List<Restaurant>> restaurants =  restaurantRepository.getAllRestaurants();
             if(restaurants == null || restaurants.getValue()==null){
                List<Restaurant> dummyRestaurants = new ArrayList<>();
                List<Dish> dummyDishes = new ArrayList<>();
