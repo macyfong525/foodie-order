@@ -80,4 +80,7 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation "androidx.room:room-paging:$room_version"
+
+    // csv reader
+    implementation 'com.opencsv:opencsv:5.5.1'
 }

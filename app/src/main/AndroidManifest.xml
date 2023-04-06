@@ -42,6 +42,11 @@
                 android:value="" />
         </activity>
 
+        <activity
+            android:name=".activities.LoadData"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
