@@ -42,15 +42,9 @@ public class Dish {
     public Dish() {
     }
     @NonNull
-//    public Integer getId() {
-//        return id;
-//    }
     public int getId() {
         return id;
     }
-//    public void setId(@NonNull Integer id) {
-//        this.id = id;
-//    }
     public void setId(int id) {
         this.id = id;
     }
