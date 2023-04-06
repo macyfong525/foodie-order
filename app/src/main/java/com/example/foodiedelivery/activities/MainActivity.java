@@ -63,12 +63,22 @@ public class MainActivity extends AppCompatActivity {
 
         // check user is admin and show menu
         MenuItem menuAddRes = menu.findItem(R.id.addRestaurantFragment);
-        if (user.getIsAdmin()) {
-            menuAddRes.setVisible(true);
-        } else {
-            menuAddRes.setVisible(false);
-        }
-        
+        UserDao userDao = fd.userDao();
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            int userId = sharedPreferences.getInt("userId", -1);
+            user = userDao.getUserByid(userId);
+            runOnUiThread(() -> {
+                if (user.getIsAdmin()) {
+                    menuAddRes.setVisible(true);
+                } else {
+                    menuAddRes.setVisible(false);
+                }
+            });
+        });
+
+
         final MenuItem menuItem = menu.findItem(R.id.cart);
         View actionView = menuItem.getActionView();
         TextView cartBadgeTextView = actionView.findViewById(R.id.cart_badge_text_view);
@@ -109,13 +119,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fd = Room.databaseBuilder(getApplicationContext(), FoodieDatabase.class, "foodie.db").build();
-        UserDao userDao = fd.userDao();
-        ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(() -> {
-            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            int userId = sharedPreferences.getInt("userId", -1);
-            user = userDao.getUserByid(userId);
-        });
 
         // for ViewModel
         CartViewModel cartViewModel = new ViewModelProvider(this).get(CartViewModel.class);
