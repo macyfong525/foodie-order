@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -51,8 +52,8 @@ public class LoadData extends AppCompatActivity {
             executorService.execute(() -> {
                 Log.d(TAG, "onCreate: "+ users.size());
                 userDao.insertUsersFromList(users);
-                menuDao.insertDishesFromList(dishes);
                 resDao.insertRestaurantsFromList(res);
+                menuDao.insertDishesFromList(dishes);
             });
 
         } catch (Exception e) {
@@ -90,18 +91,21 @@ public class LoadData extends AppCompatActivity {
         List<Dish> DishList = new ArrayList<>();
 
         InputStream inputStreamMenu = getResources().openRawResource(R.raw.menu);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStreamMenu));
+        CSVReader reader = new CSVReader(new InputStreamReader(inputStreamMenu));
 
         try {
-            String menuLine;
-            while ((menuLine = reader.readLine()) != null) {
-                String[] eachLine = menuLine.split(",");
-                Log.d(TAG, "menu 0: "+ Long.parseLong(eachLine[0]));
-                Dish eachDish = new Dish(Long.parseLong(eachLine[0]), eachLine[1], Double.parseDouble(eachLine[2]));
+            String[] dataRow;
+            while ((dataRow = reader.readNext()) != null) {
+                Log.d(TAG, "menu 0: "+ Arrays.toString(dataRow));
+                String index = dataRow[0];
+                Log.d(TAG, "menu 0: "+ Long.valueOf(index).longValue() );
+                Dish eachDish = new Dish(Long.parseLong(dataRow[0]), dataRow[2], Double.parseDouble(dataRow[4]));
                 DishList.add(eachDish);
             }
         } catch (IOException ex) {
             throw new RuntimeException("Error reading file " + ex);
+        } catch (CsvValidationException e) {
+            e.printStackTrace();
         } finally {
             try {
                 inputStreamMenu.close();
@@ -125,7 +129,7 @@ public class LoadData extends AppCompatActivity {
             String eachLine;
             while ((eachLine = reader.readLine()) != null) {
                 String[] eachStudFields = eachLine.split(",");
-                boolean isAdmin = eachStudFields[3].equals('0') ? false : true;
+                boolean isAdmin = Integer.parseInt(eachStudFields[3]) !=0 ;
                 User eachUser = new User
                         (eachStudFields[0], eachStudFields[1], eachStudFields[2], isAdmin);
                 UserList.add(eachUser);
