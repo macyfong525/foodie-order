@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Foodie Delivery</string>
+    <string name="app_name">Foodie Order</string>
     <string name="loginName">Username</string>
     <string name="loginEmail">Email</string>
     <string name="signOutBtn">Sign Out</string>
