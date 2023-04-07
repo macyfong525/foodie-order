@@ -1,0 +1,485 @@
+1,Extra Large Pizza,Extra Large Meat Lovers,Whole pie.,15.99
+1,Extra Large Pizza,Extra Large Supreme,Whole pie.,15.99
+1,Extra Large Pizza,Extra Large Pepperoni,Whole pie.,14.99
+1,Extra Large Pizza,Extra Large BBQ Chicken &amp; Bacon,Whole Pie,15.99
+1,Extra Large Pizza,Extra Large 5 Cheese,Whole pie.,14.99
+1,Extra Large Pizza,Extra Large Pepperoni Slice,Slice.,3.99
+1,Extra Large Pizza,Extra Large BBQ Chicken &amp; Bacon Slice,,3.99
+1,Extra Large Pizza,Extra Large Meat Lovers Slice,Slice.,3.99
+1,Extra Large Pizza,Extra Large Supreme Slice,Slice.,3.99
+1,Extra Large Pizza,Extra Large 5 Cheese Slice,Slice.,3.99
+1,Jumbo Wings,Jumbo Chicken Wings Five Pieces,,8.99
+1,Jumbo Wings,Jumbo Chicken Wings Seven Pieces,,10.99
+1,Jumbo Wings,Jumbo Chicken Wings Nine Pieces,,12.99
+1,Jumbo Wings,Jumbo Chicken Wings Twelve Pieces,,15.99
+1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Five Pieces,,8.99
+1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Seven Pieces,,10.99
+1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Nine Pieces,,12.99
+1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Twelve Pieces,,15.99
+1,Chicken Tenders,Five Chicken Tenders,,8.99
+1,Chicken Tenders,Seven Chicken Tenders,,10.99
+1,Chicken Tenders,Nine Chicken Tenders,,12.99
+1,Chicken Tenders,Twelve Chicken Tenders,,15.99
+1,Snacks,Grab and Go Cheese It,3oz.,1.89
+1,Snacks,Doritos Nacho,3.125oz.,1.99
+1,Snacks,Lay's Classic,2.75oz.,1.99
+1,Snacks,Ruffles Cheddar and Sour Cream,2.625oz.,1.99
+1,Snacks,Doritos Cool Ranch,3.125oz.,1.99
+1,Snacks,Cheetos Crunchy,3.5oz.,1.99
+1,Snacks,Funyuns,2.375oz.,1.99
+1,Snacks,Chex Mix Traditional,3.75oz.,2.69
+1,Snacks,Combos Pretzel With Cheddar Cheese,6.30oz.,2.99
+1,Snacks,Snak Club Family Size Energizer Trail Mix,16oz.,7.39
+1,Snacks,Wonderful Roasted and Salted Pistachios,8oz.,10.99
+1,Snacks,Wonderful Roasted and Salted Unshelled Pistachios,6oz.,14.99
+1,Snacks,Wonderful Roasted and Salted Pistachios,16oz,14.99
+1,Snacks,Jack Links Original Jerky,5.85oz.,13.49
+1,Snacks,Jack Links Peppered Jerky,5.85oz.,13.49
+1,Snacks,Jack Links Teriyaki Jerky,5.85oz.,13.49
+1,Snacks,Old Trapper Old Fashion Jerky,10oz.,16.99
+1,Snacks,Old Trapper Peppered Jerky,10oz.,16.99
+1,Candy,Haribo Gold Bears,8oz.,2.69
+1,Candy,Hershey Almond King Size,,2.29
+1,Candy,Hershey Bar Milk Chocolate King Size,,2.29
+1,Candy,Kit Kat King Size,,2.29
+1,Candy,M and M Peanut King Size,,2.29
+1,Candy,Payday King,,2.29
+1,Candy,Reese Cup King Size,,2.29
+1,Candy,Reese Fast Break King Size,,2.29
+1,Candy,Reese Sticks King Size,,2.29
+1,Candy,Snickers King Two Piece,,2.29
+1,Candy,Twix Caramel King,,2.29
+1,Pastries,Bon Appetit Cheese and Berry Danish,Single.,2.69
+1,Pastries,Bon Appetit Cheese Croissant,Single.,2.69
+1,Pastries,Bon Appetit Apple Turnover,Single.,2.69
+1,Pastries,Bon Appetit Bluberry Cream Danish,Single.,2.69
+1,Pastries,Rice Krispies Treat Original Big Bar,2.2oz.,1.89
+1,Coffee,Monster Java Mean Bean,15oz can.,3.49
+1,Coffee,Monster Java Loca Moca,15oz can.,3.49
+1,Coffee,Monster Java Sltd Crml,15oz can.,3.49
+1,Coffee,Starbucks Frapp Mocha,7oz bottle.,3.79
+1,Coffee,Starbucks Frapp Van,7oz bottle.,3.79
+1,Coffee,Starbucks Frapp Crml Macchiato,7oz bottle.,3.79
+1,Energy,Monster,16oz can.,3.29
+1,Energy,Monster Zero Ultra,16oz can.,3.29
+1,Energy,Monster Ultra Paradise,16oz can.,3.29
+1,Energy,Red Bull,12oz can.,3.79
+1,Energy,Red Bull Sugar Free,12oz can.,3.79
+1,Energy,Red Bull Blue Berry,12oz can.,3.79
+1,Energy,Five Hour Energy Ex Strong Berry,3oz bottle.,4.29
+1,Juice,Tropicana Orange No Pulp,12oz.,2.29
+1,Juice,Tropicana Prem Orange Hmstl Pulp,12oz bottle.,2.29
+1,Juice,Tropicana Apple,12oz.,2.29
+1,Soda,Diet Coke,20oz bottle.,2.39
+1,Soda,Diet Mountain Dew,20oz bottle.,2.39
+1,Soda,Diet Pepsi,20oz bottle.,2.39
+1,Soda,Dr Pepper,20oz bottle.,2.39
+1,Soda,Mountain Dew,20oz bottle.,2.39
+1,Soda,Mountain Dew Code Red,20oz bottle.,2.39
+1,Soda,Pepsi,20oz bottle.,2.39
+1,Soda,Sprite,20oz bottle.,2.39
+1,Soda,Canada Dry Ginger Ale,20oz bottle.,2.29
+1,Soda,Coca Cola,20oz bottle.,2.39
+1,Soda,Coke Chry,20oz bottle.,2.39
+1,Soda,Coke Zero,20oz bottle.,2.39
+1,Soda,Coke Zero Chry Two,20oz bottle.,2.39
+1,Soda,Diet Dr Pepper,20oz bottle.,2.39
+1,Soda,Dr Pepper Chry,20oz bottle.,2.39
+1,Tea,Arizona Green Tea,34oz bottle.,2.49
+1,Tea,Arizona Tea Sweet,One liter bottle.,2.49
+1,Tea,Arizona Tea Arnld Plmr,34oz bottle.,2.49
+1,Water,Bodyarmor Strawberry Banana,28oz bottle.,2.99
+1,Water,Bodyarmor Orange Mango,28oz bottle.,2.99
+1,Water,Bodyarmor Fruit Punch,28oz bottle.,2.99
+1,Water,Fiji Water 700 ml,700 ml bottle.,2.89
+1,Water,Fiji Water,One liter bottle.,3.39
+2,Smoothies,J’ Ti`’z Smoothie,"Tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples, and spinach. Special blue and green with strawberry bananas juice blend smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Ti`’z Fruity Thang Smoothie,"Tropical fruit blend, dragon fruit mix, craisin, and apricot. Special green juice blend smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Ashunti`Way Smoothie,"Fruit n greens, mango bananas, tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples, and spinach. Special green with strawberry bananas juice blend . Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Jimmy Jam Smoothie,"Berries n kale, strawberries, bananas, blueberries kale, tropical fruit blend, and dragon fruit. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,J’ Ti`’z Tastey Ice Smoothie,"Tropical fruit blend, dragon fruit, pineapple, bananas, and mango. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Tejay Impact Smoothie,"Tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples, and spinach. Special blue juice blend smoothies.",5.49
+2,Smoothies,Dayton 500 Smoothie,"Tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples. Special green juice blend. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Nappy Head Truth Smoothie,"Refreshing greens with a hint of mint, apples, bananas, kale, cucumbers, spinach, and mint leaves smoothies. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,Aw Shuckie Shuckie Now Smoothie,"Triple berry blend, blueberries, strawberries, raspberries, bananas, non- fat yogurt, carrots, and mango smoothies. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,J’ Taste Bud Factor Smoothie,"Strawberries, bananas, peaches, apples, coconut water, and grape smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Early Birds Get the Worm Smoothie,"Mango, pineapples, bananas, sweet potato, v s and b special blue blend berry. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Jameria Crush Smoothie,"Detox rocks, pineapple, bananas, cranberry, kale, lemon, and berry mango blend smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Tongue Teaser Smoothie,"Tropical fruit blend, dragon fruit, pineapples, bananas, mango, apples, spinach, ginger powder. Special green blend, pineapple and ginger smoothies. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,Groovy Louie Smoothie,"Mango, taro, coconut milk, pineapple juice or lime. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,J Wit Da Weezy Smoothie,"Kale, pineapples, peaches, blueberries, and cran blackberries. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,Dance Wit Ginger Smoothie,"Avocado, blueberries, kale, spinach, and ginger. Special blue and green. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,N Da Clouds Smoothie,"Berries, mango, pineapples, and dragon fruit. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,Taste on Da Tongue Smoothie,"Pineapples, orange, peaches, and coconut water. Our fruity tasty smoothies are blended to perfection.",5.49
+2,Smoothies,Summer Time Smoothie,"Orange tangerine, tropical sunshine, apricot, craisin, lime, and pineapples. Our fruity tasty smoothies are blended to perfection.",6.49
+2,Smoothies,K Blend Smoothie,"Mango, pineapple, peaches pear apricot, cranberry, lemons, lemonade, flaxseeds, and strawberry protein. Our fruity tasty smoothies are blended to perfection.",8.49
+2,Coffee,Black Tar Coffee,"Fresh medium roast brewed, with or without boba fresh decaf roast brewed. Fresh brewed whole beans coffee! Taste will be fresh and add in our gourmet flavors of your choice.",2.5
+2,Espresso Shots,Ray Single Shot,Fresh and strong to give you the kick start you need.,0.75
+2,Espresso Shots,Garri Double Shot,Fresh and strong to give you the double kick start you need.,3.95
+2,Latte,Tereze Latte,"Creamy espresso, steamed milk, and light froth. Made from fresh whole bean coffee made with espresso and hot steamed milk.",4.95
+2,Latte,Tiese Mocha Latte,"Cocoa, chocolate, espresso, steamed milk, and whipped cream. Made from fresh whole bean coffee made with espresso and hot steamed milk.",4.95
+2,Latte,Matcha Green Tea Latte,Almond breeze vanilla unsweetened almond milk. Made from fresh whole bean coffee made with espresso and hot steamed milk.,4.95
+2,Latte,Toffee Nut or Butter Pecan Latte,"Butter pecan, caramel sauce, espresso, steamed milk, and whipped cream. Made from fresh whole bean coffee made with espresso and hot steamed milk.",5.5
+2,Jtizpuccino,Caramel Jtizpuccino,"Coffee, sweetened condense milk, cream, caramel sauce, and whip cream.",5.5
+2,Jtizpuccino,Java Chip Jtizpuccino,"Coffee, chocolate syrup, sweetened condense milk, cream, chocolate chips, and whip cream.",5.5
+2,Jtizpuccino,Cotton Candy Jtizpuccino,"Vanilla syrup, raspberry syrup, milk, whip cream, and vanilla ice cream.",4.99
+2,Teas,Matcha Mint Chip Cafe Essential,Specialty drinks.,5.5
+2,Teas,Boba Milk Tea Flavors,,4.95
+2,Teas,Homemade Tea,,2.5
+2,Teas,Gourmet Flavor Tea,,0.6
+2,Desserts,Fruit N Yogurt Parfait,,4.5
+2,Desserts,Mango,,4.5
+2,Desserts,Strawberry,,4.5
+2,Desserts,Acai Berry Blend,,4.5
+2,Breakfast (All-Day),Waffles,"Traditional or belgian waffle. Add a topping (strawberries, chocolate chips, or whipped cream).",4.99
+2,Breakfast (All-Day),Waffle Omelets,"Eggs, shredded mozzarella, chopped red peppers, chopped broccoli or spinach, andbreakfast sliced sausage.",6
+2,Breakfast (All-Day),Chicken Waffle Sandwich,"Pulled chicken, jalapeno, shredded cabbage, shredded carrot, maple syrup apple cider vinegar, and mayo.",7.99
+2,Breakfast (All-Day),Stuffed Waffle Biscuits,"Your Choose your size of meats are sausage or ham or bacon or eggs, turkey (two meats with cheese).",5.95
+2,Breakfast (All-Day),Bacon with Eggs &amp; Cheese,,5.95
+2,Breakfast (All-Day),Breakfast Plate,"Grits, eggs, bacon or sausage with toast.",7.99
+2,Breakfast (All-Day),Sausage &amp; Egg with Cheese Sandwich,,5.95
+2,Breakfast (All-Day),Bacon Egg &amp; Cheese Sandwich,,4.39
+2,Lunch,Kings Hawaiian,"Kaiser roll, turkey, ham, and monterey Jack cheese (French chili). Take a,oad off and relax sip-n-snack at J'ti'z.",7.29
+2,Lunch,Cuban,"Cuban bread, roast pork, ham, swiss, and slice pickle (honey mustard). Take a,oad off and relax sip-n-snack at J'ti'z.",7.29
+2,Lunch,Italian,"Tomato basil focaccia, salami, ham, and cheese provolone (feta dressing). Take a,oad off and relax sip-n-snack at J'ti'z.",7.29
+2,Lunch,Tuna Wrap,"Tuna and tomato. Take a,oad off and relax sip-n-snack at J'ti'z.",4.95
+2,Lunch,Waffle Pizza,"Pepperoni, ham, cheese, onions, and green peppers. Take a,oad off and relax sip-n-snack at J'ti'z.",4.95
+2,Tuna Sandwiches,Ti'z Tuna Crunch Sandwich,,7.29
+2,Tuna Sandwiches,J' Ti'z Tuna Melt (Wrap),,7.49
+2,Tuna Sandwiches,Sho Nuff Kicken Tuna Sandwich,,7.99
+2,Tuna Sandwiches,"Avocado Tuna Sandwich with,ime",,7.49
+2,Salads,Tuna Salad,Tuna salad and crackers (one scoop). Grab a freshly made salad.,4.25
+2,Salads,Chicken Salad,"Pulled chicken, jalapeno, shredded cabbage, and shredded carrot. Grab a freshly made salad.",7.99
+2,Salads,Garden Salad,"Lettuce, tomatoes, and cucumbers. Grab a freshly made salad.",4.95
+2,Soup,Broccoli &amp; Cheddar Soup,Freshly made soup.,3.5
+2,Soup,Tomato Basil Soup,Freshly made soup.,3.5
+3,Picked for you,Chicken Bacon Ranch Cheesesteak,"Chicken sandwich with bacon, ranch, and your choice of cheese.",14.38
+3,Picked for you,Philadelphia Cheesesteak,Steak sandwich with your choice of cheese.,10.78
+3,Picked for you,Cheesesteak Hoagie,"Steak sandwich with lettuce, tomato, onion, and your choice of cheese.",14.38
+3,Picked for you,Buffalo Chicken Cheesesteak,"Chicken sandwich with buffalo sauce, grilled onions, and your choice of cheese.",13.18
+3,Picked for you,BBQ Chicken Cheesesteak,"Chicken sandwich with BBQ sauce, fried onions, and your choice of cheese.",13.18
+3,Philly Fresh Cheesesteaks,Philadelphia Cheesesteak,Steak sandwich with your choice of cheese.,10.78
+3,Philly Fresh Cheesesteaks,Classic Cheesesteak,Steak sandwich with grilled onions and your choice of cheese.,11.98
+3,Philly Fresh Cheesesteaks,Roasted Pepper Cheesesteak,"Steak sandwich with grilled onions, bell peppers, and your choice of cheese.",13.18
+3,Philly Fresh Cheesesteaks,Mushroom Cheesesteak,"Steak sandwich with mushrooms, grilled onions, and your choice of cheese.",13.18
+3,Philly Fresh Cheesesteaks,Loaded Cheesesteak,"Steak sandwich with grilled onions, bell peppers, mushrooms, and your choice of cheese.",14.38
+3,Philly Fresh Cheesesteaks,Buffalo Cheesesteak,"Steak sandwich with buffalo sauce, grilled onions, and your choice of cheese.",13.18
+3,Philly Fresh Cheesesteaks,BBQ Cheesesteak,"Steak sandwich with BBQ sauce, fried onions, and your choice of cheese.",13.18
+3,Philly Fresh Cheesesteaks,Bacon Ranch Cheesesteak,"Steak sandwich with bacon, ranch, and your choice of cheese.",14.38
+3,Philly Fresh Cheesesteaks,Cheesesteak Hoagie,"Steak sandwich with lettuce, tomato, onion, and your choice of cheese.",14.38
+3,Philly Fresh Cheesesteaks,Cheesesteak Combo,Your choice of cheesesteak and side.,16.78
+3,Philly Fresh Chicken Cheesesteaks,Chicken Cheesesteak,Chicken sandwich with grilled onions and your choice of cheese.,11.98
+3,Philly Fresh Chicken Cheesesteaks,Chicken Bacon Ranch Cheesesteak,"Chicken sandwich with bacon, ranch, and your choice of cheese.",14.38
+3,Philly Fresh Chicken Cheesesteaks,BBQ Chicken Cheesesteak,"Chicken sandwich with BBQ sauce, fried onions, and your choice of cheese.",13.18
+3,Philly Fresh Chicken Cheesesteaks,Buffalo Chicken Cheesesteak,"Chicken sandwich with buffalo sauce, grilled onions, and your choice of cheese.",13.18
+3,Philly Fresh Chicken Cheesesteaks,Chicken Cheesesteak Combo,Your choice of cheesesteak and side.,16.78
+3,Philly Fresh Sides,Cheese Fries,Crispy fries served with melted cheese.,5.98
+3,Philly Fresh Sides,French Fries,Crispy fries.,4.78
+3,Philly Fresh Sides,Onion Rings,Crispy onion rings.,4.78
+3,Philly Fresh Drinks,Water,,3
+3,Philly Fresh Drinks,Coke,,3
+3,Philly Fresh Drinks,Diet Coke,,3
+3,Philly Fresh Drinks,Sprite,,3
+3,Philly Fresh Drinks,Iced Tea,,3
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Chicken Bacon Artichoke - Keto Friendly (Baking Required),"Creamy Garlic Sauce, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Crispy Bacon, Marinated Artichoke Hearts, Fresh Spinach, Aged Parmesan and Zesty Herbs without the Crust. This recipe is Keto-friendly, but still fully customizable. Macros for this entire tray with the default build are Fats: 89g, Proteins: 91g, Carbs: 21g",10.99
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Cowboy - Keto Friendly (Baking Required),"Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Sliced Mushrooms, Black Olives, Cheddar, and Herb &amp; Cheese Blend without the Crust. 
+
+To make this Keto-friendly, simply change the Traditional Red Sauce to Creamy Garlic Sauce or Olive Oil &amp; Garlic Sauce. Macros for this entire tray with the default build are Fats: 100g, Proteins: 75g, Carbs: 28g",10.99
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Create Your Own Crustless - Keto Friendly (Baking Required),"Choose your sauce (or no sauce at all!) and add up to 5 toppings for best results.  Toppings that are Keto-friendly are marked with ""KF"".",9
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Gourmet Vegetarian - Keto Friendly (Baking Required),"Creamy Garlic Sauce, Whole-Milk Mozzarella, Fresh Spinach, Sliced Zucchini, Sliced Mushrooms, Marinated Artichoke Hearts, Roma Tomatoes, Mixed Onions, Cheddar, and Herb &amp; Cheese Blend. This recipe is Keto-friendly, but still fully customizable. Macros for this entire tray with the default build are Fats: 79g, Proteins: 57g, Carbs: 23g",10.99
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Papa's All Meat - Keto Friendly (Baking Required),"Traditional Red Sauce, Whole-Milk Mozzarella, Canadian Bacon, Salami, Premium Pepperoni, Italian Sausage and Ground Beef, and Cheddar. 
+
+To make this Keto-friendly, simply change the Traditional Red Sauce to Creamy Garlic Sauce or Olive Oil &amp; Garlic Sauce. Macros for this entire tray with the default build are Fats: 108g, Proteins: 88g, Carbs: 25g",10.99
+4,New! Crustless Pizzas - Keto Friendly (Baking Required),Papa's Favorite - Keto Friendly (Baking Required),"Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Ground Beef, Sliced Mushrooms, Mixed Onions, Green Peppers, Black Olives, and Cheddar. To make this Keto-friendly, simply change the Traditional Red Sauce to Creamy Garlic Sauce or Olive Oil &amp; Garlic Sauce. Macros for this entire tray with the default build are Fats: 104g, Proteins: 77g, Carbs: 33g",10.99
+4,Signature Pizza (Baking Required),Cowboy (Baking Required),"Our Original Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Sliced Mushrooms, Black Olives, Cheddar, and Herb &amp; Cheese Blend. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",12.99
+4,Signature Pizza (Baking Required),Papa's Favorite® (Baking Required),"Our Original Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Ground Beef, Sliced Mushrooms, Mixed Onions, Green Peppers, Black Olives, and Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",12.99
+4,Signature Pizza (Baking Required),Murphy's Combo (Baking Required),"Our Original Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Salami, Premium Pepperoni, Italian Sausage, Sliced Mushrooms, Mixed Onions and Black Olives, and Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",12.99
+4,Signature Pizza (Baking Required),Chicken Garlic (Baking Required),"Our Original Crust topped with Creamy Garlic Sauce, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Roma Tomatoes, Green Onions, Cheddar, and Herb &amp; Cheese Blend. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",12.99
+4,Signature Pizza (Baking Required),Papa's All Meat (Baking Required),"Our Original Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Canadian Bacon, Salami, Premium Pepperoni, Italian Sausage and Ground Beef, and Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",12.99
+4,Signature Pizza (Baking Required),Rancher,"Our Original Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Canadian Bacon, Premium Pepperoni, Ground Beef, Mixed Onions, and Cheddar.",12.99
+4,Gourmet Delite Pizza (Baking Required),Chicken Bacon Artichoke (Baking Required),"Our Artisan Thin Crust, topped with Creamy Garlic Sauce, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Crispy Bacon, Marinated Artichoke Hearts, Fresh Spinach, Aged Parmesan and Zesty Herbs. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",11.99
+4,Gourmet Delite Pizza (Baking Required),Herb Chicken Mediterranean (Baking Required),"Our Artisan Thin Crust, topped with Olive Oil, Chopped Garlic, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Fresh Spinach, Sun-dried Tomatoes, Crumbled Feta and Zesty Herbs. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",11.99
+4,Gourmet Delite Pizza (Baking Required),Gourmet Vegetarian (Baking Required),"Our Artisan Thin Crust, topped with Creamy Garlic Sauce, Whole-Milk Mozzarella, Fresh Spinach, Sliced Zucchini, Sliced Mushrooms, Marinated Artichoke Hearts, Roma Tomatoes, Mixed Onions, Cheddar, and Herb &amp; Cheese Blend. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",11.99
+4,Gourmet Delite Pizza (Baking Required),Thai Chicken(Baking Required),"Our Artisan Thin Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Fresh Spinach, Black Olives, Roma Tomatoes, Feta Cheese, and Zesty Herbs. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",11.99
+4,Gourmet Delite Pizza (Baking Required),Tuscan Chicken and Sausage ( Baking Required),"Our Artisan Thin Crust topped with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Fresh Spinach, Black Olives, Roma Tomatoes, Feta Cheese, and Zesty Herbs. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",11.99
+4,Stuffed Pizza (Baking Required),5-Meat Stuffed (Baking Required) Family,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Canadian Bacon, Premium Pepperoni, Italian Sausage, Crispy Bacon and topped with Traditional Red Sauce, Ground Beef, Mozzarella and Mild Cheddar.",16.99
+4,Stuffed Pizza (Baking Required),5-Meat Stuffed (Baking Required) Large,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Canadian Bacon, Premium Pepperoni, Italian Sausage, Crispy Bacon and topped with Traditional Red Sauce, Ground Beef, Mozzarella and Mild Cheddar.",14.99
+4,Stuffed Pizza (Baking Required),Chicago-Styled Stuffed (Baking Required) Family,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Salami, Premium Pepperoni, Italian Sausage, Ground Beef, Mixed Onions and topped with Traditional Red Sauce, Green Onions, Roma Tomatoes, Mozzarella and Mild Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",16.99
+4,Stuffed Pizza (Baking Required),Chicago-Styled Stuffed (Baking Required) Large,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Salami, Premium Pepperoni, Italian Sausage, Ground Beef, Mixed Onions and topped with Traditional Red Sauce, Green Onions, Roma Tomatoes, Mozzarella and Mild Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",14.99
+4,Stuffed Pizza (Baking Required),Big Murphy's Stuffed (Baking Required) Large,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Sliced Mushrooms and Black Olives topped with Traditional Red Sauce, Green Peppers, Roma Tomatoes, Mild Cheddar and Herb &amp; Cheese Blend. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",14.99
+4,Stuffed Pizza (Baking Required),Big Murphy's Stuffed (Baking Required) Family,"Two layers of our Original Crust stuffed with Traditional Red Sauce, Whole-Milk Mozzarella, Premium Pepperoni, Italian Sausage, Sliced Mushrooms and Black Olives topped with Traditional Red Sauce, Green Peppers, Roma Tomatoes, Mild Cheddar and Herb &amp; Cheese Blend. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",16.99
+4,Stuffed Pizza (Baking Required),Chicken Bacon Stuffed (Baking Required) Large,"Two layers of our Original Crust stuffed with Creamy Garlic Sauce, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Crispy Bacon, Roma Tomatoes, Mixed Onions and topped with Creamy Garlic Sauce, Roma Tomatoes, Crispy Bacon, Mozzarella and Mild Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",14.99
+4,Stuffed Pizza (Baking Required),Chicken Bacon Stuffed (Baking Required) Family,"Two layers of our Original Crust stuffed with Creamy Garlic Sauce, Whole-Milk Mozzarella, Grilled Chicken Raised Without Antibiotics, Crispy Bacon, Roma Tomatoes, Mixed Onions and topped with Creamy Garlic Sauce, Roma Tomatoes, Crispy Bacon, Mozzarella and Mild Cheddar. OUR PIZZA. YOUR OVEN. NOT AS CRAZY AS IT SOUNDS.",16.99
+4,"Starters, Sides, Desserts and Beverages",Scratch-Made 5-Cheese Bread (Baking Required),"Fresh dough topped with our Herb Garlic Spread, ¼ pound of Whole-Milk Mozzarella, Herb &amp; Cheese Blend, and Mild Cheddar Cheese served with a side of Marinara.",5
+4,"Starters, Sides, Desserts and Beverages",Chocolate Chip Cookie Dough (Baking Required),Fresh-made in house with Semi-Sweet Chocolate Chips.,5
+4,"Starters, Sides, Desserts and Beverages",Cinnamon Wheel (Baking Required),"Our Original Crust topped with Cinnamon Spread, Oatmeal Crisp Topping, served with Cream Cheese Frosting.",5
+4,"Starters, Sides, Desserts and Beverages",S’mores Bars,"Chocolate chip cookie dough topped with marshmallows, crisp topping, and even more chocolate chips.",6
+4,"Starters, Sides, Desserts and Beverages",Soft Drink (2-Liter Pepsi Product),,2.49
+4,"Starters, Sides, Desserts and Beverages",Mini Murph Cheese,Make 'n' Bake Pizza Kit with Red Sauce &amp; Mozzarella.,4.99
+4,"Starters, Sides, Desserts and Beverages",Mini Murph Pepperoni,"Make 'n' Bake Pizza Kit with Red Sauce, Mozzarella &amp; Pepperoni.",4.99
+4,Create Your Own,Create Your Own,"Choose your size and one of our fresh dough options, and then top your pizza with everyone's favorites .",2.49
+4,Salad,Garden Salad,"Romaine lettuce topped with green peppers, Roma tomatoes, black olives, whole milk mozzarella, and mild cheddar cheeses.",5.99
+4,Salad,Caesar Salad,Romaine lettuce topped with shredded aged parmesan cheese.,5.99
+4,Salad,Club Salad,"Romaine lettuce topped with crispy bacon, Canadian bacon, Roma tomatoes, whole milk mozzarella, and mild cheddar cheese.",5.99
+4,Salad,Mediterranean  Salad,"Romaine lettuce and fresh spinach topped with black olives, sun dried tomatoes, mixed onions, and crumbled feta cheese.",5.99
+5,Picked for you,Pork Chop Rice with Gravy Plate,,7
+5,Picked for you,Full Sausage (2 pcs) with 2 Eggs,2 pieces.,7.25
+5,Picked for you,Bacon and Egg with Cheese Breakfast Sandwich,,3.5
+5,Picked for you,Double Cheese Burger,Grilled or fried patty with cheese on a bun.,3.25
+5,Picked for you,Full Bacon (3 pcs) with 2 Eggs,3 pieces.,7.25
+5,Breakfast,Full Ham with 2 Eggs,,7.25
+5,Breakfast,1/2  Ham with 1 Egg,,6.25
+5,Breakfast,Full Bacon (3 pcs) with 2 Eggs,3 pieces.,7.25
+5,Breakfast,1/2  Bacon (2 pcs) with 1 Egg,2 pieces.,6.25
+5,Breakfast,Full Sausage (2 pcs) with 2 Eggs,2 pieces.,7.25
+5,Breakfast,1/2 Sausage (1 pc) with 1 Egg,1 piece.,6.25
+5,Breakfast,Full Salmon (2 pcs) with 2 Eggs,2 pieces.,7.25
+5,Breakfast,1/2 Salmon (1 pc) with 1 Egg,1 piece.,6.25
+5,Breakfast,Full Frank (2 pcs) with 2 Eggs,2 pieces.,7.25
+5,Breakfast,1/2 Frank (1 pc) with 1 Egg,1 piece.,6.25
+5,Breakfast,Fish and  Grits,Porridge made from ground corn.,6.75
+5,Breakfast,Grits with 2 Eggs,Porridge made from ground corn.,5.25
+5,Breakfast,Bowl of Grits,Porridge made from ground corn.,1.75
+5,Breakfast,Bowl of Rice,,1.75
+5,Breakfast Sandwich,Sausage Breakfast Sandwich,,2.75
+5,Breakfast Sandwich,Sausage with Egg Breakfast Sandwich,,3.25
+5,Breakfast Sandwich,Sausage with Cheese Breakfast Sandwich,,3.5
+5,Breakfast Sandwich,"Ham, Egg with Cheese Breakfast Sandwich",Sandwich built with pork and cheese. ,4.5
+5,Breakfast Sandwich,Frank and Egg with Cheese Breakfast Sandwich,,4.9
+5,Breakfast Sandwich,Bacon and Egg with Cheese Breakfast Sandwich,,3.5
+5,Breakfast Sandwich,Salmon and Egg Breakfast Sandwich,Subtle rich fish and egg sandwich.,3.75
+5,Breakfast Sandwich,BLT Breakfast Sandwich,"Bacon, lettuce, and tomato. ",3.5
+5,Breakfast Sandwich,Grilled Cheese Breakfast Sandwich,Hot sandwich filled with cheese that has been pan cooked or grilled. ,2.25
+5,Pancakes,Pancakes (3 pcs),,3.5
+5,Pancakes,Pancakes (3 pcs) with Meat,,6.75
+5,Plates,Pork Chop Rice with Gravy Plate,,7
+5,Plates,Steak Rice with Gravy Plate,,7
+5,Plates,Liver Rice with Gravy Plate,,6.75
+5,Plates,Chicken Rice with Gravy Plate,,6
+5,Plates,Wings (3 pcs) with Fries Plate,,5.5
+5,Sandwiches and Burgers,Cheese Burger,Grilled or fried patty with cheese on a bun.,2.5
+5,Sandwiches and Burgers,Hot Dog,Sausage served on a bun.,2.25
+5,Sandwiches and Burgers,Polish,,3.25
+5,Sandwiches and Burgers,Frank,,3
+5,Sandwiches and Burgers,Cheese Frank,,3.25
+5,Sandwiches and Burgers,Hamburger,Grilled or fried patty on a bun. ,2.25
+5,Sandwiches and Burgers,Double Hamburger,Grilled or fried patty on a bun. ,3
+5,Sandwiches and Burgers,Double Cheese Burger,Grilled or fried patty with cheese on a bun.,3.25
+5,Sandwiches and Burgers,Turkey with Cheese Deluxe Sandwich,,3.5
+5,Sandwiches and Burgers,Ham Deluxe Sandwich,,4
+5,Sandwiches and Burgers,Salmon Sandwich,Subtle rich fish sandwich. ,3
+5,Sandwiches and Burgers,Pork Chop Sandwich,Thick cut of meat from a pig typically cut from the spine.,4.5
+5,Sandwiches and Burgers,Fish Sandwich,"Sandwich made with a piece of cut fish that is either fried, baked, or grilled. ",4
+5,Sandwiches and Burgers,Liver Sandwich,Sandwich with liver meat typically made as a spread or a patty.,3.75
+5,Sandwiches and Burgers,Pig Ear Sandwich,,3.75
+5,Sides,Mac &amp; Cheese,,2.75
+5,Sides,Coleslaw,,2.75
+5,Sides,Potato Salad,,2.75
+5,Sides,Green Beans,,2.75
+5,Sides,Baked Beans,,2.75
+5,Sides,Bowl Peas,,3.75
+5,Sides,Bowl Beans,,3.75
+5,Sides,Fries,,2.25
+5,Dessert,Pie Slice,,2.25
+5,Dessert,Cake Slice,,2.5
+5,Dessert,Whole Pie,,12
+5,Dessert,Whole Cake,,20
+5,Beverages,Hot Coffee,,1
+5,Beverages,Tea,,1
+5,Beverages,Can Sodas,,1
+5,Beverages,Water,,1
+6,Picked for you,Hereford Filet Mignon,"Potato pave, haricot verts, caramalized onion bacon foam, and worcestershire blue butter.",44
+6,Picked for you,Alaskan Halibut,"lemongrass &amp; ginger tea crusted, cucumber zucchini ribbon salad, asparagus, honey stone ground vinaigrette, dandelion honey
+",40
+6,Picked for you,King Crab Cobb Salad,"plus king crab, avocado, quail eggs, bacon lardons, heirloom tomato, persian cukes, fried capers, mixed greens, green goddess dressing",43
+6,Picked for you,Grilled King Salmon,"artichoke barigoule, baby carrots, pearl onions, local pintos, lardons, jus
+",36
+6,Picked for you,Lobster Tortellini ,"plus maine lobster, english peas, fennel shallot salad , grana, truffle and chive oils",18
+6,Appetizers &amp; Salads,Fritto Misto,"Calamari, shrimp, pesce, parsley, sweet pepper, fennel, lemon, and green curry aioli.",14
+6,Appetizers &amp; Salads,King Crab Cobb Salad,"plus king crab, avocado, quail eggs, bacon lardons, heirloom tomato, persian cukes, fried capers, mixed greens, green goddess dressing",43
+6,Appetizers &amp; Salads,Heirloom and Eggplant Caprese ,"plus heirloom tomato, coal roasted eggplant, burrata, pesto cetarese",17
+6,Appetizers &amp; Salads,Lobster Tortellini ,"plus maine lobster, english peas, fennel shallot salad , grana, truffle and chive oils",18
+6,Appetizers &amp; Salads,Gulf Coast Red Snapper Crudo ,"plus yukon gold causa, satsumas, indian finger chiles, pistachio vinaigrette",17
+6,Appetizers &amp; Salads,Smoked Halibut Chowder,,15
+6,Appetizers &amp; Salads,"Ocean Salad ""Greek Style"" with Fried Feta","Crispy greens, roma tomatoes, red onion, and kalamata olives.",12
+6,Sushi,Bubblegum Roll,"Tempura shrimp, tuna, cucumber, avocado, sriracha, and wasabi aioli.",15
+6,Sushi,Soul Roll,"Tempura fried alaskan king crab. Jalapeno, cream cheese, and carrots.",16
+6,Sushi,Tempura Ocean,"Tuna, salmon, sesame oil, and chives.",14
+6,Sushi,DEE's Roll,"bbq eel, tamago, red pepper, cucumber, green onion, avocado, eel sauce",18
+6,Sushi,Veggie Tempura Roll,"bell pepper, shiitake, carrot, green onion, asparagus, sesame seed, ginger dressing",13
+6,Sushi,Spicy Crab Salad Roll,"tuna, crab, scallions, tempura, spicy mayo, eel sauce
+",16
+6,Sushi,Spicy Tuna Tempura Bonbons,"Cream cheese, sambal, hot mustard, and sweet chili glaze.",14
+6,Sushi,Smoked Salmon King Crab,"Avocado, cucumber, and sambal aioli.",15
+6,Entrées,Hereford Filet Mignon,"Potato pave, haricot verts, caramalized onion bacon foam, and worcestershire blue butter.",44
+6,Entrées,Grilled Main Lobster,"1.5# maine lobster, oregon red dulce seaweed butter, kale &amp; toasted almonds",52
+6,Entrées,G.B. Scallops,"Red lentils and  barley, golden chanterelles, parsnip purée, and skordalia.",37
+6,Entrées,Thai Green Curry Bouillabaisse,"Lobster tail, gulf shrimp, mussels, clams, pesce, and pineapple jasmine rice.",48
+6,Entrées,Gulf Shrimp Al Ajillo,"garlic, flat leaf parsley, lemon white wine, h.c. tomato chive risotto, griddled baguette",33
+6,Entrées,Crispy Duck Breast,"butter braised radishes, carrot sage puree, granny apple chips, red delicious orange gastrique
+",36
+6,Entrées,Grilled King Salmon,"artichoke barigoule, baby carrots, pearl onions, local pintos, lardons, jus
+",36
+6,Entrées,Alaskan Halibut,"lemongrass &amp; ginger tea crusted, cucumber zucchini ribbon salad, asparagus, honey stone ground vinaigrette, dandelion honey
+",40
+6,Entrées,Pan Seared Red Snapper,"red lentil salad, avocado pomelo pomegranate salsa, green chick pea hummus
+",38
+6,Entrées,Gulf Grouper,"agave tequila glazed sweet potatoes, hominy, epazote, fish bits, salsa verde
+",38
+6,Whole Fish,Red Snapper (from Gulf of Mexico),"hickory grilled, italian verde",38
+6,Whole Fish,Flounder(from Gulf of Mexico),"southern cornmeal crusted, gribiche",42
+7,Picked for you,Red Dragon ,"Spicy tuna tartare, tuna tataki, cucumber, scallions, sesame dressing. ",16
+7,Picked for you,Edamame,Steamed or grilled. Served with ponzu.,8
+7,Picked for you,Spicy Hotate,"Spicy scallop, avocado, crab salad, tobiko, tempura flakes, eel sauce, sriracha.",17
+7,Picked for you,Kadoma Tuna,"Spicy tuna tartare, tempura rice cake, avocado, jalapeno, tobiko, sesame seeds, eel sauce.",17
+7,Picked for you,Spiro Roll,"Spicy tuna tartare, sake, tempura asparagus, avocado, spicy aioli, chili powder.",16
+7,Starters,Miso Soup,,8
+7,Starters,Chili Miso Soup,,8
+7,Starters,Grilled Shishito Peppers,Served With Ponzu.,9
+7,Starters,Edamame,Steamed or grilled. Served with ponzu.,8
+7,Starters,Green Beans,Choose between tempura fried or grilled green beans.,8
+7,Starters,Rock Shrimp,Tempura fried shrimp tossed in a yuzu aoli.,16
+7,Starters,Tempura Platter,,13
+7,Starters,Soft Shell Crab,,13
+7,Starters,Agedashi Tofu,,9
+7,Greens,Hawaiian Kelp ,,14
+7,Greens,Jinsei Salad,,15
+7,Greens,Baby Greens,,7
+7,Greens,Wakame,,9
+7,Greens,Spider Salad ,,14
+7,Cold Dishes,Jinseviche,"Sake, tuna tataki, tako, ebi, mango, cucumber, red onion, cilantro, wakamezu.",16
+7,Cold Dishes,Kadoma Tuna,"Spicy tuna tartare, tempura rice cake, avocado, jalapeno, tobiko, sesame seeds, eel sauce.",17
+7,Cold Dishes,Poké,"Tuna, avocado, cucumber, tomato, cilantro, scallions, spicy sesame, ponzu sauce, served on endive.",16
+7,Cold Dishes,Somatsu,"Tuna, avocado, asparagus, mint, yamagobo, cithai sauce, wrapped with cucumber.",16
+7,Cold Dishes,Yellowtail Serrano,"Gluten free. Hamachi, serrano, cilantro, yuzu soy.",19
+7,Cold Dishes,Hamachi Fig,"Hamachi sashimi lightly tossed in a fig sauce with rum raisins, and serrano peppers then topped with fried lotus root.",16
+7,Cold Dishes,Maguro Ringo,"Maguro tossed in anchovy sauce. served with sliced honey crisp apples, and garnished with goat cheese.
+",16
+7,Hot Dishes,Grouper Buns,"Tempura grouper, Asian slaw, served with crispy lotus root.",19
+7,Hot Dishes,Hamachi Kama,"Lightly seasoned hamachi collar, baked and broiled, served with ponzu.",21
+7,Hot Dishes,Beef Sliders,"Lettuce, mayo, tonkatsu sauce, served with tempura sweet potato fries.",19
+7,Hot Dishes,Beef Wrapped Asparagus,"Kobe beef, asparagus, Japanese BBQ sauce.",19
+7,Hot Dishes,Tebasaki Wings,Twice fried wings tossed in a savory sesame ginger sauce.,13
+7,Hot Dishes,Tochiru Buns,"Kobe flank steak, iceberg lettuce, mayo, caramalized onions, and served with crispy lotus root.",19
+7,Hot Dishes,Nikko,"Smoked Salmon, unagi, tamago, asparagus, avocado, cream cheese, tempura fried, topped with eel sauce.",16
+7,Sushi,Hatsu,"Beef, hot sesame, olive oil, ginger, avocado, cucumber scallions, cilantro, topped with Japanese bbq sauce and sriracha.",19
+7,Sushi,Jarijari ,"Tempura shrimp, kani, avocado, cucumber, yamagobo, tempura flakes, eel sauce.",16
+7,Sushi,Jinsei Special,"Maguro, hamachi, masago, jalapeno, cilantro, cucumber, avocado.",15
+7,Sushi,Lobster ,"Tempura lobster, masago, tempura asparagus, cucumber, avocado, eel sauce.",19
+7,Sushi,Sachihoko ,"Tempura shrimp, kani, avocado, cucumber, yamagobo, unagi, tobiko, eel sauce.",17
+7,Sushi,Spicy Hotate,"Spicy scallop, avocado, crab salad, tobiko, tempura flakes, eel sauce, sriracha.",17
+7,Sushi,Suteki ,"Smoked salmon, avocado, cream cheese, honey crisp apple, squid ink tobiko, soy-mirin.",16
+7,Sushi,Bangkok,"Maguro, hamachi, jalapeno, cilantro, avocado, potato matchsticks, sweet and spicy Thai sauce.",16
+7,Sushi,Bubblegum ,"Tempura shrimp, maguro, ebi, avocado, wasabi aioli, sriracha.",16
+7,Sushi,Ginger Albacore ,"Maguro, hamachi, jalapeno, cilantro, topped with avocado and ginger albacore, scallions, ponzu sauce.",16
+7,Sushi,Hamajiku ,"Hamachi, avocado, cucumber, rum raisins, crispy lotus root, fig sauce, serrano.",16
+7,Sushi,Island,"Japanese red snapper, avocado, asparagus, mango, wasabi tobiko, sriracha. Gluten-free.",16
+7,Sushi,Jinsei Special,"Maguro, hamachi, masago, jalapeno, cilantro, cucumber, avocado.",16
+7,Sushi,Kiiro ,"Salmon, avocado, cucumber, topped with octopus, squid, golden tobiko, was vice sauce.",16
+7,Sushi,Red Dragon ,"Spicy tuna tartare, tuna tataki, cucumber, scallions, sesame dressing. ",16
+7,Sushi,Red Spider ,"Tempura soft shell crab, tobiko, cucumber, avocado, eel sauce.",16
+7,Sushi,Spiro Roll,"Spicy tuna tartare, sake, tempura asparagus, avocado, spicy aioli, chili powder.",16
+7,Nigiri / Sashimi,Albacore,White tuna.,6
+7,Nigiri / Sashimi,Ebi,Shrimp.,5
+7,Nigiri / Sashimi,Hamachi,Yellowtail.,6
+7,Nigiri / Sashimi,Ika,Squid.,5
+7,Nigiri / Sashimi,Ikura,Salmon roe.,6
+7,Nigiri / Sashimi,Kani,Crab.,5
+7,Nigiri / Sashimi,Masago,Gluten free. Capelin roe.,5
+7,Nigiri / Sashimi,Sake,Salmon.,6
+7,Nigiri / Sashimi,Sake Kunsei,Smoked salmon.,5
+7,Nigiri / Sashimi,Tako,Octopus.,6
+7,Nigiri / Sashimi,Tobiko,Gluten-free. Flying fish roe.,5
+7,Nigiri / Sashimi,Tuna Tataki,Seared tuna.,6
+7,Nigiri / Sashimi,Amaebi,Sweet shrimp.,7
+7,Nigiri / Sashimi,Amaebi,Sweet shrimp.,7
+7,Nigiri / Sashimi,Foie Gras-2 Pc,Duck liver.,10
+7,Nigiri / Sashimi,Hotate,Scallop.,7
+7,Nigiri / Sashimi,Maguro,Tuna.,7
+7,Nigiri / Sashimi,Sake Toro,Salmon belly.,7
+7,Nigiri / Sashimi,Spicy Hotate,Spicy scallop.,8
+7,Nigiri / Sashimi,Hamachi Toro,Yellowtail belly.,7
+7,Nigiri / Sashimi,Tuna Tataki,Seared tuna.,6
+7,Nigiri / Sashimi,Unagi,Freshwater eel.,7
+7,Nigiri / Sashimi,Chef Select,,60
+7,Nigiri / Sashimi,Chirashi Bowl,,50
+8,Tacos,Chorizo,,2.49
+8,Tacos,Chicken (Pollo),,2.49
+8,Tacos,Breaded Chicken (Milanesa de Pollo),,2.49
+8,Tacos,Steak (Asada),,2.49
+8,Tacos,Mixed Meat (Campechano),,2.49
+8,Chilaquiles,Chicken (Pollo),,7.99
+8,Chilaquiles,Steak (Asada),,7.99
+8,Chilaquiles,Mixed Meat,,7.99
+8,Tortas,Chorizo (Mexican Sausage),,6.99
+9,Seafood Meals,2 Piece Batter Dipped Fish Meal,"Two of our famous batter dipped fish fillets, golden on the outside tender on the inside. Served with your choice of two sides and hush puppies.",8.79
+9,Seafood Meals,3 Piece Batter Dipped Fish Meal,"Three of our famous batter dipped fish fillets, golden on the outside tender on the inside. Served with your choice of two sides and hush puppies.",9.99
+9,Seafood Meals,4 Piece Batter Dipped Fish Meal,"Four of our famous batter dipped fish fillets, golden on the outside tender on the inside. Served with your choice of two sides and hush puppies.",10.99
+9,Seafood Meals,2 Piece Fish &amp; 6 Piece Butterfly Shrimp Meal,Two batter dipped fish fillets and six butterfly shrimp served with your choice of two sides and hush puppies.,10.49
+9,Seafood Meals,2 Piece Catfish Meal,Two hand-breaded catfish fillets served with your choice of two sides and hush puppies.,9.79
+9,Seafood Meals,Catfish Feast,Hand-breaded catfish fillets served with your choice of three sides and hush puppies.,11.59
+9,Seafood Meals,15 Piece Butterfly Shrimp Meal,A plentiful portion of our butterfly shrimp served with your choice of two sides and hush puppies.,9.09
+9,Seafood Meals,Deluxe Seafood Platter,"For those seeking seafood variety, we combine two fish fillets, six shrimp, two seafood stuffed crab shells with your choice of two sides and hush puppies.",11.49
+9,Seafood Meals,Supreme Sampler,"Two pieces of our famous batter dipped fish, two chicken tenders, and six butterfly shrimp. Served with your choice of two sides and hush puppies.",10.99
+9,Seafood Meals,"White Fish, Shrimp, &amp; Crab Meal","Our southern-style white fish, four butterfly shrimp and a stuffed seafood crab shell served with your choice of two sides and hush puppies.",11.49
+9,Chicken Meals,2 Piece Fish &amp; 2 Piece Chicken Meal,"Two pieces of batter dipped fish and two chicken tenders, served with your choice of two sides and hush puppies.",9.99
+9,Chicken Meals,4 Piece Chicken Meal,Four crispy breaded chicken tenders with your choice of two sides and hush puppies. Perfect for dipping in D’s delicious honey mustard!,9.79
+9,Family Meals,10 Piece Fish Family Meal,Ten of our famous batter dipped fish fillets with eight hush puppies and your choice of two family-style sides.,29.99
+9,Family Meals,14 Piece Chicken Family Meal,Fourteen of our breaded chicken tenders with eight hush puppies and your choice of two family-style sides.,29.99
+9,Family Meals,Seafood Feast,"Twelve pieces of our famous batter dipped fish, twelve crispy butterfly shrimp, three seafood stuffed crab shells, twelve hush puppies and your choice of two family-style sides.",36.99
+9,Grilled Meals,Grilled Tilapia Meal,Kick up the flavor with seasoned tilapia served on a bed of rice with your choice of two sides and a breadstick.,9.49
+9,Grilled Meals,Grilled White Fish &amp; Shrimp Skewer Meal,A fillet of our delicious grilled white fish served alongside a skewer of succulent grilled shrimp. Served on a bed of rice with your choice of two sides and breadstick.,10.79
+9,Grilled Meals,Lemon Pepper White Fish Meal,"A fillet of our tender and flaky white fish, seasoned with pepper and tangy lemon. Served on a bed of rice with your choice of two sides and breadstick.",8.99
+9,Grilled Meals,Shrimp Skewers Meal,Plump seasoned shrimp that are seared to perfection and served on a bed of rice with your choice of two sides and a breadstick.,10.49
+9,Grilled Meals,Wild Alaskan Salmon Meal,Wild Alaskan Salmon seared to perfection and served on a bed of rice with your choice of two sides and a breadstick.,9.99
+9,Sandwiches,The Giant Fish Sandwich and Side,"Two batter dipped fish fillets on a toasty bun with cracklins, tangy tartar sauce, and shredded lettuce",7.99
+9,Kids Menu,Kid's Batter Dipped Fish Meal,"One piece of our famous batter dipped fish served with a choice of one side, hush puppies, and drink.",4.99
+9,Kids Menu,Kid's Chicken Tenders Meal,"Two seasoned and breaded chicken tenders, with a choice of one side, hush puppies, and drink.",4.99
+9,Kids Menu,Kid's Popcorn Shrimp Meal,"A plentiful portion of tender, breaded bite-sized shrimp with a choice of one side, hush puppies, and drink.",4.99
+9,Appetizers,Clam Strips,A quarter-pound of our fan-favorite crispy breaded clam strips.,3.99
+9,Appetizers,Clam Strips &amp; Butterfly Shrimp,A delicious combination of crispy breaded clam strips and butterfly shrimp.,4.99
+9,Appetizers,Jalapeño Poppers,"Golden fried jalapeños and cheese that’s just begging to be dipped in ranch, will start your meal with a kick.",3.99
+9,Appetizers,Mozzarella Sticks,"Crispy yet gooey breaded mozzarella sticks, perfect for dipping in tangy marinara sauce.",3.99
+9,Add-Ons,1 Piece Batter Dipped Fish,Add one piece of our famous batter dipped fish to any meal.,2.69
+9,Add-Ons,2 Piece Batter Dipped Fish,Add two pieces of our famous batter dipped fish to any meal.,4.99
+9,Add-Ons,2 Piece Chicken,Looking for surf and turf? Add two pieces of our breaded chicken tenders to any meal.,3.59
+9,Add-Ons,4 Piece Chicken,Looking for surf and turf? Add four pieces of our breaded chicken tenders to any meal.,5.49
+9,Add-Ons,6 Piece Butterfly Shrimp,Customize your meal by adding six breaded butterfly shrimp to any meal.,2.99
+9,Add-Ons,12 Piece Butterfly Shrimp,Customize your meal by adding twelve breaded butterfly shrimp to any meal.,4.99
+9,Add-Ons,Grilled Shrimp Skewer,One fire-grilled shrimp skewer is the perfect addition to any meal.,3.69
+9,Add-Ons,6 Hush Puppies,Our famous golden brown hush puppies are made from a batter that’s freshly prepared and hand scooped with care. They are perfectly paired with our seafood meals.,2.99
+9,Desserts,Cheesecake,"A rich, creamy cheesecake with a graham cracker crust.",2.99
+9,Desserts,Funnel Cake Stix,"A twist on a popular state fair favorite in an easy-to-share serving, these sweet and delicious funnel cake stix are the perfect finish to any Captain D's meal.",2.99
+9,Sides,Baked Potato,A generous sized potato cooked to fluffy perfection and then served with butter and sour cream.,3.19
+9,Sides,Loaded Baked Potato,"A perfectly baked potato, loaded with cheese and bacon.",4.19
+9,Sides,Broccoli,Tender broccoli florets steamed to order.,2.49
+9,Sides,Coleslaw,Fresh cabbage combined with Captain D’s own signature sweet slaw dressing with a delicate blend of sweet and savory flavors.,2.49
+9,Sides,Corn on the Cob,Simply sweet corn on the cob steamed and served hot.,3.19
+9,Sides,French Fries,Crispy cut french fries.,2.49
+9,Sides,Fried Okra,"A simple, southern classic; slices of okra in southern-style breading fried to a golden brown.",3.19
+9,Sides,Green Beans,Green beans slow cooked with country ham and served hot.,2.49
+9,Sides,Mac &amp; Cheese,Classic home-style macaroni and cheese prepared with delicate Cheddar cheese sauce and tender noodles.,3.19
+9,Beverages,Bottled Water,Purified Drinking Water,1.99
+9,Beverages,Gallon of Sweet Tea,A gallon of D's famous sweet tea.,4.79
+9,Beverages,Gallon of Unsweet Tea,A gallon of D's famous unsweet tea.,4.79
+9,Beverages,Kid's Soft Drink,"Choice of Pepsi, Diet Pepsi, Mountain Dew, Dr. Pepper, Sierra Mist, Sweet Tea, Unsweet Tea.",1.49
+9,Beverages,Large Soft Drink,"Choice of Pepsi, Diet Pepsi, Mountain Dew, Dr. Pepper, Sierra Mist, Sweet Tea, Unsweet Tea.",2.69
+9,Beverages,Medium Soft Drink,"Choice of Pepsi, Diet Pepsi, Mountain Dew, Dr. Pepper, Sierra Mist, Sweet Tea, Unsweet Tea.",2.49
+9,Beverages,Small Soft Drink,"Choice of Pepsi, Diet Pepsi, Mountain Dew, Dr. Pepper, Sierra Mist, Sweet Tea, Unsweet Tea.",2.29
+10,Salads,Grilled Shrimp Salad,,12
+10,Salads,Chef Salad,,10
+10,Salads,Grilled Chicken Salad,,11
+10,Cajun Crab Legs,Cajun Crab Legs,"Most popular. Crab cluster, ten shrimp, sausage, boiled eggs, potatoes, and corn. Choice of sauce.",27
+10,Peaux Boys,Shrimp Peaux Boy,Most popular. Fried or grilled. Served with fries.,10
+10,Peaux Boys,Chicken Peaux Boy,"Fried or grilled. Served with fries.
+",8
+10,Peaux Boys,Swamp Thang Peaux Boy,"Cajun fish fillet and fried shrimp. Served with fries.
+",13
+10,Peaux Boys,Cajun Fish Peaux Boy,"Fried or grilled. Served with fries.
+",9
+10,Peaux Boys,Smoked Andouille Sausage Peaux Boy,"Grilled. Served with fries.
+",8
+10,Sides,Cajun Corn &amp; Potatoes,,3
+10,Sides,Cheese Grits,,3
+10,Sides,Waffle Fries,,3
+10,Sides,Fried Okra,,3

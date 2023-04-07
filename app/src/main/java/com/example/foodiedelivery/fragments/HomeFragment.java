@@ -15,11 +15,9 @@ import androidx.room.Room;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.foodiedelivery.adapters.ResAdapter;
@@ -38,7 +36,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class HomeFragment extends Fragment {
@@ -53,12 +50,6 @@ public class HomeFragment extends Fragment {
    DishDao dishDao;
    private Context context;
    private RestaurantRepository restaurantRepository;
-
-
-
-
-//   List<Restaurant> restaurants = ResDbHelper.getAllRestaurants();
-
 
 
 
@@ -95,29 +86,29 @@ public class HomeFragment extends Fragment {
       executor.execute(new Runnable() {
          @Override
          public void run() {
-            restaurantRepository.deleteAllRestaurants();
-            LiveData<List<Restaurant>>restaurants =  restaurantRepository.getAllRestaurants();
-            if(restaurants == null || restaurants.getValue()==null){
-               List<Restaurant> dummyRestaurants = new ArrayList<>();
-               List<Dish> dummyDishes = new ArrayList<>();
-
-               dummyRestaurants.add(new Restaurant("Fake Restaurant A", "Fake Location A", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2FBarbieri_-_ViaSophia25668.jpg?alt=media&token=66016b1e-4b14-4f7c-b445-07be7a31adc0"));
-               dummyRestaurants.add(new Restaurant("Fake Restaurant B", "Fake Location B", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2Fphoto-1517248135467-4c7edcad34c4.jpg?alt=media&token=f9e9abf4-9b77-4d48-b29c-addd18616d6e"));
-               dummyRestaurants.add(new Restaurant("Fake Restaurant C", "Fake Location C", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2Finterior-of-the-cliff.jpg?alt=media&token=73671d59-4036-4f29-ad3c-92cb45b7b3d9"));
-               Long[] results = restaurantRepository.insertRestaurantsFromList(dummyRestaurants);
-               List<Long> restaurantIds = Arrays.asList(results);
-
-               // Add the dishes to the list and set their restaurant IDs to the newly inserted restaurants
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Meat Lovers", 15.99));
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Supreme", 15.99));
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Pepperoni", 13.99));
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large 5 Cheese.", 15.99));
-               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Pepperoni Slice,Slice.", 15.99));
-               for (Dish dish : dummyDishes){
-                  dishDao.insertDish(dish);
-               }
-            }
+//            restaurantRepository.deleteAllRestaurants();
+            LiveData<List<Restaurant>> restaurants =  restaurantRepository.getAllRestaurants();
+//            if(restaurants == null || restaurants.getValue()==null){
+//               List<Restaurant> dummyRestaurants = new ArrayList<>();
+//               List<Dish> dummyDishes = new ArrayList<>();
+//
+//               dummyRestaurants.add(new Restaurant("Fake Restaurant A", "Fake Location A", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2FBarbieri_-_ViaSophia25668.jpg?alt=media&token=66016b1e-4b14-4f7c-b445-07be7a31adc0"));
+//               dummyRestaurants.add(new Restaurant("Fake Restaurant B", "Fake Location B", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2Fphoto-1517248135467-4c7edcad34c4.jpg?alt=media&token=f9e9abf4-9b77-4d48-b29c-addd18616d6e"));
+//               dummyRestaurants.add(new Restaurant("Fake Restaurant C", "Fake Location C", "https://firebasestorage.googleapis.com/v0/b/csis3175-food.appspot.com/o/images%2Finterior-of-the-cliff.jpg?alt=media&token=73671d59-4036-4f29-ad3c-92cb45b7b3d9"));
+//               Long[] results = restaurantRepository.insertRestaurantsFromList(dummyRestaurants);
+//               List<Long> restaurantIds = Arrays.asList(results);
+//
+//               // Add the dishes to the list and set their restaurant IDs to the newly inserted restaurants
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Meat Lovers", 15.99));
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Supreme", 15.99));
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Pepperoni", 13.99));
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large BBQ Chicken &amp; Bacon.", 14.99));
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large 5 Cheese.", 15.99));
+//               dummyDishes.add(new Dish(restaurantIds.get(0), "Extra Large Pepperoni Slice,Slice.", 15.99));
+//               for (Dish dish : dummyDishes){
+//                  dishDao.insertDish(dish);
+//               }
+//            }
          }
       });
 
