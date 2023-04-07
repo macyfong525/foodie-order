@@ -63,8 +63,6 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
 
         menuAdapter = new MenuAdapter(this);
         fragmentMenuBinding.recycleViewMenu.setAdapter(menuAdapter);
-        fragmentMenuBinding.recycleViewMenu.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-        fragmentMenuBinding.recycleViewMenu.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.HORIZONTAL));
 
         // TODO change to db
 //        addData();

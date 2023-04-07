@@ -1,26 +1,23 @@
 package com.example.foodiedelivery.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.room.Room;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
-
-import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.adapters.OrderAdapter;
+import com.example.foodiedelivery.databinding.FragmentOrderBinding;
 import com.example.foodiedelivery.db.FoodieDatabase;
-import com.example.foodiedelivery.interfaces.DishDao;
-import com.example.foodiedelivery.interfaces.RestaurantDao;
-import com.example.foodiedelivery.models.Dish;
-import com.example.foodiedelivery.repositories.RestaurantRepository;
+import com.example.foodiedelivery.interfaces.OrderDao;
+import com.example.foodiedelivery.models.Order;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -29,26 +26,44 @@ import java.util.concurrent.Executors;
 
 public class OrderFragment extends Fragment {
 
-   ListView listViewOrder;
+    FragmentOrderBinding binding;
+    List<Order> orderList;
+    SharedPreferences sharedPreferences;
+    FoodieDatabase fdb;
+    int userId;
 
-   FoodieDatabase fdb;
-   RestaurantDao restaurantDao;
-   DishDao dishDao;
-   RestaurantRepository restaurantRepository;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        fdb = Room.databaseBuilder(requireActivity().getApplicationContext(), FoodieDatabase.class, "foodie.db").build();
+        binding = FragmentOrderBinding.inflate(inflater, container, false);
 
-   @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState) {
-      // Inflate the layout for this fragment
-      return inflater.inflate(R.layout.fragment_order, container, false);
-   }
+        return binding.getRoot();
+    }
 
-   @Override
-   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-      listViewOrder = view.findViewById(R.id.listViewOrder);
-      OrderAdapter orderAdapter = new OrderAdapter();
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        OrderDao orderDao = fdb.orderDao();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        userId = sharedPreferences.getInt("userId", -1);
+        if (userId == -1) {
+            return;
+        }
 
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            try {
+                orderList = orderDao.getByUserId(userId);
+                OrderAdapter orderAdapter = new OrderAdapter(orderList);
+                getActivity().runOnUiThread(() -> {
+                    binding.recycleViewOrder.setAdapter(orderAdapter);
+                    binding.recycleViewOrder.setLayoutManager(new LinearLayoutManager(requireContext()));
+                });
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
-
-   }
+    }
 }
