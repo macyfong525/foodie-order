@@ -30,24 +30,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Qty"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/productNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
 
-        <Spinner
-            android:id="@+id/quantitySpinner"
+<!--        <Spinner-->
+<!--            android:id="@+id/quantitySpinner"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/textView"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textView"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/textView"-->
+<!--            android:entries="@array/quantityStrArr"-->
+<!--            android:setSpinnerVal="@{cartItem.quantity}"-->
+<!--            />-->
+
+        <ImageButton
+            android:id="@+id/imageBtnMins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
+            android:background="?android:attr/selectableItemBackground"
             app:layout_constraintBottom_toBottomOf="@+id/textView"
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="@+id/textView"
-            android:entries="@array/quantityStrArr"
-            android:setSpinnerVal="@{cartItem.quantity}"
-            />
+            app:srcCompat="@drawable/baseline_mins_24" />
 
+        <TextView
+            android:id="@+id/tv_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageBtnMins"
+            app:layout_constraintStart_toEndOf="@+id/imageBtnMins"
+            app:layout_constraintTop_toTopOf="@+id/imageBtnMins"
+            android:text="@{String.valueOf(cartItem.quantity)}"/>
+
+
+        <ImageButton
+            android:id="@+id/imageBtnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/baseline_add_box_24"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_quantity"
+            app:layout_constraintStart_toEndOf="@+id/tv_quantity"
+            app:layout_constraintTop_toTopOf="@+id/tv_quantity" />
 
         <ImageButton
             android:id="@+id/deleteDishButton"
@@ -57,9 +91,9 @@
             android:layout_marginLeft="32dp"
             android:background="?android:attr/selectableItemBackground"
             android:padding="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/quantitySpinner"
-            app:layout_constraintStart_toEndOf="@+id/quantitySpinner"
-            app:layout_constraintTop_toTopOf="@+id/quantitySpinner"
+            app:layout_constraintBottom_toBottomOf="@+id/imageBtnPlus"
+            app:layout_constraintStart_toEndOf="@+id/imageBtnPlus"
+            app:layout_constraintTop_toTopOf="@+id/imageBtnPlus"
             app:srcCompat="@drawable/baseline_delete_24" />
 
         <TextView
@@ -71,7 +105,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{String.valueOf(cartItem.dish.price * cartItem.quantity)}" />
+            android:text="@{String.format(`%.2f`,cartItem.dish.price * cartItem.quantity)}" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

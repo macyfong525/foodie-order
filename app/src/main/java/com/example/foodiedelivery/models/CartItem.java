@@ -49,7 +49,7 @@ public class CartItem {
     public static DiffUtil.ItemCallback<CartItem> itemCallback = new DiffUtil.ItemCallback<CartItem>() {
         @Override
         public boolean areItemsTheSame(@NonNull CartItem oldItem, @NonNull CartItem newItem) {
-            return oldItem.getQuantity() == newItem.getQuantity();
+            return oldItem.getDish().equals(newItem.getDish()) && oldItem.getQuantity() == newItem.getQuantity();
         }
 
         @Override

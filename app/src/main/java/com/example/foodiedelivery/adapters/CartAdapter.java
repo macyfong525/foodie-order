@@ -45,21 +45,39 @@ public class CartAdapter extends ListAdapter<CartItem, CartAdapter.CartViewHolde
                   cartInterface.deleteItem(getItem(getAdapterPosition()));
             });
 
-            layoutCartBinding.quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            layoutCartBinding.imageBtnPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    int quantity = i+1;
-                    if (quantity == getItem(getAdapterPosition()).getQuantity()) {
+                public void onClick(View view) {
+                    int quantity = getItem(getAdapterPosition()).getQuantity() +1;
+                    cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
+                }
+            });
+
+            layoutCartBinding.imageBtnMins.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int quantity = getItem(getAdapterPosition()).getQuantity() - 1;
+                    if(quantity<1){
                         return;
                     }
                     cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
                 }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                }
             });
+//            layoutCartBinding.quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                    int quantity = i+1;
+//                    if (quantity == getItem(getAdapterPosition()).getQuantity()) {
+//                        return;
+//                    }
+//                    cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//                }
+//            });
         }
     }
 
