@@ -115,7 +115,7 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
     public void navOrder() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, new HomeFragment());
+        ft.replace(R.id.container, new OrderFragment());
         ft.addToBackStack(null);
         ft.commit();
     }

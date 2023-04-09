@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.room.Room;
 
 import com.example.foodiedelivery.adapters.MenuAdapter;
@@ -20,7 +19,6 @@ import com.example.foodiedelivery.interfaces.DishDao;
 import com.example.foodiedelivery.interfaces.RestaurantDao;
 import com.example.foodiedelivery.models.CartViewModel;
 import com.example.foodiedelivery.models.Dish;
-import com.example.foodiedelivery.repositories.RestaurantRepository;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -39,12 +37,12 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
     private static final String TAG = "MenuFragment";
     List<Dish> Dishes = new ArrayList<>();
     FragmentMenuBinding fragmentMenuBinding;
-    private MenuAdapter menuAdapter;
-    private CartViewModel cartViewModel;
     FoodieDatabase fdb;
     RestaurantDao restaurantDao;
     DishDao dishDao;
     List<Dish> dishes;
+    private MenuAdapter menuAdapter;
+    private CartViewModel cartViewModel;
 
     public MenuFragment() {
     }
@@ -61,15 +59,13 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        menuAdapter = new MenuAdapter(this);
-        fragmentMenuBinding.recycleViewMenu.setAdapter(menuAdapter);
 
         // TODO change to db
 //        addData();
-        Bundle args= getArguments();
+        Bundle args = getArguments();
         int restaurantId = args.getInt("restaurantId");
 
-        Log.d(TAG , "onViewCreated: "+ restaurantId);
+        Log.d(TAG, "onViewCreated: " + restaurantId);
 
         fdb = Room.databaseBuilder(getActivity(), FoodieDatabase.class, "foodie.db").build();
         restaurantDao = fdb.RestaurantDao();
@@ -80,15 +76,15 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
 
             dishes = dishDao.getDishesByRestaurantId(restaurantId);
             Log.d(TAG, "dishes: " + dishes.size());
-            for(Dish dish : dishes) {
-                Log.d(TAG, "loop dish: "+ dish.toString());
+            for (Dish dish : dishes) {
+                Log.d(TAG, "loop dish: " + dish.toString());
             }
             getActivity().runOnUiThread(() -> {
-                menuAdapter.submitList(dishes);
+                menuAdapter = new MenuAdapter(dishes, this);
+                fragmentMenuBinding.recycleViewMenu.setAdapter(menuAdapter);
             });
         });
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
-
 
 
     }

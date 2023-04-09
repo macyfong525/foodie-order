@@ -41,11 +41,6 @@ public class CartItem {
         return getQuantity() == cartItem.getQuantity() && getDish().equals(cartItem.getDish());
     }
 
-    @BindingAdapter("android:setSpinnerVal")
-    public static void getSelectedSpinnerValue(Spinner spinner, int quantity) {
-        spinner.setSelection(quantity - 1, true);
-    }
-
     public static DiffUtil.ItemCallback<CartItem> itemCallback = new DiffUtil.ItemCallback<CartItem>() {
         @Override
         public boolean areItemsTheSame(@NonNull CartItem oldItem, @NonNull CartItem newItem) {
