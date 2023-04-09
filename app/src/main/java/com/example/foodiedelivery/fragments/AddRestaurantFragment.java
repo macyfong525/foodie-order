@@ -74,7 +74,7 @@ public class AddRestaurantFragment extends Fragment {
 
         dishBtn = rootView.findViewById(R.id.btnAddDish);
         dishBtn.setOnClickListener(v-> addDishFields());
-        lLdishes= getView().findViewById(R.id.llDishes);
+        lLdishes=rootView.findViewById(R.id.llDishes);
 
 
         return rootView;
