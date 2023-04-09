@@ -101,7 +101,6 @@ public class AddRestaurantFragment extends Fragment {
 
 
     private void addNewRestaurant(EditText editTxtResName, EditText editTxtLocation) {
-
         Log.d("Tag", "Inside addNewRestaurant method now");
         progressBar.setVisibility(View.VISIBLE);
 
@@ -113,43 +112,37 @@ public class AddRestaurantFragment extends Fragment {
         storageRef.putFile(imgUri)
                 .addOnSuccessListener(taskSnapshot -> {
                     previewImg.setImageURI(null);
-
                     //get url inside of OnSuccessListener
                     storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
                         resImageUrl = uri.toString();
+                        Log.d("Restaurant", "addNewRestaurant: " + resImageUrl);
+                        //begin the db part
+                        Executor executor = Executors.newSingleThreadExecutor();
+                        executor.execute(()->{
+                            long restaurantId = restaurantDao.insertOneRestaurant(new Restaurant(editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl));
+                            if (restaurantId < 0){
+                                getActivity().runOnUiThread(()-> Toast.makeText(getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show());
+                            }
+                            addDishToRestaurant(restaurantId);
+                            getActivity().runOnUiThread(()->{
+                                progressBar.setVisibility(View.GONE);
+                                Toast.makeText(getContext(), "Successfully uploaded", Toast.LENGTH_SHORT).show();
+                                btnAddRes.setEnabled(false);
+
+                                editTxtResName.setText("");
+                                editTxtLocation.setText("");
+                                lLdishes.removeAllViews();
+                            });
+                        });
                     }).addOnFailureListener(e->{
                         btnAddRes.setEnabled(false);
                         Toast.makeText(getContext(), "Error when selecting an image", Toast.LENGTH_SHORT).show();
-
                     });
-
-                    //begin the db part
-                    Executor executor = Executors.newSingleThreadExecutor();
-                    executor.execute(()->{
-                        long restaurantId = restaurantDao.insertOneRestaurant(new Restaurant(editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl));
-                        if (restaurantId < 0){
-                            Toast.makeText(getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        addDishToRestaurant(restaurantId);
-                    });
-
-
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(getContext(), "Successfully uploaded", Toast.LENGTH_SHORT).show();
-                    btnAddRes.setEnabled(false);
-
-                    editTxtResName.setText("");
-                    editTxtLocation.setText("");
-
                 }).addOnFailureListener(e -> {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(getContext(), "Failed to upload", Toast.LENGTH_SHORT).show();
                 });
-
-
     }
-
     private void addDishToRestaurant(long restaurantId) {
         Log.d("addDishToRestaurant", "addDishToRestaurant: " + restaurantId);
         int childCount = lLdishes.getChildCount();
