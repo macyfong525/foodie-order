@@ -9,15 +9,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import com.example.foodiedelivery.R;
+import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.db.RestaurantDatabaseHelper;
+import com.example.foodiedelivery.interfaces.DishDao;
+import com.example.foodiedelivery.interfaces.RestaurantDao;
+import com.example.foodiedelivery.models.Dish;
 import com.example.foodiedelivery.models.Restaurant;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -25,6 +31,8 @@ import com.google.firebase.storage.StorageReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 
 public class AddRestaurantFragment extends Fragment {
@@ -35,15 +43,21 @@ public class AddRestaurantFragment extends Fragment {
     ProgressBar progressBar;
     Button btnAddRes;
     ImageView previewImg;
-
-    private RestaurantDatabaseHelper helper;
-
+    FoodieDatabase fdb;
+    RestaurantDao restaurantDao;
+    DishDao dishDao;
+    LinearLayout lLdishes;
+//    private RestaurantDatabaseHelper helper;
+    private Button dishBtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
         View rootView = inflater.inflate(R.layout.fragment_addnewrestaurant, container, false);
+        fdb = Room.databaseBuilder(requireContext(), FoodieDatabase.class, "foodie.db").build();
+        restaurantDao = fdb.RestaurantDao();
+        dishDao = fdb.menuDao();
 
         EditText editTxtResName = rootView.findViewById(R.id.editTxtResName);
         EditText editTxtLocation = rootView.findViewById(R.id.editTxtLocation);
@@ -58,8 +72,17 @@ public class AddRestaurantFragment extends Fragment {
 
         previewImg = rootView.findViewById(R.id.imageViewPreview);
 
+        dishBtn = rootView.findViewById(R.id.btnAddDish);
+        dishBtn.setOnClickListener(v-> addDishFields());
+        lLdishes= getView().findViewById(R.id.llDishes);
+
 
         return rootView;
+    }
+
+    private void addDishFields() {
+        View dishFields = LayoutInflater.from(getContext()).inflate(R.layout.layout_dish_fields, (ViewGroup) getView(), false);
+        lLdishes.addView(dishFields);
     }
 
     private void selectImage() {
@@ -101,16 +124,21 @@ public class AddRestaurantFragment extends Fragment {
                     });
 
                     //begin the db part
-                    helper = new RestaurantDatabaseHelper(getContext());
-                    Restaurant res = new Restaurant(editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl);
-                    long resId = helper.insertRestaurant(res);
-                    if (resId == -1){
-                        Toast.makeText(getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+                    Executor executor = Executors.newSingleThreadExecutor();
+                    executor.execute(()->{
+                        long restaurantId = restaurantDao.insertOneRestaurant(new Restaurant(editTxtResName.getText().toString(), editTxtLocation.getText().toString(), resImageUrl));
+                        if (restaurantId < 0){
+                            Toast.makeText(getContext(), "Error inserting data into table", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        addDishToRestaurant(restaurantId);
+                    });
+
+
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(getContext(), "Successfully uploaded", Toast.LENGTH_SHORT).show();
                     btnAddRes.setEnabled(false);
+
                     editTxtResName.setText("");
                     editTxtLocation.setText("");
 
@@ -120,5 +148,20 @@ public class AddRestaurantFragment extends Fragment {
                 });
 
 
+    }
+
+    private void addDishToRestaurant(long restaurantId) {
+        Log.d("addDishToRestaurant", "addDishToRestaurant: " + restaurantId);
+        int childCount = lLdishes.getChildCount();
+        for (int i =0; i< childCount; i++){
+            View child = lLdishes.getChildAt(i);
+            EditText nameField = (EditText) child.findViewById(R.id.editTxtDishName);
+            EditText priceField = (EditText) child.findViewById(R.id.editTxtDishPrice);
+            String dishName = nameField.getText().toString();
+            double price = Double.parseDouble(priceField.getText().toString());
+            Log.d("Add Restaurant Fragment", "Dish name and price " + dishName + price);
+            dishDao.insertDish(new Dish(restaurantId,dishName, price));
+
+        }
     }
 }

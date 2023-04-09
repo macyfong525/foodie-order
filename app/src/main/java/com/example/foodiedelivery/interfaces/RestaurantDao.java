@@ -21,7 +21,7 @@ public interface RestaurantDao {
     Long[] insertRestaurantsFromList(List<Restaurant> restaurants);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertOneRestaurant(Restaurant restaurant);
+    Long insertOneRestaurant(Restaurant restaurant);
 
     @Query("SELECT * FROM restaurants")
     LiveData<List<Restaurant>> GetAllRestaurants();

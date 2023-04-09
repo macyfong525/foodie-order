@@ -46,6 +46,9 @@
     <string name="btnPlaceOrder">Place Order</string>
     <string name="restaurant_name">Restaurant Name</string>
     <string name="location">Location</string>
+    <string name="add_dish">Add dish</string>
+    <string name="dishPrice">Dish Price</string>
+    <string name="dishName">Dish Name</string>
 
     <string-array name="quantityStrArr">
         <item>1</item>
