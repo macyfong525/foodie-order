@@ -59,9 +59,7 @@ public class MenuFragment extends Fragment implements MenuAdapter.DishInterface 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        // TODO change to db
-//        addData();
+        // get resid from bundle
         Bundle args = getArguments();
         int restaurantId = args.getInt("restaurantId");
 

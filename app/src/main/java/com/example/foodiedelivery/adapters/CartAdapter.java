@@ -63,21 +63,6 @@ public class CartAdapter extends ListAdapter<CartItem, CartAdapter.CartViewHolde
                     cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
                 }
             });
-//            layoutCartBinding.quantitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                @Override
-//                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                    int quantity = i+1;
-//                    if (quantity == getItem(getAdapterPosition()).getQuantity()) {
-//                        return;
-//                    }
-//                    cartInterface.changeQuantity(getItem(getAdapterPosition()), quantity);
-//                }
-//
-//                @Override
-//                public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//                }
-//            });
         }
     }
 
