@@ -22,10 +22,9 @@ import android.widget.ListView;
 
 import com.example.foodiedelivery.adapters.ResAdapter;
 import com.example.foodiedelivery.db.FoodieDatabase;
-import com.example.foodiedelivery.db.RestaurantDatabaseHelper;
+import com.example.foodiedelivery.db.RestaurantDatabaseHelper_outdated;
 import com.example.foodiedelivery.interfaces.DishDao;
 import com.example.foodiedelivery.interfaces.RestaurantDao;
-import com.example.foodiedelivery.models.Dish;
 import com.example.foodiedelivery.models.Image;
 import com.example.foodiedelivery.adapters.ImageAdapter;
 import com.example.foodiedelivery.R;
@@ -44,7 +43,7 @@ public class HomeFragment extends Fragment {
    ViewPager2 viewPager2;
    RecyclerView recyclerViewRes;
    Handler sliderHandler = new Handler();
-   RestaurantDatabaseHelper ResDbHelper;
+   RestaurantDatabaseHelper_outdated ResDbHelper;
    FoodieDatabase fdb;
    RestaurantDao restaurantDao;
    DishDao dishDao;

@@ -20,7 +20,6 @@ import androidx.room.Room;
 
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.db.FoodieDatabase;
-import com.example.foodiedelivery.db.RestaurantDatabaseHelper;
 import com.example.foodiedelivery.interfaces.DishDao;
 import com.example.foodiedelivery.interfaces.RestaurantDao;
 import com.example.foodiedelivery.models.Dish;

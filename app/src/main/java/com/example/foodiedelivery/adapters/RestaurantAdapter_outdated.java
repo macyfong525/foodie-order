@@ -48,7 +48,7 @@ public class RestaurantAdapter_outdated extends BaseAdapter {
     public View getView(int i, View view, ViewGroup parent) {
 
         if(view == null){
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_restaurant_helper,parent,false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_restaurant_helper_outdated,parent,false);
         }
         TextView txtViewName = view.findViewById(R.id.txtViewNameLayout);
         txtViewName.setText(RestaurantList.get(i).getResName());

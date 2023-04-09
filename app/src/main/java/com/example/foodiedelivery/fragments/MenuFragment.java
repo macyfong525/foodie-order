@@ -17,7 +17,7 @@ import com.example.foodiedelivery.databinding.FragmentMenuBinding;
 import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.interfaces.DishDao;
 import com.example.foodiedelivery.interfaces.RestaurantDao;
-import com.example.foodiedelivery.models.CartViewModel;
+import com.example.foodiedelivery.viewmodels.CartViewModel;
 import com.example.foodiedelivery.models.Dish;
 import com.google.android.material.snackbar.Snackbar;
 

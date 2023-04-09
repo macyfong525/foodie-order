@@ -23,7 +23,7 @@ import com.example.foodiedelivery.databinding.FragmentCartBinding;
 import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.interfaces.OrderDao;
 import com.example.foodiedelivery.models.CartItem;
-import com.example.foodiedelivery.models.CartViewModel;
+import com.example.foodiedelivery.viewmodels.CartViewModel;
 import com.example.foodiedelivery.models.Order;
 
 import java.util.List;

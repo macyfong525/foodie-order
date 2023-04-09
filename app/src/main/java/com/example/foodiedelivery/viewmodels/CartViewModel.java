@@ -1,8 +1,10 @@
-package com.example.foodiedelivery.models;
+package com.example.foodiedelivery.viewmodels;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.foodiedelivery.models.CartItem;
+import com.example.foodiedelivery.models.Dish;
 import com.example.foodiedelivery.repositories.CartRepo;
 
 import java.util.List;

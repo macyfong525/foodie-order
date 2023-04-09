@@ -28,7 +28,7 @@ import com.example.foodiedelivery.fragments.OrderFragment;
 import com.example.foodiedelivery.fragments.ProfileFragment;
 import com.example.foodiedelivery.interfaces.UserDao;
 import com.example.foodiedelivery.models.CartItem;
-import com.example.foodiedelivery.models.CartViewModel;
+import com.example.foodiedelivery.viewmodels.CartViewModel;
 import com.example.foodiedelivery.models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        final MenuItem menuItem = menu.findItem(R.id.cart);
-        View actionView = menuItem.getActionView();
+        MenuItem menuCart = menu.findItem(R.id.cart);
+        View actionView = menuCart.getActionView();
         TextView cartBadgeTextView = actionView.findViewById(R.id.cart_badge_text_view);
 
         // setting badge
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         cartBadgeTextView.setVisibility(cartQuantity == 0 ? View.GONE : View.VISIBLE);
 
         actionView.setOnClickListener((View v) -> {
-            onOptionsItemSelected(menuItem);
+            onOptionsItemSelected(menuCart);
         });
         return true;
     }
