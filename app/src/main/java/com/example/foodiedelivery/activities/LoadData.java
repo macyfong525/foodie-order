@@ -6,16 +6,15 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import com.example.foodiedelivery.interfaces.RestaurantDao;
-import com.opencsv.CSVReader;
-
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.interfaces.DishDao;
+import com.example.foodiedelivery.interfaces.RestaurantDao;
 import com.example.foodiedelivery.interfaces.UserDao;
 import com.example.foodiedelivery.models.Dish;
 import com.example.foodiedelivery.models.Restaurant;
 import com.example.foodiedelivery.models.User;
+import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.BufferedReader;
@@ -30,8 +29,8 @@ import java.util.concurrent.Executors;
 
 public class LoadData extends AppCompatActivity {
 
-    FoodieDatabase fd;
     private static final String TAG = "LoadData";
+    FoodieDatabase fd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +49,11 @@ public class LoadData extends AppCompatActivity {
 
             ExecutorService executorService = Executors.newSingleThreadExecutor();
             executorService.execute(() -> {
-                Log.d(TAG, "onCreate: "+ users.size());
+                Log.d(TAG, "onCreate: " + users.size());
                 userDao.insertUsersFromList(users);
                 resDao.insertRestaurantsFromList(res);
                 menuDao.insertDishesFromList(dishes);
+                Log.d(TAG, "Data loading is done");
             });
 
         } catch (Exception e) {
@@ -62,7 +62,7 @@ public class LoadData extends AppCompatActivity {
         }
     }
 
-    private List<Restaurant> ReadResCSV(){
+    private List<Restaurant> ReadResCSV() {
         List<Restaurant> ResList = new ArrayList<>();
 
         InputStream inputStreamRes = getResources().openRawResource(R.raw.restaurant);
@@ -96,9 +96,7 @@ public class LoadData extends AppCompatActivity {
         try {
             String[] dataRow;
             while ((dataRow = reader.readNext()) != null) {
-                Log.d(TAG, "menu 0: "+ Arrays.toString(dataRow));
-                String index = dataRow[0];
-                Log.d(TAG, "menu 0: "+ Long.valueOf(index).longValue() );
+                Log.d(TAG, "menu: " + Arrays.toString(dataRow));
                 Dish eachDish = new Dish(Long.parseLong(dataRow[0]), dataRow[2], Double.parseDouble(dataRow[4]));
                 DishList.add(eachDish);
             }
@@ -129,7 +127,7 @@ public class LoadData extends AppCompatActivity {
             String eachLine;
             while ((eachLine = reader.readLine()) != null) {
                 String[] eachStudFields = eachLine.split(",");
-                boolean isAdmin = Integer.parseInt(eachStudFields[3]) !=0 ;
+                boolean isAdmin = Integer.parseInt(eachStudFields[3]) != 0;
                 User eachUser = new User
                         (eachStudFields[0], eachStudFields[1], eachStudFields[2], isAdmin);
                 UserList.add(eachUser);
