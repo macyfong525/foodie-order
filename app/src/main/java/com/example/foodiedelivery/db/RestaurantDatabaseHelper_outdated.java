@@ -11,7 +11,7 @@ import com.example.foodiedelivery.models.Restaurant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
+public class RestaurantDatabaseHelper_outdated extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "restaurant.db";
     private static final int DATABASE_VERSION = 1;
 
@@ -34,15 +34,15 @@ public class RestaurantDatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    private static RestaurantDatabaseHelper instance;
+    private static RestaurantDatabaseHelper_outdated instance;
 
-    private static synchronized RestaurantDatabaseHelper getHelper(Context context){
+    private static synchronized RestaurantDatabaseHelper_outdated getHelper(Context context){
         if(instance == null)
-            instance = new RestaurantDatabaseHelper(context);
+            instance = new RestaurantDatabaseHelper_outdated(context);
         return instance;
     }
 
-    public RestaurantDatabaseHelper(Context context){
+    public RestaurantDatabaseHelper_outdated(Context context){
         super(context, DATABASE_NAME,null, DATABASE_VERSION);
     }
 

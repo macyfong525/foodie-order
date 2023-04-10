@@ -1,98 +1,32 @@
 1,Extra Large Pizza,Extra Large Meat Lovers,Whole pie.,15.99
 1,Extra Large Pizza,Extra Large Supreme,Whole pie.,15.99
 1,Extra Large Pizza,Extra Large Pepperoni,Whole pie.,14.99
-1,Extra Large Pizza,Extra Large BBQ Chicken &amp; Bacon,Whole Pie,15.99
 1,Extra Large Pizza,Extra Large 5 Cheese,Whole pie.,14.99
-1,Extra Large Pizza,Extra Large Pepperoni Slice,Slice.,3.99
-1,Extra Large Pizza,Extra Large BBQ Chicken &amp; Bacon Slice,,3.99
-1,Extra Large Pizza,Extra Large Meat Lovers Slice,Slice.,3.99
-1,Extra Large Pizza,Extra Large Supreme Slice,Slice.,3.99
-1,Extra Large Pizza,Extra Large 5 Cheese Slice,Slice.,3.99
 1,Jumbo Wings,Jumbo Chicken Wings Five Pieces,,8.99
-1,Jumbo Wings,Jumbo Chicken Wings Seven Pieces,,10.99
-1,Jumbo Wings,Jumbo Chicken Wings Nine Pieces,,12.99
-1,Jumbo Wings,Jumbo Chicken Wings Twelve Pieces,,15.99
 1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Five Pieces,,8.99
-1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Seven Pieces,,10.99
-1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Nine Pieces,,12.99
-1,Spicy Jumbo Wings,Jumbo Spicy Chicken Wings Twelve Pieces,,15.99
 1,Chicken Tenders,Five Chicken Tenders,,8.99
-1,Chicken Tenders,Seven Chicken Tenders,,10.99
-1,Chicken Tenders,Nine Chicken Tenders,,12.99
-1,Chicken Tenders,Twelve Chicken Tenders,,15.99
 1,Snacks,Grab and Go Cheese It,3oz.,1.89
 1,Snacks,Doritos Nacho,3.125oz.,1.99
-1,Snacks,Lay's Classic,2.75oz.,1.99
 1,Snacks,Ruffles Cheddar and Sour Cream,2.625oz.,1.99
-1,Snacks,Doritos Cool Ranch,3.125oz.,1.99
-1,Snacks,Cheetos Crunchy,3.5oz.,1.99
-1,Snacks,Funyuns,2.375oz.,1.99
 1,Snacks,Chex Mix Traditional,3.75oz.,2.69
 1,Snacks,Combos Pretzel With Cheddar Cheese,6.30oz.,2.99
 1,Snacks,Snak Club Family Size Energizer Trail Mix,16oz.,7.39
 1,Snacks,Wonderful Roasted and Salted Pistachios,8oz.,10.99
 1,Snacks,Wonderful Roasted and Salted Unshelled Pistachios,6oz.,14.99
-1,Snacks,Wonderful Roasted and Salted Pistachios,16oz,14.99
 1,Snacks,Jack Links Original Jerky,5.85oz.,13.49
-1,Snacks,Jack Links Peppered Jerky,5.85oz.,13.49
-1,Snacks,Jack Links Teriyaki Jerky,5.85oz.,13.49
 1,Snacks,Old Trapper Old Fashion Jerky,10oz.,16.99
-1,Snacks,Old Trapper Peppered Jerky,10oz.,16.99
 1,Candy,Haribo Gold Bears,8oz.,2.69
-1,Candy,Hershey Almond King Size,,2.29
-1,Candy,Hershey Bar Milk Chocolate King Size,,2.29
-1,Candy,Kit Kat King Size,,2.29
-1,Candy,M and M Peanut King Size,,2.29
-1,Candy,Payday King,,2.29
-1,Candy,Reese Cup King Size,,2.29
-1,Candy,Reese Fast Break King Size,,2.29
-1,Candy,Reese Sticks King Size,,2.29
-1,Candy,Snickers King Two Piece,,2.29
-1,Candy,Twix Caramel King,,2.29
 1,Pastries,Bon Appetit Cheese and Berry Danish,Single.,2.69
-1,Pastries,Bon Appetit Cheese Croissant,Single.,2.69
-1,Pastries,Bon Appetit Apple Turnover,Single.,2.69
-1,Pastries,Bon Appetit Bluberry Cream Danish,Single.,2.69
-1,Pastries,Rice Krispies Treat Original Big Bar,2.2oz.,1.89
 1,Coffee,Monster Java Mean Bean,15oz can.,3.49
-1,Coffee,Monster Java Loca Moca,15oz can.,3.49
-1,Coffee,Monster Java Sltd Crml,15oz can.,3.49
-1,Coffee,Starbucks Frapp Mocha,7oz bottle.,3.79
-1,Coffee,Starbucks Frapp Van,7oz bottle.,3.79
-1,Coffee,Starbucks Frapp Crml Macchiato,7oz bottle.,3.79
 1,Energy,Monster,16oz can.,3.29
-1,Energy,Monster Zero Ultra,16oz can.,3.29
-1,Energy,Monster Ultra Paradise,16oz can.,3.29
-1,Energy,Red Bull,12oz can.,3.79
-1,Energy,Red Bull Sugar Free,12oz can.,3.79
-1,Energy,Red Bull Blue Berry,12oz can.,3.79
-1,Energy,Five Hour Energy Ex Strong Berry,3oz bottle.,4.29
 1,Juice,Tropicana Orange No Pulp,12oz.,2.29
-1,Juice,Tropicana Prem Orange Hmstl Pulp,12oz bottle.,2.29
-1,Juice,Tropicana Apple,12oz.,2.29
 1,Soda,Diet Coke,20oz bottle.,2.39
 1,Soda,Diet Mountain Dew,20oz bottle.,2.39
-1,Soda,Diet Pepsi,20oz bottle.,2.39
-1,Soda,Dr Pepper,20oz bottle.,2.39
-1,Soda,Mountain Dew,20oz bottle.,2.39
 1,Soda,Mountain Dew Code Red,20oz bottle.,2.39
-1,Soda,Pepsi,20oz bottle.,2.39
-1,Soda,Sprite,20oz bottle.,2.39
 1,Soda,Canada Dry Ginger Ale,20oz bottle.,2.29
-1,Soda,Coca Cola,20oz bottle.,2.39
-1,Soda,Coke Chry,20oz bottle.,2.39
-1,Soda,Coke Zero,20oz bottle.,2.39
 1,Soda,Coke Zero Chry Two,20oz bottle.,2.39
-1,Soda,Diet Dr Pepper,20oz bottle.,2.39
-1,Soda,Dr Pepper Chry,20oz bottle.,2.39
 1,Tea,Arizona Green Tea,34oz bottle.,2.49
-1,Tea,Arizona Tea Sweet,One liter bottle.,2.49
-1,Tea,Arizona Tea Arnld Plmr,34oz bottle.,2.49
 1,Water,Bodyarmor Strawberry Banana,28oz bottle.,2.99
-1,Water,Bodyarmor Orange Mango,28oz bottle.,2.99
-1,Water,Bodyarmor Fruit Punch,28oz bottle.,2.99
-1,Water,Fiji Water 700 ml,700 ml bottle.,2.89
-1,Water,Fiji Water,One liter bottle.,3.39
 2,Smoothies,J’ Ti`’z Smoothie,"Tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples, and spinach. Special blue and green with strawberry bananas juice blend smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
 2,Smoothies,Ti`’z Fruity Thang Smoothie,"Tropical fruit blend, dragon fruit mix, craisin, and apricot. Special green juice blend smoothies. Our fruity tasty smoothies are blended to perfection.",5.49
 2,Smoothies,Ashunti`Way Smoothie,"Fruit n greens, mango bananas, tropical fruit blend, dragon fruit mix, mango, bananas, pineapples, apples, and spinach. Special green with strawberry bananas juice blend . Our fruity tasty smoothies are blended to perfection.",5.49

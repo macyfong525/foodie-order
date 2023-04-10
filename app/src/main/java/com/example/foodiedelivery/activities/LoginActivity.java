@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     ActivityLoginBinding activityLoginBinding;
     private FoodieDatabase fd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,39 +107,43 @@ public class LoginActivity extends AppCompatActivity {
             googleLauncher.launch(signInIntent);
         });
     }
+
     private final ActivityResultLauncher<Intent> googleLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             (result) -> {
-                activityLoginBinding.progressBar.setVisibility(View.GONE);
-                if (result.getResultCode() == Activity.RESULT_OK) {
-                    Intent data = result.getData();
-                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                if (result.getResultCode() != Activity.RESULT_OK || result == null) {
+                    activityLoginBinding.progressBar.setVisibility(View.GONE);
+                    return;
+                }
+                Intent data = result.getData();
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
-                    try {
-                        GoogleSignInAccount account = task.getResult(ApiException.class);
-                        String name = account.getDisplayName();
-                        String email = account.getEmail();
-                        Log.d(TAG, "onActivityResult: " + name + email);
+                try {
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    String name = account.getDisplayName();
+                    String email = account.getEmail();
+                    Log.d(TAG, "onActivityResult: " + name + email);
 
-                        UserDao userDao = fd.userDao();
-                        ExecutorService executorService = Executors.newSingleThreadExecutor();
-                        executorService.execute(() -> {
-                            int userId = -1;
-                            User user = userDao.getUserByEmail(email);
-                            if (user == null) {
-                                user = new User(email, "", name, false);
-                                userId = (int) userDao.insert(user);
-                            } else {
-                                userId = user.getId();
-                            }
-                            // navigate to home
-                            Log.d(TAG, "google userid: " + userId);
-                            pushIDtoShare(userId);
-                            moveToHome();
-                        });
-                    } catch (ApiException e) {
-                        e.printStackTrace();
-                    }
+                    UserDao userDao = fd.userDao();
+                    ExecutorService executorService = Executors.newSingleThreadExecutor();
+                    executorService.execute(() -> {
+                        int userId = -1;
+                        User user = userDao.getUserByEmail(email);
+                        if (user == null) {
+                            user = new User(email, "", name, false);
+                            userId = (int) userDao.insert(user);
+                        } else {
+                            userId = user.getId();
+                        }
+                        // navigate to home
+                        Log.d(TAG, "google userid: " + userId);
+                        pushIDtoShare(userId);
+                        moveToHome();
+                    });
+                } catch (ApiException e) {
+                    e.printStackTrace();
+                } finally {
+                    activityLoginBinding.progressBar.setVisibility(View.GONE);
                 }
             }
     );

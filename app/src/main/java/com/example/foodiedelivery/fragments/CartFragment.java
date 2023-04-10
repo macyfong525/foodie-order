@@ -23,7 +23,7 @@ import com.example.foodiedelivery.databinding.FragmentCartBinding;
 import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.interfaces.OrderDao;
 import com.example.foodiedelivery.models.CartItem;
-import com.example.foodiedelivery.models.CartViewModel;
+import com.example.foodiedelivery.viewmodels.CartViewModel;
 import com.example.foodiedelivery.models.Order;
 
 import java.util.List;
@@ -59,8 +59,6 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
         CartAdapter cartAdapter = new CartAdapter(this);
         fragmentCartBinding.recycleViewCart.setAdapter(cartAdapter);
-        fragmentCartBinding.recycleViewCart.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
         cartViewModel.getCart().observe(getViewLifecycleOwner(), (List<CartItem> cartItems) -> {
             cartAdapter.submitList(cartItems);
@@ -115,7 +113,7 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
     public void navOrder() {
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.container, new HomeFragment());
+        ft.replace(R.id.container, new OrderFragment());
         ft.addToBackStack(null);
         ft.commit();
     }

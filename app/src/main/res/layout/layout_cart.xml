@@ -16,14 +16,15 @@
 
         <TextView
             android:id="@+id/productNameTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="316dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
+            android:breakStrategy="balanced"
+            android:text="@{cartItem.dish.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{cartItem.dish.name}" />
+            app:layout_constraintVertical_bias="0.36" />
 
         <TextView
             android:id="@+id/textView"
@@ -33,19 +34,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/productNameTextView"
             app:layout_constraintTop_toBottomOf="@+id/productNameTextView" />
-
-<!--        <Spinner-->
-<!--            android:id="@+id/quantitySpinner"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginLeft="16dp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/textView"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/textView"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/textView"-->
-<!--            android:entries="@array/quantityStrArr"-->
-<!--            android:setSpinnerVal="@{cartItem.quantity}"-->
-<!--            />-->
 
         <ImageButton
             android:id="@+id/imageBtnMins"

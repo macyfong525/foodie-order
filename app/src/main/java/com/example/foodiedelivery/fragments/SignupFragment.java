@@ -18,7 +18,7 @@ import androidx.room.Room;
 import com.example.foodiedelivery.R;
 import com.example.foodiedelivery.db.FoodieDatabase;
 import com.example.foodiedelivery.interfaces.UserDao;
-import com.example.foodiedelivery.models.AESCrypt;
+import com.example.foodiedelivery.repositories.AESCrypt;
 import com.example.foodiedelivery.models.User;
 
 import java.util.concurrent.ExecutorService;
