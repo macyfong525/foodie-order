@@ -59,8 +59,6 @@ public class CartFragment extends Fragment implements CartAdapter.CartInterface 
 
         CartAdapter cartAdapter = new CartAdapter(this);
         fragmentCartBinding.recycleViewCart.setAdapter(cartAdapter);
-        fragmentCartBinding.recycleViewCart.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-
         cartViewModel = new ViewModelProvider(requireActivity()).get(CartViewModel.class);
         cartViewModel.getCart().observe(getViewLifecycleOwner(), (List<CartItem> cartItems) -> {
             cartAdapter.submitList(cartItems);
